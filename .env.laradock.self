@@ -51,3 +51,6 @@ MONGO_PASSWORD=example
 
 # 資料庫實體存放位置
 DATA_PATH_HOST=~/.laradock/data/hokatsai
+
+# 指定 workspace 版本，確保有支持 Mac M1
+WORKSPACE_BASE_IMAGE_TAG_PREFIX=20250118
