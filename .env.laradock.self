@@ -48,3 +48,6 @@ WORKSPACE_MEM_LIMIT=4G
 MONGODB_PORT=27020
 MONGO_USERNAME=root
 MONGO_PASSWORD=example
+
+# 資料庫實體存放位置
+DATA_PATH_HOST=~/.laradock/data/hokatsai
