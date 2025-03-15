@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hold U and Me</title>
+    <title>好家在心理諮商所</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex items-center">
-                        <a href="/" class="text-2xl font-bold text-gray-800">Hold U and Me</a>
+                        <a href="/" class="text-2xl font-bold text-gray-800">好家在心理諮商所</a>
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
                         <a href="#" class="text-gray-600 hover:text-gray-900">首頁</a>
@@ -64,7 +64,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
-                        <h3 class="text-xl font-bold mb-4">Hold U and Me</h3>
+                        <h3 class="text-xl font-bold mb-4">好家在心理諮商所</h3>
                         <p class="text-gray-400">為您打造完美的婚禮時刻</p>
                     </div>
                     <div>
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-                    © {{ date('Y') }} Hold U and Me. All rights reserved.
+                    © {{ date('Y') }} 好家在心理諮商所. All rights reserved.
                 </div>
             </div>
         </footer>
