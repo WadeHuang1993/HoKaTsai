@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-<!-- Hero Section - 諮商所介紹 -->
-<div class="relative h-screen">
+<!-- about Section - 諮商所介紹 -->
+<div id="about" class="relative h-screen">
     <div class="absolute inset-0 bg-[var(--primary-color)] opacity-40"></div>
     <div class="absolute inset-0 flex items-center justify-center text-center">
         <div class="max-w-4xl mx-auto px-4">
@@ -15,7 +15,7 @@
 </div>
 
 <!-- Services Section -->
-<div class="py-24 bg-[var(--background-color)]">
+<div id="services" class="py-24 bg-[var(--background-color)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20">
             <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">專業服務項目</h2>
@@ -51,7 +51,7 @@
 </div>
 
 <!-- Counselors Section -->
-<div class="py-24 bg-[var(--text-light)]">
+<div id="counselors" class="py-24 bg-[var(--text-light)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20">
             <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">專業諮商師團隊</h2>
@@ -77,7 +77,7 @@
 </div>
 
 <!-- Environment Photos Section -->
-<div class="bg-[var(--background-color)] py-24">
+<div id="environment" class="bg-[var(--background-color)] py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20">
             <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">環境空間</h2>
@@ -101,8 +101,8 @@
     </div>
 </div>
 
-<!-- CTA Section -->
-<div class="bg-[var(--primary-color)] py-20">
+<!-- appointment Section -->
+<div id="appointment" class="bg-[var(--primary-color)] py-20">
     <div class="max-w-4xl mx-auto px-4 text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-light)] mb-8">準備好開始您的心理諮商之旅了嗎？</h2>
         <p class="text-xl text-[var(--text-light)] mb-12 leading-relaxed">讓我們一起探索、成長，找回內在的平靜與力量</p>

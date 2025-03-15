@@ -16,7 +16,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -31,10 +31,11 @@
                         <a href="/" class="text-2xl font-bold text-gray-800">好家在心理諮商所</a>
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
-                        <a href="#" class="text-gray-600 hover:text-gray-900">首頁</a>
-                        <a href="#" class="text-gray-600 hover:text-gray-900">關於我們</a>
-                        <a href="#" class="text-gray-600 hover:text-gray-900">服務項目</a>
-                        <a href="#" class="text-gray-600 hover:text-gray-900">聯絡我們</a>
+                        <a href="#about" class="text-gray-600 hover:text-gray-900">諮商所介紹</a>
+                        <a href="#services" class="text-gray-600 hover:text-gray-900">服務項目</a>
+                        <a href="#counselors" class="text-gray-600 hover:text-gray-900">諮商師介紹</a>
+                        <a href="#environment" class="text-gray-600 hover:text-gray-900">環境空間</a>
+                        <a href="#appointment" class="text-gray-600 hover:text-gray-900">預約諮商</a>
                     </div>
                     <div class="md:hidden flex items-center">
                         <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
@@ -46,10 +47,11 @@
                 </div>
                 <div id="mobile-menu" class="hidden md:hidden">
                     <div class="px-2 pt-2 pb-3 space-y-1">
-                        <a href="#" class="block px-3 py-2 text-gray-600 hover:text-gray-900">首頁</a>
-                        <a href="#" class="block px-3 py-2 text-gray-600 hover:text-gray-900">關於我們</a>
-                        <a href="#" class="block px-3 py-2 text-gray-600 hover:text-gray-900">服務項目</a>
-                        <a href="#" class="block px-3 py-2 text-gray-600 hover:text-gray-900">聯絡我們</a>
+                        <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商所介紹</a>
+                        <a href="#services" class="block px-3 py-2 text-gray-600 hover:text-gray-900">服務項目</a>
+                        <a href="#counselors" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商師介紹</a>
+                        <a href="#environment" class="block px-3 py-2 text-gray-600 hover:text-gray-900">環境空間</a>
+                        <a href="#appointment" class="block px-3 py-2 text-gray-600 hover:text-gray-900">預約諮商</a>
                     </div>
                 </div>
             </div>
@@ -65,15 +67,16 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
                         <h3 class="text-xl font-bold mb-4">好家在心理諮商所</h3>
-                        <p class="text-gray-400">為您打造完美的婚禮時刻</p>
+                        <p class="text-gray-400">專業溫暖的心理諮商服務</p>
                     </div>
                     <div>
                         <h4 class="text-lg font-semibold mb-4">快速連結</h4>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-400 hover:text-white">首頁</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white">關於我們</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white">服務項目</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white">聯絡我們</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-white">諮商所介紹</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-white">服務項目</a></li>
+                            <li><a href="#counselors" class="text-gray-400 hover:text-white">諮商師介紹</a></li>
+                            <li><a href="#environment" class="text-gray-400 hover:text-white">環境空間</a></li>
+                            <li><a href="#appointment" class="text-gray-400 hover:text-white">預約諮商</a></li>
                         </ul>
                     </div>
                     <div>
@@ -98,7 +101,7 @@
                 </div>
             </div>
         </footer>
-        
+
         <script>
             document.getElementById('mobile-menu-button').addEventListener('click', function() {
                 document.getElementById('mobile-menu').classList.toggle('hidden');
