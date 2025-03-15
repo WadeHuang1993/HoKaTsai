@@ -1,0 +1,10 @@
+:root {
+    /* 主要顏色 */
+    --primary-color: #8B4513;      /* 主要元素色，用於標題和重要元素 */
+    --primary-light: #A67C52;      /* 輔助色，用於次要文字 */
+    --background-color: #F5E6D3;   /* 背景色 */
+    --text-light: #FFFFF0;         /* 淺色文字 */
+    
+    /* 透明度變體 */
+    --primary-opacity: rgba(139, 69, 19, 0.4); /* 用於半透明效果 */
+}

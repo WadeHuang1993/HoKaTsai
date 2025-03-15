@@ -3,81 +3,81 @@
 @section('content')
 <!-- Hero Section -->
 <div class="relative h-screen">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="absolute inset-0 bg-[var(--primary-color)] opacity-40"></div>
     <div class="absolute inset-0 flex items-center justify-center text-center">
         <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">打造您的完美婚禮</h1>
-            <p class="text-xl md:text-2xl text-white mb-8">專業的婚禮顧問團隊，為您實現夢想中的婚禮</p>
-            <a href="#" class="inline-block bg-white text-gray-900 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300">立即諮詢</a>
+            <h1 class="text-5xl md:text-7xl font-bold text-[var(--text-light)] mb-8 tracking-tight">讓每個瞬間都成為永恆</h1>
+            <p class="text-xl md:text-3xl text-[var(--text-light)] mb-10 leading-relaxed">用心打造獨一無二的婚禮，為您留下最動人的回憶</p>
+            <a href="#" class="inline-block bg-[var(--background-color)] text-[var(--primary-color)] px-10 py-4 rounded-full text-lg font-semibold hover:bg-[var(--text-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">預約諮詢</a>
         </div>
     </div>
 </div>
 
 <!-- Services Section -->
-<div class="py-20 bg-white">
+<div class="py-24 bg-[var(--background-color)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">我們的服務</h2>
-            <p class="text-xl text-gray-600">提供全方位的婚禮服務，讓您安心享受這個重要時刻</p>
+        <div class="text-center mb-20">
+            <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">專業服務項目</h2>
+            <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">我們提供一站式婚禮服務，從策劃到執行，讓您安心享受這人生最重要的時刻</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition duration-300">
-                <div class="text-4xl text-gray-800 mb-4">💒</div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">婚禮策劃</h3>
-                <p class="text-gray-600">量身打造完美婚禮，從場地選擇到細節安排，一應俱全</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="bg-[var(--text-light)] p-10 rounded-xl text-center hover:shadow-xl transition duration-300 border border-[var(--background-color)]">
+                <div class="text-5xl text-[var(--primary-color)] mb-6">💒</div>
+                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-4">婚禮策劃</h3>
+                <p class="text-[var(--primary-light)] leading-relaxed">專業團隊為您量身打造完美婚禮，從場地挑選到流程安排，細節面面俱到</p>
             </div>
             
-            <div class="bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition duration-300">
-                <div class="text-4xl text-gray-800 mb-4">📸</div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">婚紗攝影</h3>
-                <p class="text-gray-600">專業攝影團隊，捕捉每個動人時刻</p>
+            <div class="bg-[var(--text-light)] p-10 rounded-xl text-center hover:shadow-xl transition duration-300 border border-[var(--background-color)]">
+                <div class="text-5xl text-[var(--primary-color)] mb-6">📸</div>
+                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-4">婚紗攝影</h3>
+                <p class="text-[var(--primary-light)] leading-relaxed">資深攝影團隊，以專業視角捕捉每個感動瞬間，為您留下最美好的回憶</p>
             </div>
             
-            <div class="bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition duration-300">
-                <div class="text-4xl text-gray-800 mb-4">🎨</div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">婚禮佈置</h3>
-                <p class="text-gray-600">創意設計團隊，打造獨特婚禮場景</p>
+            <div class="bg-[var(--text-light)] p-10 rounded-xl text-center hover:shadow-xl transition duration-300 border border-[var(--background-color)]">
+                <div class="text-5xl text-[var(--primary-color)] mb-6">🎨</div>
+                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-4">婚禮佈置</h3>
+                <p class="text-[var(--primary-light)] leading-relaxed">創意設計團隊，依據您的喜好打造獨特風格的婚禮場景，讓現場更加精緻動人</p>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Testimonials Section -->
-<div class="py-20 bg-gray-50">
+<div class="py-24 bg-[var(--background-color)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">新人見證</h2>
-            <p class="text-xl text-gray-600">聽聽他們的故事</p>
+        <div class="text-center mb-20">
+            <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">幸福新人推薦</h2>
+            <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">聽聽他們分享的婚禮故事</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-lg shadow-sm">
-                <p class="text-gray-600 mb-6">「非常感謝 Hold U and Me 的團隊，讓我們的婚禮完美呈現，賓客都讚不絕口！」</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="bg-[var(--text-light)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                <p class="text-[var(--primary-light)] mb-8 text-lg leading-relaxed italic">「感謝 Hold U and Me 的專業團隊，從初次諮詢到婚禮當天都給予我們最貼心的服務，讓我們擁有一場難忘的婚禮！」</p>
                 <div class="flex items-center">
                     <div class="ml-3">
-                        <h4 class="text-lg font-semibold text-gray-900">王小姐</h4>
-                        <p class="text-gray-500">台北市</p>
+                        <h4 class="text-xl font-semibold text-[var(--primary-color)]">王小姐</h4>
+                        <p class="text-[var(--primary-light)]">台北市 / 2023年度婚禮</p>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-white p-8 rounded-lg shadow-sm">
-                <p class="text-gray-600 mb-6">「專業的服務態度，細心的安排，讓我們完全不用擔心婚禮的細節。」</p>
+            <div class="bg-[var(--text-light)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                <p class="text-[var(--primary-light)] mb-8 text-lg leading-relaxed italic">「婚禮籌備過程中的每個細節都被完美掌握，讓我們能夠真正享受這個重要時刻，賓客的回饋也都非常正面！」</p>
                 <div class="flex items-center">
                     <div class="ml-3">
-                        <h4 class="text-lg font-semibold text-gray-900">李先生</h4>
-                        <p class="text-gray-500">新北市</p>
+                        <h4 class="text-xl font-semibold text-[var(--primary-color)]">李先生</h4>
+                        <p class="text-[var(--primary-light)]">新北市 / 2023年度婚禮</p>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-white p-8 rounded-lg shadow-sm">
-                <p class="text-gray-600 mb-6">「婚禮佈置超出預期，攝影團隊也非常專業，留下了許多美好的回憶。」</p>
+            <div class="bg-[var(--text-light)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                <p class="text-[var(--primary-light)] mb-8 text-lg leading-relaxed italic">「婚禮現場的佈置超乎預期的美，攝影團隊也非常專業，捕捉到許多感動的畫面，讓我們的婚禮充滿了美好回憶。」</p>
                 <div class="flex items-center">
                     <div class="ml-3">
-                        <h4 class="text-lg font-semibold text-gray-900">張小姐</h4>
-                        <p class="text-gray-500">桃園市</p>
+                        <h4 class="text-xl font-semibold text-[var(--primary-color)]">張小姐</h4>
+                        <p class="text-[var(--primary-light)]">桃園市 / 2023年度婚禮</p>
                     </div>
                 </div>
             </div>
