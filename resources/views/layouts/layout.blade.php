@@ -27,15 +27,16 @@
         <nav class="bg-white border-b border-gray-100 fixed w-full z-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
-                    <div class="flex items-center">
-                        <a href="/" class="text-2xl font-bold text-gray-800">好家在心理諮商所</a>
+                    <div class="flex items-center flex-col text-center">
+                        <a href="/" class="text-2xl font-bold text-[#8BA89E]">好家在心理諮商所</a>
+                        <span class="text-sm text-gray-500">hó-ka-tsài counseling center</span>
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
-                        <a href="#about" class="text-gray-600 hover:text-gray-900">諮商所介紹</a>
-                        <a href="#services" class="text-gray-600 hover:text-gray-900">服務項目</a>
-                        <a href="#counselors" class="text-gray-600 hover:text-gray-900">諮商師介紹</a>
-                        <a href="#environment" class="text-gray-600 hover:text-gray-900">環境空間</a>
-                        <a href="#appointment" class="text-gray-600 hover:text-gray-900">預約諮商</a>
+                        <a href="#about" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#F4B8D8] hover:border-[#F4B8D8]">諮商所介紹</a>
+                        <a href="#services" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#F9B17A] hover:border-[#F9B17A]">服務項目</a>
+                        <a href="#counselors" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#FFE072] hover:border-[#FFE072]">諮商師介紹</a>
+                        <a href="#environment" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#8BA89E] hover:border-[#8BA89E]">環境空間</a>
+                        <a href="#appointment" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#8ABCDE] hover:border-[#8ABCDE]">預約諮商</a>
                     </div>
                     <div class="md:hidden flex items-center">
                         <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
