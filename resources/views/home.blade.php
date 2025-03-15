@@ -2,14 +2,22 @@
 
 @section('content')
 <!-- about Section - 諮商所介紹 -->
-<div id="about" class="relative h-screen">
-    <div class="absolute inset-0 bg-[var(--primary-color)] opacity-40"></div>
-    <div class="absolute inset-0 flex items-center justify-center text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-5xl md:text-7xl font-bold text-[var(--text-light)] mb-8 tracking-tight">好家在心理諮商所</h1>
-            <p class="text-xl md:text-3xl text-[var(--text-light)] mb-10 leading-relaxed">專業溫暖的心理諮商服務，陪伴您探索內在、找回平靜</p>
-            <p class="text-lg text-[var(--text-light)] mb-10 leading-relaxed max-w-2xl mx-auto">我們致力於提供安全、專業的心理諮商環境，協助您面對生活中的各種挑戰，重拾內在力量與平衡。</p>
-            <a href="/appointment" class="inline-block bg-[var(--background-color)] text-[var(--primary-color)] px-10 py-4 rounded-full text-lg font-semibold hover:bg-[var(--text-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">預約諮商</a>
+<div id="about" class="relative min-h-screen bg-[var(--background-color)]">
+    <div class="grid grid-cols-2 min-h-screen">
+        <!-- 左側環境照片 -->
+        <div class="relative h-full">
+            <img src="/images/environment/waiting_room.jpg" alt="等候室環境" class="w-full h-full object-cover">
+        </div>
+        
+        <!-- 右側文字內容 -->
+        <div class="relative" style="background-image: url('/images/environment/wood_card.png'); background-size: cover; background-position: center;">
+            <div class="relative z-10 p-12 flex flex-col justify-center h-full">
+                <h1 class="text-4xl lg:text-5xl font-bold text-[var(--text-light)] mb-8 tracking-tight">好家在心理諮商所</h1>
+                <p class="text-xl lg:text-2xl text-[var(--text-light)] mb-6 leading-relaxed">專業溫暖的心理諮商服務，陪伴您探索內在、找回平靜</p>
+                <p class="text-lg text-[var(--text-light)] mb-10 leading-relaxed">我們致力於提供安全、專業的心理諮商環境，協助您面對生活中的各種挑戰，重拾內在力量與平衡。</p>
+                <a href="/appointment" class="inline-block bg-[var(--background-color)] text-[var(--primary-color)] px-10 py-4 rounded-full text-lg font-semibold hover:bg-[var(--text-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">預約諮商</a>
+            </div>
+            <div class="absolute inset-0 bg-black opacity-40"></div>
         </div>
     </div>
 </div>
