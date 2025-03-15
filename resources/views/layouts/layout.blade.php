@@ -106,6 +106,13 @@
             document.getElementById('mobile-menu-button').addEventListener('click', function() {
                 document.getElementById('mobile-menu').classList.toggle('hidden');
             });
+
+            // 為移動端選單中的所有連結添加點擊事件
+            document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                });
+            });
         </script>
     </div>
 </body>
