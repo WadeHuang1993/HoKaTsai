@@ -70,16 +70,6 @@
                         <p class="text-gray-400">專業溫暖的心理諮商服務</p>
                     </div>
                     <div>
-                        <h4 class="text-lg font-semibold mb-4">快速連結</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#about" class="text-gray-400 hover:text-white">諮商所介紹</a></li>
-                            <li><a href="#services" class="text-gray-400 hover:text-white">服務項目</a></li>
-                            <li><a href="#counselors" class="text-gray-400 hover:text-white">諮商師介紹</a></li>
-                            <li><a href="#environment" class="text-gray-400 hover:text-white">環境空間</a></li>
-                            <li><a href="#appointment" class="text-gray-400 hover:text-white">預約諮商</a></li>
-                        </ul>
-                    </div>
-                    <div>
                         <h4 class="text-lg font-semibold mb-4">聯絡資訊</h4>
                         <ul class="space-y-2 text-gray-400">
                             <li>電話：(02) 1234-5678</li>
