@@ -36,7 +36,7 @@
                 <img src="/images/news/news1.jpg" alt="最新消息1" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-15</div>
-                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">新年度諮商優惠方案開跑</h3>
+              各項諮商服務      <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">新年度諮商優惠方案開跑</h3>
                     <p class="text-[var(--primary-light)] mb-4 line-clamp-3">為迎接新的一年，本所推出多項優惠方案，希望能幫助更多需要心理支持的朋友。</p>
                     <a href="/news/1" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
                 </div>
@@ -58,8 +58,8 @@
     </div>
 </div>
 
-<!-- About Us Section - 關於我們 -->
-<div id="about-us" class="py-24 bg-[var(--text-light)]">
+<!-- About Us Section - 團隊介紹 -->
+<div id="team" class="py-24 bg-[var(--text-light)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- 團隊介紹 -->
         <div class="text-center mb-20">
@@ -86,7 +86,7 @@
         </div>
 
         <!-- 諮商空間 -->
-        <div class="text-center mb-20">
+        <div id="space" class="text-center mb-20 scroll-mt-24">
             <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">諮商空間</h2>
             <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">溫馨舒適的環境，讓您安心放鬆</p>
         </div>
@@ -109,10 +109,10 @@
 </div>
 
 <!-- Services Section - 諮商服務 -->
-<div id="services" class="py-24 bg-[var(--background-color)]">
+<div id="counseling-services" class="py-24 bg-[var(--background-color)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20">
-            <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">諮商服務</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">各項諮商服務</h2>
             <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">提供多元化的心理諮商服務，滿足不同需求</p>
         </div>
 
@@ -127,14 +127,14 @@
         </div>
 
         <!-- 合作專案 -->
-        <div class="bg-[var(--text-light)] p-8 rounded-xl mb-20">
+        <div id="cooperation" class="bg-[var(--text-light)] p-8 rounded-xl mb-20 scroll-mt-24">
             <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-6 text-center">合作專案</h3>
             <p class="text-[var(--primary-light)] text-center mb-8">我們與多個機構合作，提供專業的心理健康服務</p>
             <!-- 合作項目列表 -->
         </div>
 
         <!-- 同意書 -->
-        <div class="bg-[var(--text-light)] p-8 rounded-xl">
+        <div id="agreement" class="bg-[var(--text-light)] p-8 rounded-xl scroll-mt-24">
             <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-6 text-center">諮商同意書</h3>
             <p class="text-[var(--primary-light)] text-center mb-8">請詳閱並了解諮商服務相關規範</p>
             <div class="text-center">

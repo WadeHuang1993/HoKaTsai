@@ -32,11 +32,31 @@
                         <span class="text-sm text-gray-500">hó-ka-tsài counseling center</span>
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
-                        <a href="#about" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#F4B8D8] hover:border-[#F4B8D8]">諮商所介紹</a>
-                        <a href="#services" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#F9B17A] hover:border-[#F9B17A]">服務項目</a>
-                        <a href="#counselors" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#FFE072] hover:border-[#FFE072]">諮商師介紹</a>
-                        <a href="#environment" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#8BA89E] hover:border-[#8BA89E]">環境空間</a>
-                        <a href="#appointment" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#8ABCDE] hover:border-[#8ABCDE]">預約諮商</a>
+                        <a href="#news" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#F4B8D8] hover:border-[#F4B8D8]">最新消息</a>
+                        
+                        <div class="relative group">
+                            <a href="#team" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#F9B17A] hover:border-[#F9B17A] inline-flex items-center">關於我們
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </a>
+                            <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <a href="#team" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">團隊介紹</a>
+                                <a href="#space" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">諮商空間</a>
+                            </div>
+                        </div>
+
+                        <div class="relative group">
+                            <a href="#counseling-services" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#FFE072] hover:border-[#FFE072] inline-flex items-center">諮商服務
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </a>
+                            <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <a href="#counseling-services" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">各項諮商服務</a>
+                                <a href="#cooperation" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">合作專案</a>
+                                <a href="#agreement" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">同意書</a>
+                            </div>
+                        </div>
+
+                        <a href="#appointment" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#8BA89E] hover:border-[#8BA89E]">諮商預約</a>
+                        <a href="#column" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#8ABCDE] hover:border-[#8ABCDE]">諮商專欄</a>
                     </div>
                     <div class="md:hidden flex items-center">
                         <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
@@ -48,11 +68,33 @@
                 </div>
                 <div id="mobile-menu" class="hidden md:hidden">
                     <div class="px-2 pt-2 pb-3 space-y-1">
-                        <a href="#about" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商所介紹</a>
-                        <a href="#services" class="block px-3 py-2 text-gray-600 hover:text-gray-900">服務項目</a>
-                        <a href="#counselors" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商師介紹</a>
-                        <a href="#environment" class="block px-3 py-2 text-gray-600 hover:text-gray-900">環境空間</a>
-                        <a href="#appointment" class="block px-3 py-2 text-gray-600 hover:text-gray-900">預約諮商</a>
+                        <a href="#news" class="block px-3 py-2 text-gray-600 hover:text-gray-900">最新消息</a>
+                        
+                        <div class="relative">
+                            <button onclick="toggleSubmenu('about-submenu')" class="w-full flex justify-between items-center px-3 py-2 text-gray-600 hover:text-gray-900">
+                                關於我們
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div id="about-submenu" class="hidden pl-4">
+                                <a href="#team" class="block px-3 py-2 text-gray-600 hover:text-gray-900">團隊介紹</a>
+                                <a href="#space" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商空間</a>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <button onclick="toggleSubmenu('services-submenu')" class="w-full flex justify-between items-center px-3 py-2 text-gray-600 hover:text-gray-900">
+                                諮商服務
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div id="services-submenu" class="hidden pl-4">
+                                <a href="#counseling-services" class="block px-3 py-2 text-gray-600 hover:text-gray-900">各項諮商服務</a>
+                                <a href="#cooperation" class="block px-3 py-2 text-gray-600 hover:text-gray-900">合作專案</a>
+                                <a href="#agreement" class="block px-3 py-2 text-gray-600 hover:text-gray-900">同意書</a>
+                            </div>
+                        </div>
+
+                        <a href="#appointment" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商預約</a>
+                        <a href="#column" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商專欄</a>
                     </div>
                 </div>
             </div>
@@ -97,6 +139,10 @@
             document.getElementById('mobile-menu-button').addEventListener('click', function() {
                 document.getElementById('mobile-menu').classList.toggle('hidden');
             });
+
+            function toggleSubmenu(id) {
+                document.getElementById(id).classList.toggle('hidden');
+            }
 
             // 為移動端選單中的所有連結添加點擊事件
             document.querySelectorAll('#mobile-menu a').forEach(function(link) {
