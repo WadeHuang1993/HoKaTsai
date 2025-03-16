@@ -27,9 +27,11 @@
         <nav class="bg-white border-b border-gray-100 fixed w-full z-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
-                    <div class="flex items-center flex-col text-center">
-                        <a href="/" class="text-2xl font-bold text-[#8BA89E]">好家在心理諮商所</a>
-                        <span class="text-sm text-gray-500">hó-ka-tsài counseling center</span>
+                    <div class="flex items-center gap-2">
+                        <div class="flex flex-col">
+                            <a href="/" class="text-2xl font-bold text-[#8BA89E]">好家在心理諮商所</a>
+                            <span class="text-sm text-gray-500">hó-ka-tsài counseling center</span>
+                        </div>
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
                         <a href="#news" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#F4B8D8] hover:border-[#F4B8D8]">最新消息</a>
