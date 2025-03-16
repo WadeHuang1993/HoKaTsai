@@ -2,7 +2,6 @@
 /node_modules
 /public/build
 /public/hot
-/public/mix-manifest.json
 /public/storage
 /storage/*.key
 /vendor
