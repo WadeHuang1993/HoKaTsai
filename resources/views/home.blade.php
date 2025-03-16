@@ -10,7 +10,7 @@
         </div>
 
         <!-- 右側文字內容 -->
-        <div class="relative" style="background-image: url('/images/environment/wood_card.png'); background-size: cover; background-position: center;">
+        <div class="relative" style="background-image: url('/images/others/wood_card.png'); background-size: cover; background-position: center;">
             <div class="relative z-10 p-8 md:p-12 flex flex-col justify-center h-full">
                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-light)] mb-6 md:mb-8 tracking-tight">好家在心理諮商所</h1>
                 <p class="text-lg md:text-xl lg:text-2xl text-[var(--text-light)] mb-4 md:mb-6 leading-relaxed">專業溫暖的心理諮商服務，陪伴您探索內在、找回平靜</p>
