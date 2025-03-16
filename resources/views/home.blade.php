@@ -33,10 +33,10 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- 最新消息項目 1 -->
             <div class="bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/news/news1.jpg" alt="最新消息1" class="w-full h-48 object-cover">
+                <img src="/images/environment/1.jpg" alt="最新消息1" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-15</div>
-              各項諮商服務      <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">新年度諮商優惠方案開跑</h3>
+                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">新年度諮商優惠方案開跑</h3>
                     <p class="text-[var(--primary-light)] mb-4 line-clamp-3">為迎接新的一年，本所推出多項優惠方案，希望能幫助更多需要心理支持的朋友。</p>
                     <a href="/news/1" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
                 </div>
@@ -44,7 +44,7 @@
 
             <!-- 最新消息項目 2-6 -->
             <div class="bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/news/news2.jpg" alt="最新消息2" class="w-full h-48 object-cover">
+                <img src="/images/environment/2.jpg" alt="最新消息2" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-10</div>
                     <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">心理健康講座系列活動</h3>
@@ -155,7 +155,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- 專欄文章 1-6 (類似最新消息的結構) -->
             <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/columns/column1.jpg" alt="專欄文章1" class="w-full h-48 object-cover">
+                <img src="/images/environment/1.jpg" alt="專欄文章1" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-20</div>
                     <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">如何培養良好的情緒管理能力</h3>
@@ -166,7 +166,7 @@
 
             <!-- 專欄文章 2-6 -->
             <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/columns/column2.jpg" alt="專欄文章2" class="w-full h-48 object-cover">
+                <img src="/images/environment/2.jpg" alt="專欄文章2" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-18</div>
                     <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">建立健康的人際界線</h3>
@@ -216,7 +216,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- 講座課程 1 -->
             <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/courses/course1.jpg" alt="講座課程1" class="w-full h-48 object-cover">
+                <img src="/images/environment/3.jpg" alt="講座課程1" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <div class="text-sm text-[var(--primary-light)] mb-2">2024-02-01 14:00 ~ 16:00</div>
                     <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">壓力管理工作坊</h3>
@@ -227,7 +227,7 @@
 
             <!-- 講座課程 2 -->
             <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/courses/course2.jpg" alt="講座課程2" class="w-full h-48 object-cover">
+                <img src="/images/environment/4.jpg" alt="講座課程2" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <div class="text-sm text-[var(--primary-light)] mb-2">2024-02-15 19:00 ~ 21:00</div>
                     <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">親子溝通技巧講座</h3>
