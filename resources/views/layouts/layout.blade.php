@@ -28,14 +28,14 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex items-center gap-2">
-                        <div class="flex flex-col">
-                            <a href="/" class="text-2xl font-bold text-[#8BA89E]">好家在心理諮商所</a>
+                        <a href="/" class="div_brand_logo flex flex-col">
+                            <span class="text-2xl font-bold text-[#8BA89E]">好家在心理諮商所</span>
                             <span class="text-sm text-gray-500">hó-ka-tsài counseling center</span>
-                        </div>
+                        </a>
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
                         <a href="#news" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#F4B8D8] hover:border-[#F4B8D8]">最新消息</a>
-                        
+
                         <div class="relative group">
                             <a href="#team" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#F9B17A] hover:border-[#F9B17A] inline-flex items-center">關於我們
                                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -71,7 +71,7 @@
                 <div id="mobile-menu" class="hidden md:hidden">
                     <div class="px-2 pt-2 pb-3 space-y-1">
                         <a href="#news" class="block px-3 py-2 text-gray-600 hover:text-gray-900">最新消息</a>
-                        
+
                         <div class="relative">
                             <button onclick="toggleSubmenu('about-submenu')" class="w-full flex justify-between items-center px-3 py-2 text-gray-600 hover:text-gray-900">
                                 關於我們
