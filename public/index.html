@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好家在心理諮商所</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        desert: {
+                            light: '#F5D6BA',
+                            DEFAULT: '#C68B59',
+                            dark: '#8B4513'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-desert-light">
+    <!-- 導航欄 -->
+    <nav class="bg-desert-dark text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold">好家在心理諮商所</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="hover:text-desert-light transition-colors">首頁</a>
+                    <a href="#" class="hover:text-desert-light transition-colors">關於我們</a>
+                    <a href="#" class="hover:text-desert-light transition-colors">服務項目</a>
+                    <a href="#" class="hover:text-desert-light transition-colors">聯絡我們</a>
+                </div>
+                <button class="md:hidden" id="mobile-menu-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 手機版選單 -->
+    <div class="hidden bg-desert-dark text-white md:hidden" id="mobile-menu">
+        <div class="container mx-auto px-4 py-2 space-y-2">
+            <a href="#" class="block hover:text-desert-light transition-colors">首頁</a>
+            <a href="#" class="block hover:text-desert-light transition-colors">關於我們</a>
+            <a href="#" class="block hover:text-desert-light transition-colors">服務項目</a>
+            <a href="#" class="block hover:text-desert-light transition-colors">聯絡我們</a>
+        </div>
+    </div>
+
+    <!-- 主要內容區 -->
+    <main>
+        <!-- Hero Section -->
+        <section class="py-20 bg-desert text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">好家在心理諮商所</h1>
+                <p class="text-xl md:text-2xl mb-8">用溫暖的心意，傳遞每一份愛</p>
+                <button class="bg-desert-dark hover:bg-desert-light hover:text-desert-dark transition-colors px-8 py-3 rounded-full text-lg font-semibold">了解更多</button>
+            </div>
+        </section>
+
+        <!-- 特色區塊 -->
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                        <div class="text-desert-dark text-4xl mb-4">❤️</div>
+                        <h3 class="text-xl font-bold mb-4 text-desert-dark">用心服務</h3>
+                        <p class="text-gray-600">以專業的態度，提供最優質的服務</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                        <div class="text-desert-dark text-4xl mb-4">🤝</div>
+                        <h3 class="text-xl font-bold mb-4 text-desert-dark">信任保證</h3>
+                        <p class="text-gray-600">建立長期的信任關係</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                        <div class="text-desert-dark text-4xl mb-4">💝</div>
+                        <h3 class="text-xl font-bold mb-4 text-desert-dark">創新體驗</h3>
+                        <p class="text-gray-600">不斷創新，提供更好的體驗</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="bg-desert-dark text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 好家在心理諮商所. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 手機版選單切換
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
