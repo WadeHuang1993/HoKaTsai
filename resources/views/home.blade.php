@@ -8,7 +8,7 @@
         <div class="relative h-128 md:h-full">
             <img src="/images/environment/waiting_room.jpg" alt="等候室環境" class="w-full h-full object-cover">
         </div>
-        
+
         <!-- 右側文字內容 -->
         <div class="relative" style="background-image: url('/images/environment/wood_card.png'); background-size: cover; background-position: center;">
             <div class="relative z-10 p-8 md:p-12 flex flex-col justify-center h-full">
@@ -70,7 +70,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
             <!-- 團隊成員 1 -->
             <div class="bg-[var(--background-color)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/teams/counselor1.jpg" alt="王曉明諮商師" class="w-48 h-48 rounded-full mx-auto mb-6 object-cover">
+                <img src="/images/teams/S__91521028.webp" alt="王曉明諮商師" class="w-48 h-64 rounded-xl mx-auto mb-6 object-cover">
                 <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3 text-center">王曉明</h3>
                 <p class="text-[var(--primary-light)] mb-4 text-center">資深諮商心理師</p>
                 <p class="text-[var(--primary-light)] leading-relaxed">專長領域：情緒管理、人際關係、伴侶諮商、憂鬱症、焦慮症</p>
@@ -78,7 +78,7 @@
 
             <!-- 團隊成員 2 -->
             <div class="bg-[var(--background-color)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/teams/counselor2.jpg" alt="李美玲諮商師" class="w-48 h-48 rounded-full mx-auto mb-6 object-cover">
+                <img src="/images/teams/S__91521028.webp" alt="王曉明諮商師" class="w-48 h-64 rounded-xl mx-auto mb-6 object-cover">
                 <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3 text-center">李美玲</h3>
                 <p class="text-[var(--primary-light)] mb-4 text-center">諮商心理師</p>
                 <p class="text-[var(--primary-light)] leading-relaxed">專長領域：家族治療、親子關係、婚姻諮商、創傷治療</p>
