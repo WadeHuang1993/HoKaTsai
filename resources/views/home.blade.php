@@ -30,7 +30,7 @@
             <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">了解我們的最新動態與活動資訊</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             <!-- 最新消息項目 1 -->
             <div class="bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
                 <img src="/images/environment/1.jpg" alt="最新消息1" class="w-full h-48 object-cover">
@@ -54,6 +54,9 @@
             </div>
 
             <!-- 重複類似結構到第6個 -->
+        </div>
+        <div class="text-center">
+            <a href="{{ route('news.index') }}" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-3 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">查看全部消息</a>
         </div>
     </div>
 </div>
