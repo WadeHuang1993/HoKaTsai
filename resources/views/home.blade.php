@@ -38,7 +38,7 @@
                     <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-15</div>
                     <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">新年度諮商優惠方案開跑</h3>
                     <p class="text-[var(--primary-light)] mb-4 line-clamp-3">為迎接新的一年，本所推出多項優惠方案，希望能幫助更多需要心理支持的朋友。</p>
-                    <a href="/news/1" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
+                    <a href="{{ route('news.show', 1) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
                     <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-10</div>
                     <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">心理健康講座系列活動</h3>
                     <p class="text-[var(--primary-light)] mb-4 line-clamp-3">每月固定舉辦的心理健康講座，邀請您一同探索心靈成長之路。</p>
-                    <a href="/news/2" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
+                    <a href="{{ route('news.show', 2) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
                 </div>
             </div>
 
