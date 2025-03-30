@@ -31,7 +31,7 @@ class NewsController extends Controller
         $paginator = new LengthAwarePaginator($newsList, count($newsList), 1, $page, [
             'path' => route('news.index'),
         ]);
-        return view('news.all-news', ['newsList' => $newsList, 'paginator' => $paginator]);
+        return view('news.index', ['newsList' => $newsList, 'paginator' => $paginator]);
     }
 
     public function show($newsId)

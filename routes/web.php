@@ -16,7 +16,7 @@ use App\Http\Controllers\CourseController;
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/all-news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/news/{newsId}', [NewsController::class, 'show'])->name('news.show');
 Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
 Route::get('/courses/{id}', [CourseController::class, 'show'])->name('courses.show');
