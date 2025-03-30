@@ -81,7 +81,7 @@
                 <div class="bg-[var(--text-light)] p-8 rounded-xl">
                     <h2 class="text-2xl font-bold text-[var(--primary-color)] mb-6">講師介紹</h2>
                     <div class="flex items-start space-x-6">
-                        <img src="/images/teams/S__91521028.webp" alt="王曉明講師" class="w-32 h-32 rounded-full object-cover">
+                        <img src="/images/teams/S__91521028.webp" alt="王曉明講師" class="w-48 h-64 rounded-xl object-cover">
                         <div>
                             <h3 class="text-xl font-bold text-[var(--primary-color)] mb-2">王曉明</h3>
                             <p class="text-[var(--primary-light)] mb-4">資深諮商心理師</p>
