@@ -34,10 +34,10 @@
                         </a>
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
-                        <a href="#news" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#F4B8D8] hover:border-[#F4B8D8]">最新消息</a>
+                        <a href="#news" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#D67A7A] hover:border-[#D67A7A]">最新消息</a>
 
                         <div class="relative group">
-                            <a href="#team" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#F9B17A] hover:border-[#F9B17A] inline-flex items-center">關於我們
+                            <a href="#team" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#D69B7A] hover:border-[#D69B7A] inline-flex items-center">關於我們
                                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </a>
                             <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
@@ -47,7 +47,7 @@
                         </div>
 
                         <div class="relative group">
-                            <a href="#counseling-services" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#FFE072] hover:border-[#FFE072] inline-flex items-center">諮商服務
+                            <a href="#counseling-services" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#D6B77A] hover:border-[#D6B77A] inline-flex items-center">諮商服務
                                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </a>
                             <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
@@ -57,8 +57,9 @@
                             </div>
                         </div>
 
-                        <a href="#appointment" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#8BA89E] hover:border-[#8BA89E]">諮商預約</a>
-                        <a href="#column" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#8ABCDE] hover:border-[#8ABCDE]">諮商專欄</a>
+                        <a href="#appointment" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#7AD68E] hover:border-[#7AD68E]">諮商預約</a>
+                        <a href="#courses" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#7AA6D6] hover:border-[#7AA6D6]">講座課程</a>
+                        <a href="#column" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#A67AD6] hover:border-[#A67AD6]">諮商專欄</a>
                     </div>
                     <div class="md:hidden flex items-center">
                         <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
@@ -96,6 +97,7 @@
                         </div>
 
                         <a href="#appointment" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商預約</a>
+                        <a href="#courses" class="block px-3 py-2 text-gray-600 hover:text-gray-900">講座課程</a>
                         <a href="#column" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商專欄</a>
                     </div>
                 </div>
