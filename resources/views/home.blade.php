@@ -55,7 +55,7 @@
 
             <!-- 重複類似結構到第6個 -->
         </div>
-        <div class="text-center">
+        <div class="btn-all-news text-center">
             <a href="{{ route('news.index') }}" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-3 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">查看全部消息</a>
         </div>
     </div>
@@ -240,6 +240,9 @@
             </div>
 
             <!-- 講座課程 3-6 使用類似結構 -->
+        </div>
+        <div class="btn-all-courses text-center mt-12">
+            <a href="{{ route('courses.index') }}" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-3 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">查看全部講座</a>
         </div>
     </div>
 </div>
