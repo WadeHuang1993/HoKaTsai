@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class CourseController extends Controller
     {
@@ -41,15 +42,20 @@ class CourseController extends Controller
         ]
     ];
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('courses.index', ['courses' => $this->courses]);
+        $page = $request->page;
+        $perPage = 1;
+        $paginator = new LengthAwarePaginator($this->courses, count($this->courses), $perPage, $page, [
+            'path' => route('courses.index'),
+        ]);
+        return view('courses.index', ['courses' => $paginator]);
     }
 
     public function show($id)
     {
         $course = collect($this->courses)->firstWhere('id', (int) $id);
-        
+
         if (!$course) {
             abort(404);
         }
