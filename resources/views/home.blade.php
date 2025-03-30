@@ -218,26 +218,30 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- 講座課程 1 -->
-            <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/environment/3.jpg" alt="講座課程1" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="text-sm text-[var(--primary-light)] mb-2">2024-02-01 14:00 ~ 16:00</div>
-                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">壓力管理工作坊</h3>
-                    <p class="text-[var(--primary-light)] mb-4 line-clamp-3">學習實用的壓力管理技巧，建立健康的生活方式...</p>
-                    <a href="/courses/1" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">了解更多</a>
+            <a href="{{ route('courses.show', 1) }}" class="block">
+                <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                    <img src="/images/environment/3.jpg" alt="講座課程1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-sm text-[var(--primary-light)] mb-2">2024-02-01 14:00 ~ 16:00</div>
+                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">壓力管理工作坊</h3>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">學習實用的壓力管理技巧，建立健康的生活方式...</p>
+                        <span class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">了解更多</span>
+                    </div>
                 </div>
-            </div>
+            </a>
 
             <!-- 講座課程 2 -->
-            <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/environment/4.jpg" alt="講座課程2" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="text-sm text-[var(--primary-light)] mb-2">2024-02-15 19:00 ~ 21:00</div>
-                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">親子溝通技巧講座</h3>
-                    <p class="text-[var(--primary-light)] mb-4 line-clamp-3">探討有效的親子溝通方式，建立良好的家庭關係...</p>
-                    <a href="/courses/2" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">了解更多</a>
+            <a href="{{ route('courses.show', 2) }}" class="block">
+                <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                    <img src="/images/environment/4.jpg" alt="講座課程2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-sm text-[var(--primary-light)] mb-2">2024-02-15 19:00 ~ 21:00</div>
+                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">親子溝通技巧講座</h3>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">探討有效的親子溝通方式，建立良好的家庭關係...</p>
+                        <span class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">了解更多</span>
+                    </div>
                 </div>
-            </div>
+            </a>
 
             <!-- 講座課程 3-6 使用類似結構 -->
         </div>
