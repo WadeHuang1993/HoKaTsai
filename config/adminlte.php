@@ -333,6 +333,23 @@ return [
             ],
         ],
         [
+            'text' => '諮商專欄管理',
+            'icon' => 'fas fa-fw fa-book-reader',
+            'url'  => '#',
+            'submenu' => [
+                [
+                    'text' => '所有專欄',
+                    'route' => 'admin.articles.index',
+                    'icon' => 'fas fa-fw fa-list'
+                ],
+                [
+                    'text' => '新增專欄',
+                    'route' => 'admin.articles.create',
+                    'icon' => 'fas fa-fw fa-plus'
+                ],
+            ],
+        ],
+        [
             'text' => '診所團隊管理',
             'icon' => 'fas fa-fw fa-users',
             'url'  => '#',
@@ -340,11 +357,6 @@ return [
         [
             'text' => '課程講座管理',
             'icon' => 'fas fa-fw fa-chalkboard-teacher',
-            'url'  => '#',
-        ],
-        [
-            'text' => '諮商專欄管理',
-            'icon' => 'fas fa-fw fa-book-reader',
             'url'  => '#',
         ],
         ['header' => '系統設定'],
