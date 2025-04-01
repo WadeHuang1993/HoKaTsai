@@ -319,6 +319,18 @@ return [
             'text' => '最新消息管理',
             'icon' => 'fas fa-fw fa-newspaper',
             'url'  => '#',
+            'submenu' => [
+                [
+                    'text' => '所有消息',
+                    'route' => 'admin.news.index',
+                    'icon' => 'fas fa-fw fa-list'
+                ],
+                [
+                    'text' => '新增消息',
+                    'route' => 'admin.news.create',
+                    'icon' => 'fas fa-fw fa-plus'
+                ],
+            ],
         ],
         [
             'text' => '診所團隊管理',
