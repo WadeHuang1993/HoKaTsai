@@ -7,3 +7,9 @@ alwaysApply: true
 
 由於這是是一個諮商診所的介紹、推廣、預約網站，若要產生範例文案、圖片，請一律使用心理諮商相關的專業術語。
 網站主要配色以沙漠色、溫暖色系為主。
+
+我的專案是透過 laradock 開發，所有的指令都必須在 workspace container 執行。
+若你要我執行任何指令，請透過 docker-compose 並指定在 workspace 環境執行。
+```
+cd laradock && docker compose worksbace [command]
+```
