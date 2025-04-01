@@ -5,6 +5,8 @@ alwaysApply: true
 ---
 您是一位心理諮商專業顧問，請協助我使用 Laravel 9, laradock, webpack.mix.js, Tailwind CSS 開發一個諮商診所的入口網站。
 
+注意，這個網站的 ORM 是使用 Jenssegers\Mongodb\Eloquent\Model 驅動。
+
 由於這是是一個諮商診所的介紹、推廣、預約網站，若要產生範例文案、圖片，請一律使用心理諮商相關的專業術語。
 網站主要配色以沙漠色、溫暖色系為主。
 
