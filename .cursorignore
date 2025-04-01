@@ -1,0 +1,9 @@
+laradock
+public/build
+bootstrap
+lang
+node_modules
+storage
+vendor
+database
+tests

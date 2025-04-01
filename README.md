@@ -1,66 +1,146 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 心理諮商診所入口網站
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 開發環境需求
+- Docker
+- Docker Compose
+- Git
 
-## About Laravel
+## 開發環境設定
+1. 複製專案
+```bash
+git clone git@github.com:WadeHuang1993/HoKaTsai.git
+cd HoKaTsai
+```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+2. 複製環境設定檔
+```bash
+cp .env.example .env
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+3. 啟動開發環境
+```bash
+cd laradock
+docker-compose up -d
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+4. 進入 workspace 容器
+```bash
+docker-compose exec workspace bash
+```
 
-## Learning Laravel
+5. 安裝依賴套件
+```bash
+composer install
+npm install
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+6. 產生應用程式金鑰
+```bash
+php artisan key:generate
+```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+7. 建立 storage 連結
+```bash
+php artisan storage:link
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+8. 編譯前端資源
+```bash
+npm run dev
+```
 
-## Laravel Sponsors
+9. 設定資料庫
+```bash
+php artisan migrate
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+10. 設定權限
+```bash
+chmod -R 777 storage bootstrap/cache
+```
 
-### Premium Partners
+## 開發指令
+- 啟動開發環境：`docker-compose up -d`
+- 停止開發環境：`docker-compose down`
+- 進入容器：`docker-compose exec workspace bash`
+- 執行 Laravel 指令：`docker-compose exec workspace php artisan [command]`
+- 執行 Composer 指令：`docker-compose exec workspace composer [command]`
+- 執行 NPM 指令：`docker-compose exec workspace npm [command]`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## 專案結構
+- `app/` - 應用程式核心程式碼
+- `config/` - 設定檔
+- `database/` - 資料庫遷移和種子
+- `public/` - 公開資源
+- `resources/` - 視圖和前端資源
+- `routes/` - 路由定義
+- `storage/` - 檔案儲存
+- `tests/` - 測試檔案
 
-## Contributing
+## 開發規範
+- 遵循 PSR-4 自動載入標準
+- 使用 Laravel 9 框架
+- 使用 MongoDB 作為資料庫
+- 使用 Tailwind CSS 進行樣式設計
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 部署步驟
+1. 複製專案到伺服器
+```bash
+git clone [repository_url]
+cd [project_name]
+```
 
-## Code of Conduct
+2. 複製環境設定檔
+```bash
+cp .env.example .env
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3. 修改 .env 檔案
+- 設定資料庫連線資訊
+- 設定應用程式金鑰
+- 設定其他環境變數
 
-## Security Vulnerabilities
+4. 安裝依賴套件
+```bash
+composer install --no-dev --optimize-autoloader
+npm install
+npm run production
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5. 產生應用程式金鑰
+```bash
+php artisan key:generate
+```
 
-## License
+6. 建立 storage 連結
+```bash
+php artisan storage:link
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+7. 設定資料庫
+```bash
+php artisan migrate
+```
+
+8. 設定權限
+```bash
+chmod -R 777 storage bootstrap/cache
+```
+
+9. 設定 Web 伺服器
+- 設定 Nginx 或 Apache
+- 設定 SSL 憑證（如需要）
+
+10. 啟動佇列處理程序（如需要）
+```bash
+php artisan queue:work
+```
+
+## 注意事項
+- 確保 storage 和 bootstrap/cache 目錄具有寫入權限
+- 定期備份資料庫
+- 定期更新依賴套件
+- 遵循安全性最佳實踐
+
+## 授權
+[授權說明]
