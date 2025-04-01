@@ -15,7 +15,7 @@
                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-light)] mb-6 md:mb-8 tracking-tight">好家在心理諮商所</h1>
                 <p class="text-lg md:text-xl lg:text-2xl text-[var(--text-light)] mb-4 md:mb-6 leading-relaxed">專業溫暖的心理諮商服務，陪伴您探索內在、找回平靜</p>
                 <p class="text-base md:text-lg text-[var(--text-light)] mb-8 md:mb-10 leading-relaxed">我們致力於提供安全、專業的心理諮商環境，協助您面對生活中的各種挑戰，重拾內在力量與平衡。</p>
-                <a href="/appointment" class="inline-block bg-[var(--background-color)] text-[var(--primary-color)] px-8 md:px-10 py-3 md:py-4 rounded-full text-lg font-semibold hover:bg-[var(--text-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">預約諮商</a>
+                <a href="{{route('home')}}#appointment" class="inline-block bg-[var(--background-color)] text-[var(--primary-color)] px-8 md:px-10 py-3 md:py-4 rounded-full text-lg font-semibold hover:bg-[var(--text-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">預約諮商</a>
             </div>
             <div class="absolute inset-0 bg-black opacity-40"></div>
         </div>
