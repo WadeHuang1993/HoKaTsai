@@ -54,6 +54,15 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="status">狀態</label>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="status" name="status" value="1" 
+                               {{ old('status', $article->status) ? 'checked' : '' }}>
+                        <label class="custom-control-label" for="status">發布</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="published_at">發布日期</label>
                     <input type="datetime-local" class="form-control @error('published_at') is-invalid @enderror" 
                            id="published_at" name="published_at" 
