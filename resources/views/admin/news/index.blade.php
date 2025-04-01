@@ -36,7 +36,7 @@
                                     <span class="badge badge-secondary">草稿</span>
                                 @endif
                             </td>
-                            <td>{{ $item->published_at->format('Y-m-d H:i') }}</td>
+                            <td>{{ $item->published_at }}</td>
                             <td>
                                 <div class="btn-group">
                                     <a href="{{ route('admin.news.edit', $item) }}" class="btn btn-sm btn-info">

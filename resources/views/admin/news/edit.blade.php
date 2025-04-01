@@ -67,7 +67,7 @@
                     <label for="published_at">發布日期</label>
                     <input type="datetime-local" class="form-control @error('published_at') is-invalid @enderror" 
                            id="published_at" name="published_at" 
-                           value="{{ old('published_at', $news->published_at->format('Y-m-d\TH:i')) }}" required>
+                           value="{{ old('published_at', $news->published_at) }}" required>
                     @error('published_at')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class News extends Model
 {
@@ -22,7 +23,14 @@ class News extends Model
     ];
 
     protected $casts = [
-        'published_at' => 'datetime',
         'status' => 'boolean',
     ];
+
+    protected function asDateTime($value)
+    {
+        if (is_numeric($value)) {
+            return Carbon::createFromTimestamp($value);
+        }
+        return parent::asDateTime($value);
+    }
 }

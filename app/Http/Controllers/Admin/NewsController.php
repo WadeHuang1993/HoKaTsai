@@ -16,7 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::orderBy('_id', 'desc')
+        $news = News::orderBy('published_at', 'desc')
             ->paginate(10);
 
         return view('admin.news.index', compact('news'));
@@ -29,7 +29,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('admin.news.create');
+        $defaultDate = now()->format('Y-m-d H:i');
+        return view('admin.news.create', compact('defaultDate'));
     }
 
     /**
@@ -52,6 +53,9 @@ class NewsController extends Controller
             $path = $request->file('image')->store('news', 'public');
             $validated['image'] = $path;
         }
+
+        // 將時間轉換為字串格式
+        $validated['published_at'] = date('Y-m-d H:i', strtotime($validated['published_at']));
 
         News::create($validated);
 
@@ -106,6 +110,9 @@ class NewsController extends Controller
             $path = $request->file('image')->store('news', 'public');
             $validated['image'] = $path;
         }
+
+        // 將時間轉換為字串格式
+        $validated['published_at'] = date('Y-m-d H:i', strtotime($validated['published_at']));
 
         $news->update($validated);
 
