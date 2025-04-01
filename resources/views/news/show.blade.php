@@ -17,7 +17,7 @@
             <div class="p-8 md:p-12">
                 <div class="text-[var(--primary-light)] mb-8">發布日期：{{ $news['date'] }}</div>
                 <div class="prose prose-lg max-w-none text-[var(--primary-light)]">
-                    {!! nl2br($news['content']) !!}
+                    {!! $news['content'] !!}
                 </div>
 
                 <!-- 返回按鈕 -->
