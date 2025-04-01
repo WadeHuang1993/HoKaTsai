@@ -163,7 +163,7 @@
                     <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-20</div>
                     <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">如何培養良好的情緒管理能力</h3>
                     <p class="text-[var(--primary-light)] mb-4 line-clamp-3">在現代生活中，良好的情緒管理能力變得越來越重要...</p>
-                    <a href="/column/1" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
+                    <a href="{{ route('articles.show', 1) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
                 </div>
             </div>
 
@@ -174,7 +174,7 @@
                     <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-18</div>
                     <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">建立健康的人際界線</h3>
                     <p class="text-[var(--primary-light)] mb-4 line-clamp-3">學習如何在關係中設立適當的界線，維護自己的心理健康...</p>
-                    <a href="/column/2" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
+                    <a href="{{ route('articles.show', 2) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
                 </div>
             </div>
         </div>
