@@ -40,7 +40,7 @@
                     <label for="image">圖片</label>
                     @if($news->image)
                         <div class="mb-2">
-                            <img src="{{ Storage::url($news->image) }}" alt="Current Image" class="img-thumbnail" style="max-height: 200px;">
+                            <img src="{{ asset('storage/' . $news->image) }}" alt="Current Image" class="img-thumbnail" style="max-height: 200px;">
                         </div>
                     @endif
                     <div class="custom-file">
