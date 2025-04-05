@@ -326,7 +326,7 @@ return [
             'route' => 'admin.articles.index',
         ],
         [
-            'text' => '診所團隊管理',
+            'text' => '團隊陣容管理',
             'icon' => 'fas fa-fw fa-users',
             'url'  => '#',
         ],
