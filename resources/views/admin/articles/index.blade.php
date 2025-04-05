@@ -20,8 +20,8 @@
                         <th style="width: 50px">#</th>
                         <th>標題</th>
                         <th style="width: 100px">狀態</th>
-                        <th style="width: 150px">發布日期</th>
-                        <th style="width: 150px">操作</th>
+                        <th style="width: 120px">建立日期</th>
+                        <th style="width: 120px">操作</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,20 +36,18 @@
                                     <span class="badge badge-secondary">草稿</span>
                                 @endif
                             </td>
-                            <td>{{ $article->published_at }}</td>
+                            <td>{{ $article->created_at->format('Y-m-d') }}</td>
                             <td>
-                                <div class="btn-group">
-                                    <a href="{{ route('admin.articles.edit', $article) }}" class="btn btn-sm btn-info">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <form action="{{ route('admin.articles.destroy', $article) }}" method="POST" class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('確定要刪除這篇專欄嗎？')">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </div>
+                                <a href="{{ route('admin.articles.edit', $article) }}" class="btn btn-sm btn-info">
+                                    <i class="fas fa-edit"></i> 編輯
+                                </a>
+                                <form action="{{ route('admin.articles.destroy', $article) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('確定要刪除這個專欄嗎？')">
+                                        <i class="fas fa-trash"></i> 刪除
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @empty

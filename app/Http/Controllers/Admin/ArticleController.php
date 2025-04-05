@@ -11,8 +11,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::whereNull('deleted_at')
-            ->orderBy('published_at', 'desc')
+        $articles = Article::orderBy('_id', 'desc')
             ->paginate(10);
 
         return view('admin.articles.index', compact('articles'));
@@ -29,7 +28,6 @@ class ArticleController extends Controller
             'title' => 'required|max:255',
             'content' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'published_at' => 'required|date',
             'status' => 'boolean',
         ]);
 
@@ -38,7 +36,6 @@ class ArticleController extends Controller
             $validated['image'] = $path;
         }
 
-        $validated['published_at'] = date('Y-m-d H:i', strtotime($validated['published_at']));
         $validated['status'] = $request->has('status');
 
         Article::create($validated);
@@ -58,26 +55,26 @@ class ArticleController extends Controller
             'title' => 'required|max:255',
             'content' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'published_at' => 'required|date',
             'status' => 'boolean',
         ]);
 
+        // 處理圖片上傳
         if ($request->hasFile('image')) {
             // 刪除舊圖片
             if ($article->image) {
-                Storage::disk('public')->delete($article->image);
+                Storage::delete($article->image);
             }
-            $path = $request->file('image')->store('articles', 'public');
-            $validated['image'] = $path;
+            $validated['image'] = $request->file('image')->store('articles', 'public');
         }
 
-        $validated['published_at'] = date('Y-m-d H:i', strtotime($validated['published_at']));
+        // 處理狀態
         $validated['status'] = $request->has('status');
 
+        // 更新文章
         $article->update($validated);
 
         return redirect()->route('admin.articles.index')
-            ->with('success', '專欄已成功更新');
+            ->with('success', '諮商專欄已更新');
     }
 
     public function destroy(Article $article)
@@ -90,4 +87,4 @@ class ArticleController extends Controller
         return redirect()->route('admin.articles.index')
             ->with('success', '專欄已成功刪除');
     }
-} 
+}
