@@ -29,6 +29,7 @@ class ArticleController extends Controller
             'content' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'status' => 'boolean',
+            'tag' => 'nullable|string|max:50',
         ]);
 
         if ($request->hasFile('image')) {
@@ -37,11 +38,12 @@ class ArticleController extends Controller
         }
 
         $validated['status'] = $request->has('status');
+        $validated['tag'] = $request->input('tag');
 
         Article::create($validated);
 
         return redirect()->route('admin.articles.index')
-            ->with('success', '專欄已成功建立');
+            ->with('success', '專欄文章已成功建立');
     }
 
     public function edit(Article $article)
@@ -56,25 +58,23 @@ class ArticleController extends Controller
             'content' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'status' => 'boolean',
+            'tag' => 'nullable|string|max:50',
         ]);
 
-        // 處理圖片上傳
         if ($request->hasFile('image')) {
-            // 刪除舊圖片
             if ($article->image) {
-                Storage::delete($article->image);
+                Storage::disk('public')->delete($article->image);
             }
             $validated['image'] = $request->file('image')->store('articles', 'public');
         }
 
-        // 處理狀態
         $validated['status'] = $request->has('status');
+        $validated['tag'] = $request->input('tag');
 
-        // 更新文章
         $article->update($validated);
 
         return redirect()->route('admin.articles.index')
-            ->with('success', '諮商專欄已更新');
+            ->with('success', '專欄文章已更新');
     }
 
     public function destroy(Article $article)

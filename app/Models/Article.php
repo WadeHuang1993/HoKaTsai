@@ -22,6 +22,7 @@ class Article extends Model
         'content',
         'image',
         'status',
+        'tag',
     ];
 
 

@@ -27,6 +27,15 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="tag">標籤</label>
+                    <input type="text" class="form-control @error('tag') is-invalid @enderror" 
+                           id="tag" name="tag" value="{{ old('tag', $article->tag) }}" placeholder="例如：性治療、家庭治療">
+                    @error('tag')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label for="content">內容</label>
                     <textarea class="form-control @error('content') is-invalid @enderror" 
                               id="content" name="content" rows="10" required>{{ old('content', $article->content) }}</textarea>

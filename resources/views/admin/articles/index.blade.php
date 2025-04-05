@@ -19,6 +19,7 @@
                     <tr>
                         <th style="width: 50px">#</th>
                         <th>標題</th>
+                        <th style="width: 100px">標籤</th>
                         <th style="width: 100px">狀態</th>
                         <th style="width: 120px">建立日期</th>
                         <th style="width: 120px">操作</th>
@@ -29,6 +30,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $article->title }}</td>
+                            <td>{{ $article->tag }}</td>
                             <td>
                                 @if($article->status)
                                     <span class="badge badge-success">已發布</span>
