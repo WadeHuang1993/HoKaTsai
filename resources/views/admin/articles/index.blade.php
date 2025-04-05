@@ -36,7 +36,7 @@
                                     <span class="badge badge-secondary">草稿</span>
                                 @endif
                             </td>
-                            <td>{{ $article->created_at->format('Y-m-d') }}</td>
+                            <td>{{ $article->created_at->format('Y-m-d H:i:s') }}</td>
                             <td>
                                 <a href="{{ route('admin.articles.edit', $article) }}" class="btn btn-sm btn-info">
                                     <i class="fas fa-edit"></i> 編輯
