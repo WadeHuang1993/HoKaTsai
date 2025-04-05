@@ -36,6 +36,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label>常用標籤</label>
+                    <div class="d-flex flex-wrap">
+                        @foreach($oftenTags as $tag)
+                            <button type="button" class="btn btn-outline-secondary mr-2 mb-2 tag-btn" 
+                                    data-tag="{{ $tag['tag'] }}">
+                                {{ $tag['tag'] }} ({{ $tag['counts'] }})
+                            </button>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="content">內容</label>
                     <textarea class="form-control @error('content') is-invalid @enderror" 
                               id="content" name="content" rows="10" required>{{ old('content', $article->content) }}</textarea>
@@ -88,6 +100,13 @@
             var fileName = e.target.files[0].name;
             var nextSibling = e.target.nextElementSibling;
             nextSibling.innerText = fileName;
+        });
+
+        // 常用標籤點擊事件
+        document.querySelectorAll('.tag-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.getElementById('tag').value = this.dataset.tag;
+            });
         });
     </script>
 @stop 

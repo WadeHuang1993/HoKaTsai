@@ -17,9 +17,39 @@ class ArticleController extends Controller
         return view('admin.articles.index', compact('articles'));
     }
 
+    private function getOftenTags()
+    {
+        return Article::raw(function($collection) {
+            return $collection->aggregate([
+                [
+                    '$match' => [
+                        'tag' => ['$exists' => true, '$ne' => null]
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$tag',
+                        'counts' => ['$sum' => 1]
+                    ]
+                ],
+                [
+                    '$project' => [
+                        '_id' => 0,
+                        'tag' => '$_id',
+                        'counts' => 1
+                    ]
+                ],
+                [
+                    '$sort' => ['counts' => -1]
+                ]
+            ]);
+        });
+    }
+
     public function create()
     {
-        return view('admin.articles.create');
+        $oftenTags = $this->getOftenTags();
+        return view('admin.articles.create', compact('oftenTags'));
     }
 
     public function store(Request $request)
@@ -48,7 +78,8 @@ class ArticleController extends Controller
 
     public function edit(Article $article)
     {
-        return view('admin.articles.edit', compact('article'));
+        $oftenTags = $this->getOftenTags();
+        return view('admin.articles.edit', compact('article', 'oftenTags'));
     }
 
     public function update(Request $request, Article $article)
