@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
-use Carbon\Carbon;
+use MongoDB\BSON\UTCDateTime;
 
 /**
  *
@@ -27,12 +27,15 @@ class Article extends Model
 
 
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'created_at' => 'immutable_datetime',
+        'updated_at' => 'immutable_datetime',
+        'deleted_at' => 'immutable_datetime',
     ];
 
-    public function getCreatedAtAttribute($created_at){
-        return $created_at->toDateTime();
+    public function getCreatedAtAttribute(UTCDateTime $created_at)
+    {
+        $datetime = $created_at->toDateTimeImmutable();
+        $datetime = $datetime->setTimezone(new \DateTimeZone('Asia/Taipei'));
+        return $datetime;
     }
 }
