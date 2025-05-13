@@ -35,16 +35,19 @@
             <h2 class="text-2xl font-bold text-[var(--primary-color)] mb-6">相關文章</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($relatedArticles as $relatedArticle)
-                <div class="bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="p-6">
-                        <div class="text-sm text-[var(--primary-light)] mb-2">{{ $relatedArticle->created_at->format('Y-m-d') }}</div>
-                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $relatedArticle->title }}</h3>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($relatedArticle->content) }}</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-[var(--primary-light)]">{{ $relatedArticle->teamMember->name }} - {{ $relatedArticle->teamMember->title }}</span>
+                <a href="{{ route('articles.show', $relatedArticle->_id) }}" class="block">
+                    <div class="bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 h-full">
+                        <div class="p-6">
+                            <div class="text-sm text-[var(--primary-light)] mb-2">{{ $relatedArticle->created_at->format('Y-m-d') }}</div>
+                            <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $relatedArticle->title }}</h3>
+                            <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($relatedArticle->content) }}</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-[var(--primary-light)]">{{ $relatedArticle->teamMember->name }} - {{ $relatedArticle->teamMember->title }}</span>
+                                <span class="text-[var(--primary-color)] group-hover:text-[var(--primary-light)] transition duration-300">閱讀更多</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
                 @endforeach
             </div>
         </div>
