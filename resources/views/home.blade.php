@@ -226,33 +226,18 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- 講座課程 1 -->
-            <a href="{{ route('courses.show', 1) }}" class="block">
-                <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                    <img src="/images/environment/3.jpg" alt="講座課程1" class="w-full h-48 object-cover">
+            @foreach($latestCourses as $course)
+                <a href="{{ route('courses.show', $course->_id) }}" class="block bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                    <img src="{{ Storage::url($course->image) }}" alt="{{ $course->title }}" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <div class="text-sm text-[var(--primary-light)] mb-2">2024-02-01 14:00 ~ 16:00</div>
-                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">壓力管理工作坊</h3>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">學習實用的壓力管理技巧，建立健康的生活方式...</p>
-                        <span class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">了解更多</span>
+                        <div class="text-sm text-[var(--primary-light)] mb-2">
+                            上課日期：{{ $course->start_date->format('Y-m-d') }}
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $course->title }}</h3>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($course->description) }}</p>
                     </div>
-                </div>
-            </a>
-
-            <!-- 講座課程 2 -->
-            <a href="{{ route('courses.show', 2) }}" class="block">
-                <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                    <img src="/images/environment/4.jpg" alt="講座課程2" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-sm text-[var(--primary-light)] mb-2">2024-02-15 19:00 ~ 21:00</div>
-                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">親子溝通技巧講座</h3>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">探討有效的親子溝通方式，建立良好的家庭關係...</p>
-                        <span class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">了解更多</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 講座課程 3-6 使用類似結構 -->
+                </a>
+            @endforeach
         </div>
         <div class="btn-all-courses text-center mt-12">
             <a href="{{ route('courses.index') }}" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-3 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">查看全部講座</a>
