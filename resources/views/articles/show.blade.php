@@ -17,6 +17,14 @@
                 @endif
             </header>
 
+            @if($article->image)
+            <div class="mb-8">
+                <img src="{{ asset('storage/' . $article->image) }}"
+                     alt="{{ $article->title }}"
+                     class="w-full h-auto rounded-lg shadow-md">
+            </div>
+            @endif
+
             <div class="prose prose-lg max-w-none text-[var(--primary-light)]">
                 {!! $article->content !!}
             </div>
@@ -34,7 +42,6 @@
                         <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($relatedArticle->content) }}</p>
                         <div class="flex justify-between items-center">
                             <span class="text-[var(--primary-light)]">{{ $relatedArticle->teamMember->name }} - {{ $relatedArticle->teamMember->title }}</span>
-                            <a href="{{ route('articles.show', $relatedArticle->_id) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
                         </div>
                     </div>
                 </div>
