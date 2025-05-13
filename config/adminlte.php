@@ -335,6 +335,11 @@ return [
             'icon' => 'fas fa-fw fa-chalkboard-teacher',
             'route' => 'admin.courses.index',
         ],
+        [
+            'text' => '環境照片管理',
+            'icon' => 'fas fa-fw fa-image',
+            'route' => 'admin.environment-images.index',
+        ],
     ],
 
     /*

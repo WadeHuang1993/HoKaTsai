@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Company\Company;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 use MongoDB\BSON\UTCDateTime;
