@@ -312,10 +312,6 @@ return [
 
         // Sidebar items:
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
             'text' => '團隊陣容管理',
             'icon' => 'fas fa-fw fa-users',
             'route' => 'admin.team-members.index',
