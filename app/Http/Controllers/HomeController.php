@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\TeamMember;
 
 class HomeController extends Controller
 {
@@ -19,6 +20,11 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
-        return view('home', compact('latestCourses'));
+        $teamMembers = TeamMember::orderBy('_id', 'desc')
+            ->where('show_in_homepage', true)
+            ->take(6)
+            ->get();
+
+        return view('home', compact('latestCourses', 'teamMembers'));
     }
 }

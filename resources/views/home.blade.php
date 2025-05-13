@@ -71,21 +71,16 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
-            <!-- 團隊成員 1 -->
-            <div class="bg-[var(--background-color)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/teams/S__91521028.webp" alt="王曉明諮商師" class="w-48 h-64 rounded-xl mx-auto mb-6 object-cover">
-                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3 text-center">王曉明</h3>
-                <p class="text-[var(--primary-light)] mb-4 text-center">資深諮商心理師</p>
-                <p class="text-[var(--primary-light)] leading-relaxed">專長領域：情緒管理、人際關係、伴侶諮商、憂鬱症、焦慮症</p>
-            </div>
-
-            <!-- 團隊成員 2 -->
-            <div class="bg-[var(--background-color)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/teams/S__91521028.webp" alt="王曉明諮商師" class="w-48 h-64 rounded-xl mx-auto mb-6 object-cover">
-                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3 text-center">李美玲</h3>
-                <p class="text-[var(--primary-light)] mb-4 text-center">諮商心理師</p>
-                <p class="text-[var(--primary-light)] leading-relaxed">專長領域：家族治療、親子關係、婚姻諮商、創傷治療</p>
-            </div>
+            @foreach($teamMembers as $member)
+                <div class="bg-[var(--background-color)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <img src="{{ $member->image }}" alt="{{ $member->name }}諮商師" class="w-48 h-64 rounded-xl mx-auto mb-6 object-cover">
+                    <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3 text-center">{{ $member->name }}</h3>
+                    <p class="text-[var(--primary-light)] mb-4 text-center">{{ $member->title }}</p>
+                    <p class="text-[var(--primary-light)] leading-relaxed text-center">
+                        專長領域：{{ is_array($member->specialties) ? implode('、', $member->specialties) : $member->specialties }}
+                    </p>
+                </div>
+            @endforeach
         </div>
 
         <!-- 諮商空間 -->
