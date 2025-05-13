@@ -119,17 +119,26 @@
                     <div>
                         <h4 class="text-lg font-semibold mb-4">聯絡資訊</h4>
                         <ul class="space-y-2 text-gray-400">
-                            <li>電話：(02) 1234-5678</li>
-                            <li>信箱：info@holduandme.com</li>
-                            <li>地址：台北市信義區信義路五段</li>
+                            <li>電話：(06)223-8050</li>
+                            <li>信箱：hokatsaicounseling@gmail.com</li>
+                            <li>地址：700台南市中西區友愛街237號</li>
                         </ul>
                     </div>
-                    <div>
+                    <div class="follow-us">
                         <h4 class="text-lg font-semibold mb-4">追蹤我們</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-gray-400 hover:text-white">FB</a>
-                            <a href="#" class="text-gray-400 hover:text-white">IG</a>
-                            <a href="#" class="text-gray-400 hover:text-white">Line</a>
+                        <div class="flex space-x-8">
+                            <a href="https://www.instagram.com/hokatsaicounseling?igsh=aGRqcmEzajF3cno5" class="flex flex-col items-center text-gray-400 hover:text-white" target="_blank" aria-label="Instagram">
+                                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" class="w-10 h-10 mb-1 rounded-full" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); padding: 2px;">
+                                <span class="text-xs mt-1">Instagram</span>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61573891754810&mibextid=wwXIfr&rdid=wuFXNwbetD8493p4&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AXpSvB7M2%2F%3Fmibextid%3DwwXIfr#" class="flex flex-col items-center text-gray-400 hover:text-white" target="_blank" aria-label="Facebook">
+                                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" class="w-10 h-10 mb-1 rounded-full" style="background: #1877f3; padding: 2px;">
+                                <span class="text-xs mt-1">Facebook</span>
+                            </a>
+                            <a href="https://lin.ee/2VKNxkK" class="flex flex-col items-center text-gray-400 hover:text-white" target="_blank" aria-label="Line">
+                                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/line.svg" alt="Line" class="w-10 h-10 mb-1 rounded-full" style="background: #06c755; padding: 2px;">
+                                <span class="text-xs mt-1">Line</span>
+                            </a>
                         </div>
                     </div>
                 </div>
