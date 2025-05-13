@@ -43,7 +43,6 @@
                             <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($relatedArticle->content) }}</p>
                             <div class="flex justify-between items-center">
                                 <span class="text-[var(--primary-light)]">{{ $relatedArticle->teamMember->name }} - {{ $relatedArticle->teamMember->title }}</span>
-                                <span class="text-[var(--primary-color)] group-hover:text-[var(--primary-light)] transition duration-300">閱讀更多</span>
                             </div>
                         </div>
                     </div>
