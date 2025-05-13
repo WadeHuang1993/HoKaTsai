@@ -340,6 +340,11 @@ return [
             'icon' => 'fas fa-fw fa-image',
             'route' => 'admin.environment-images.index',
         ],
+        [
+            'text' => '預約管理',
+            'icon' => 'fas fa-fw fa-calendar-check',
+            'route' => 'admin.appointments.index',
+        ],
     ],
 
     /*

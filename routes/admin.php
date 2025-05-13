@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AppointmentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EnvironmentImageController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -25,4 +26,7 @@ Route::prefix('hokatsai-admin')->name('admin.')->group(function () {
 
     // 環境照片管理
     Route::resource('environment-images', EnvironmentImageController::class);
+
+    // 預約總覽
+    Route::resource('appointments', AppointmentController::class);
 });
