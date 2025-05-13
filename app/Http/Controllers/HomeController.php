@@ -27,6 +27,7 @@ class HomeController extends Controller
             ->get();
 
         $latestNews = News::orderBy('_id', 'desc')
+            ->where('status', true)
             ->take(6)
             ->get();
 
