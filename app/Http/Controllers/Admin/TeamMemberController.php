@@ -33,6 +33,8 @@ class TeamMemberController extends Controller
             'self_introduction' => 'nullable',
             'education' => 'nullable',
             'show_in_homepage' => 'string|nullable',
+            'license_number' => 'nullable|max:255',
+            'organization' => 'nullable|max:255'
         ]);
 
         if ($request->hasFile('image')) {
@@ -68,6 +70,8 @@ class TeamMemberController extends Controller
             'self_introduction' => 'nullable',
             'education' => 'nullable',
             'show_in_homepage' => 'string|nullable',
+            'license_number' => 'nullable|max:255',
+            'organization' => 'nullable|max:255'
         ]);
 
         if ($request->hasFile('image')) {

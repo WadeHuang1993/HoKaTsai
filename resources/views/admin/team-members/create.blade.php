@@ -23,9 +23,25 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="title">職稱 <span class="text-danger">*</span></label>
+                    <label for="title">職業 <span class="text-danger">*</span></label>
                     <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}" required>
                     @error('title')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="license_number">證照字號</label>
+                    <input type="text" class="form-control @error('license_number') is-invalid @enderror" id="license_number" name="license_number" value="{{ old('license_number') }}">
+                    @error('license_number')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="organization">所屬單位職稱</label>
+                    <input type="text" class="form-control @error('organization') is-invalid @enderror" id="organization" name="organization" value="{{ old('organization') }}">
+                    @error('organization')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>

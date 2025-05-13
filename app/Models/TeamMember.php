@@ -23,7 +23,9 @@ class TeamMember extends Model
         'work_experience',
         'self_introduction',
         'education',
-        'show_in_homepage'
+        'show_in_homepage',
+        'license_number',
+        'organization'
     ];
 
     protected $casts = [
