@@ -60,10 +60,38 @@
                         <img src="{{ $course->teamMember->image }}" alt="{{ $course->teamMember->name }}講師" class="w-48 h-64 rounded-xl object-cover">
                         <div>
                             <h3 class="text-xl font-bold text-[var(--primary-color)] mb-2">{{ $course->teamMember->name }}</h3>
-                            <p class="text-[var(--primary-light)] mb-4">{{ $course->teamMember->title }}</p>
+                            <p class="text-[var(--primary-light)]">{{ $course->teamMember->title }}</p>
+                            @if($course->teamMember->license_number)<p class="text-xs text-gray-500 mb-2">{{ $course->teamMember->license_number }}</p>@endif
+                        @if($course->teamMember->organization)
+                                <p class="text-[var(--primary-light)] mb-4">{{ $course->teamMember->organization }}</p>
+                            @endif
                             <div class="text-[var(--primary-light)]">
-                                <p>專長領域：</p>
-                                <p class="mt-2">{{ $course->teamMember->specialties }}</p>
+                                @if($course->teamMember->specialties)
+                                    <p class="font-semibold mb-2">關注議題：</p>
+                                    <ul class="list-disc list-inside mb-4">
+                                        @foreach($course->teamMember->specialties as $specialty)
+                                            <li>{{ $specialty }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+
+                                @if($course->teamMember->education)
+                                    <p class="font-semibold mb-2">學歷：</p>
+                                    <ul class="list-disc list-inside mb-4">
+                                        @foreach($course->teamMember->education as $edu)
+                                            <li>{{ $edu }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+
+                                @if($course->teamMember->work_experience)
+                                    <p class="font-semibold mb-2">重要經歷：</p>
+                                    <ul class="list-disc list-inside mb-4">
+                                        @foreach($course->teamMember->work_experience as $exp)
+                                            <li>{{ $exp }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -81,7 +109,7 @@
                             </svg>
                             <span>名額限制：{{ $course->max_participants }} 人</span>
                         </div>
-                        @if ($course->remaining_slots < 5)
+                        @if ($course->remaining_slots <= 5)
                         <div class="flex items-center">
                             <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -108,7 +136,9 @@
                     </div>
 
                     <!-- 報名按鈕 -->
-                    <a href="TODO" class="block w-full bg-[var(--primary-color)] text-[var(--text-light)] text-center px-6 py-4 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">立即報名</a>
+                    @if($course->google_form_url)
+                    <a href="{{ $course->google_form_url }}" target="_blank" class="block w-full bg-[var(--primary-color)] text-[var(--text-light)] text-center px-6 py-4 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">立即報名</a>
+                    @endif
                 </div>
             </div>
         </div>

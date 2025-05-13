@@ -9,27 +9,26 @@
         </div>
 
         <div class="space-y-6">
-            @foreach($newsList as $item)
-            <div class="bg-[var(--text-light)] rounded-lg overflow-hidden shadow hover:shadow-lg transition duration-300">
+            @foreach($newsList as $news)
+            <a href="{{ route('news.show', $news->_id) }}" class="block bg-[var(--text-light)] rounded-lg overflow-hidden shadow hover:shadow-lg hover:shadow-xl transition duration-300 cursor-pointer">
                 <div class="flex flex-col md:flex-row">
-                    <div class="md:w-1/4">
-                        <img src="{{ $item['image_url'] ?? '/images/environment/1.jpg' }}" alt="{{ $item['title'] }}" class="w-full h-48 md:h-full object-cover">
+                    <div class="md:w-1/4 h-48 md:h-60 flex items-center justify-center bg-gray-100">
+                        <img src="{{ $news->image ? Storage::url($news->image) : '/images/environment/1.jpg' }}" alt="{{ $news->title }}" class="object-cover object-center w-full h-full rounded-none">
                     </div>
                     <div class="flex-1 p-6">
                         <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold text-[var(--primary-color)]">{{ $item['title'] }}</h3>
-                            <div class="text-sm text-[var(--primary-light)]">{{ $item['date'] }}</div>
+                            <h3 class="text-xl font-bold text-[var(--primary-color)]">{{ $news->title }}</h3>
+                            <div class="text-sm text-[var(--primary-light)]">{{ $news->created_at->format('Y-m-d') }}</div>
                         </div>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-2">{{ $item['content'] }}</p>
-                        <a href="{{ route('news.show', $item['id']) }}" class="inline-block text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-2">{{ strip_tags($news->content) }}</p>
                     </div>
                 </div>
-            </div>
+            </a>
             @endforeach
         </div>
 
         <div class="mt-12">
-            {{ $paginator->links() }}
+            {{ $newsList->links() }}
         </div>
     </div>
 </div>

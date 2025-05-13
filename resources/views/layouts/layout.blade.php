@@ -58,7 +58,7 @@
                         </div>
 
                         <a href="{{ route('home') }}#appointment" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#7AD68E] hover:border-[#7AD68E]">諮商預約</a>
-                        <a href="{{ route('home') }}#courses" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#7AA6D6] hover:border-[#7AA6D6]">講座課程</a>
+                        <a href="{{ route('courses.index') }}" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#7AA6D6] hover:border-[#7AA6D6]">講座課程</a>
                         <a href="{{ route('home') }}#column" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#A67AD6] hover:border-[#A67AD6]">諮商專欄</a>
                     </div>
                     <div class="md:hidden flex items-center">
@@ -119,17 +119,26 @@
                     <div>
                         <h4 class="text-lg font-semibold mb-4">聯絡資訊</h4>
                         <ul class="space-y-2 text-gray-400">
-                            <li>電話：(02) 1234-5678</li>
-                            <li>信箱：info@holduandme.com</li>
-                            <li>地址：台北市信義區信義路五段</li>
+                            <li>電話：(06)223-8050</li>
+                            <li>信箱：hokatsaicounseling@gmail.com</li>
+                            <li>地址：700台南市中西區友愛街237號</li>
                         </ul>
                     </div>
-                    <div>
+                    <div class="follow-us">
                         <h4 class="text-lg font-semibold mb-4">追蹤我們</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-gray-400 hover:text-white">FB</a>
-                            <a href="#" class="text-gray-400 hover:text-white">IG</a>
-                            <a href="#" class="text-gray-400 hover:text-white">Line</a>
+                        <div class="flex space-x-8">
+                            <a href="https://www.instagram.com/hokatsaicounseling?igsh=aGRqcmEzajF3cno5" class="flex flex-col items-center text-gray-400 hover:text-white" target="_blank" aria-label="Instagram">
+                                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" class="w-10 h-10 mb-1 rounded-full" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); padding: 2px;">
+                                <span class="text-xs mt-1">Instagram</span>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61573891754810&mibextid=wwXIfr&rdid=wuFXNwbetD8493p4&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AXpSvB7M2%2F%3Fmibextid%3DwwXIfr#" class="flex flex-col items-center text-gray-400 hover:text-white" target="_blank" aria-label="Facebook">
+                                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" class="w-10 h-10 mb-1 rounded-full" style="background: #1877f3; padding: 2px;">
+                                <span class="text-xs mt-1">Facebook</span>
+                            </a>
+                            <a href="https://lin.ee/2VKNxkK" class="flex flex-col items-center text-gray-400 hover:text-white" target="_blank" aria-label="Line">
+                                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/line.svg" alt="Line" class="w-10 h-10 mb-1 rounded-full" style="background: #06c755; padding: 2px;">
+                                <span class="text-xs mt-1">Line</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -138,6 +147,16 @@
                 </div>
             </div>
         </footer>
+
+        <!-- Line 浮球 -->
+        <a href="https://lin.ee/2VKNxkK" target="_blank" class="fixed bottom-32 right-6 z-50 flex items-center px-4 py-2 bg-[#06c755] text-white rounded-full shadow-lg hover:bg-[#05b14b] transition-all group" style="min-width: 120px;">
+            <svg class="w-7 h-7 mr-2" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="24" fill="#06c755"/>
+                <path d="M24 12C16.268 12 10 17.477 10 24.08c0 3.13 1.915 5.89 4.91 7.74-.21.77-.77 2.77-.88 3.19 0 0-.02.07 0 .15.04.14.16.19.27.19.09 0 .18-.03.18-.03.23-.03 2.53-1.67 3.56-2.38 1.37.2 2.8.32 4.28.32 7.732 0 14-5.477 14-12.08S31.732 12 24 12z" fill="#fff"/>
+            </svg>
+            <span class="font-bold text-base group-hover:underline">立即預約</span>
+        </a>
+        <!-- /Line 浮球 -->
 
         <script>
             document.getElementById('mobile-menu-button').addEventListener('click', function() {

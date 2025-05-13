@@ -132,6 +132,14 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="google_form_url">Google 表單網址</label>
+                    <input type="url" class="form-control @error('google_form_url') is-invalid @enderror" id="google_form_url" name="google_form_url" value="{{ old('google_form_url') }}">
+                    @error('google_form_url')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label>注意事項</label>
                     <div id="notes-container">
                         <div class="note-item mb-3">
@@ -148,13 +156,6 @@
                     <button type="button" class="btn btn-secondary" id="add-note">
                         <i class="fas fa-plus"></i> 新增注意事項
                     </button>
-                </div>
-
-                <div class="form-group">
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="show_in_homepage" name="show_in_homepage" {{ old('show_in_homepage') ? 'checked' : '' }}>
-                        <label class="custom-control-label" for="show_in_homepage">在首頁顯示</label>
-                    </div>
                 </div>
 
                 <div class="form-group">

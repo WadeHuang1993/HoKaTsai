@@ -31,33 +31,22 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-            <!-- 最新消息項目 1 -->
-            <div class="bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/environment/1.jpg" alt="最新消息1" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-15</div>
-                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">新年度諮商優惠方案開跑</h3>
-                    <p class="text-[var(--primary-light)] mb-4 line-clamp-3">為迎接新的一年，本所推出多項優惠方案，希望能幫助更多需要心理支持的朋友。</p>
-                    <a href="{{ route('news.show', 1) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
-                </div>
-            </div>
-
-            <!-- 最新消息項目 2-6 -->
-            <div class="bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/environment/2.jpg" alt="最新消息2" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-10</div>
-                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">心理健康講座系列活動</h3>
-                    <p class="text-[var(--primary-light)] mb-4 line-clamp-3">每月固定舉辦的心理健康講座，邀請您一同探索心靈成長之路。</p>
-                    <a href="{{ route('news.show', 2) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
-                </div>
-            </div>
-
-            <!-- 重複類似結構到第6個 -->
+            @foreach($latestNews as $news)
+                <a href="{{ route('news.show', $news->_id) }}" class="block bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 cursor-pointer">
+                    <img src="{{ $news->image ? Storage::url($news->image) : '/images/environment/1.jpg' }}" alt="{{ $news->title }}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-sm text-[var(--primary-light)] mb-2">{{ $news->created_at->format('Y-m-d') }}</div>
+                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $news->title }}</h3>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($news->content) }}</p>
+                    </div>
+                </a>
+            @endforeach
         </div>
+        @if($latestNews->count() > 6)
         <div class="text-center">
             <a href="{{ route('news.index') }}" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-3 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">查看全部消息</a>
         </div>
+        @endif
     </div>
 </div>
 
@@ -71,41 +60,38 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
-            <!-- 團隊成員 1 -->
-            <div class="bg-[var(--background-color)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/teams/S__91521028.webp" alt="王曉明諮商師" class="w-48 h-64 rounded-xl mx-auto mb-6 object-cover">
-                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3 text-center">王曉明</h3>
-                <p class="text-[var(--primary-light)] mb-4 text-center">資深諮商心理師</p>
-                <p class="text-[var(--primary-light)] leading-relaxed">專長領域：情緒管理、人際關係、伴侶諮商、憂鬱症、焦慮症</p>
-            </div>
-
-            <!-- 團隊成員 2 -->
-            <div class="bg-[var(--background-color)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/teams/S__91521028.webp" alt="王曉明諮商師" class="w-48 h-64 rounded-xl mx-auto mb-6 object-cover">
-                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3 text-center">李美玲</h3>
-                <p class="text-[var(--primary-light)] mb-4 text-center">諮商心理師</p>
-                <p class="text-[var(--primary-light)] leading-relaxed">專長領域：家族治療、親子關係、婚姻諮商、創傷治療</p>
-            </div>
+            @foreach($teamMembers as $member)
+                <div class="bg-[var(--background-color)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <img src="{{ $member->image }}" alt="{{ $member->name }}諮商師" class="w-48 h-64 rounded-xl mx-auto mb-6 object-cover">
+                    <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3 text-center">{{ $member->name }}</h3>
+                    <p class="text-[var(--primary-light)] text-center">{{ $member->title }}</p>
+                    @if($member->license_number)
+                        <p class="text-xs text-gray-500 text-center">{{ $member->license_number }}</p>
+                    @endif
+                    @if($member->organization)
+                        <p class="text-[var(--primary-light)] text-center">{{ $member->organization }}</p>
+                    @endif
+                        <p class="text-[var(--primary-light)] mt-4 leading-relaxed text-center">
+                        {{ is_array($member->specialized_approaches) ? implode('、', $member->specialized_approaches) : $member->specialized_approaches }}
+                    </p>
+                </div>
+            @endforeach
         </div>
 
-        <!-- 諮商空間 -->
-        <div id="space" class="text-center mb-20 scroll-mt-24">
-            <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">諮商空間</h2>
-            <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">溫馨舒適的環境，讓您安心放鬆</p>
-        </div>
-
-        <div class="grid grid-cols-4 gap-4">
-            <div class="col-span-4 md:col-span-1">
-                <img src="/images/environment/1.jpg" alt="諮商空間1" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
-            </div>
-            <div class="col-span-4 md:col-span-1">
-                <img src="/images/environment/2.jpg" alt="諮商空間2" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
-            </div>
-            <div class="col-span-4 md:col-span-1">
-                <img src="/images/environment/3.jpg" alt="諮商空間3" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
-            </div>
-            <div class="col-span-4 md:col-span-1">
-                <img src="/images/environment/4.jpg" alt="諮商空間4" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
+        <!-- Space Section - 諮商空間 -->
+        <div id="space" class="py-24 bg-[var(--text-light)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">諮商空間</h2>
+                    <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">溫馨舒適的環境，讓您安心放鬆</p>
+                </div>
+                <div class="environment_space grid grid-cols-4 gap-4">
+                    @foreach($environmentImages as $img)
+                        <div class="col-span-4 md:col-span-1">
+                            <img src="{{ $img->image ? Storage::url($img->image) : '/images/no-image.png' }}" alt="{{ $img->title }}" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
@@ -138,20 +124,44 @@
             </div>
         </div>
 
+        <!-- 諮商預約流程圖 -->
+        <div class="max-w-5xl mx-auto mb-16">
+            <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-8 text-center">諮商預約流程</h3>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
+                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">1</div>
+                    <div class="font-bold mb-1">LINE 或填表預約</div>
+                    <div class="text-sm text-gray-500">選擇LINE或線上表單預約，留下基本需求</div>
+                </div>
+                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
+                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">2</div>
+                    <div class="font-bold mb-1">專人依需求回覆</div>
+                    <div class="text-sm text-gray-500">由專人回覆，協助釐清您的諮商需求</div>
+                </div>
+                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
+                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">3</div>
+                    <div class="font-bold mb-1">媒合時間與心理師</div>
+                    <div class="text-sm text-gray-500">依您的狀況媒合合適心理師與晤談時間</div>
+                </div>
+                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
+                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">4</div>
+                    <div class="font-bold mb-1">完成預約</div>
+                    <div class="text-sm text-gray-500">以LINE或mail通知預約結果與細節</div>
+                </div>
+                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
+                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">5</div>
+                    <div class="font-bold mb-1">開始晤談</div>
+                    <div class="text-sm text-gray-500">由專業心理師開始晤談服務</div>
+                </div>
+            </div>
+        </div>
+        <!-- /諮商預約流程圖 -->
+
         <!-- 合作專案 -->
         <div id="cooperation" class="bg-[var(--text-light)] p-8 rounded-xl mb-20 scroll-mt-24">
             <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-6 text-center">合作專案</h3>
             <p class="text-[var(--primary-light)] text-center mb-8">我們與多個機構合作，提供專業的心理健康服務</p>
             <!-- 合作項目列表 -->
-        </div>
-
-        <!-- 同意書 -->
-        <div id="agreement" class="bg-[var(--text-light)] p-8 rounded-xl scroll-mt-24">
-            <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-6 text-center">諮商同意書</h3>
-            <p class="text-[var(--primary-light)] text-center mb-8">請詳閱並了解諮商服務相關規範</p>
-            <div class="text-center">
-                <a href="/agreement" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-3 rounded-full hover:bg-[var(--primary-light)] transition duration-300">查看同意書</a>
-            </div>
         </div>
     </div>
 </div>
@@ -164,29 +174,26 @@
             <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">分享專業知識與心理健康資訊</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- 專欄文章 1-6 (類似最新消息的結構) -->
-            <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/environment/1.jpg" alt="專欄文章1" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-20</div>
-                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">如何培養良好的情緒管理能力</h3>
-                    <p class="text-[var(--primary-light)] mb-4 line-clamp-3">在現代生活中，良好的情緒管理能力變得越來越重要...</p>
-                    <a href="{{ route('articles.show', 1) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
-                </div>
-            </div>
-
-            <!-- 專欄文章 2-6 -->
-            <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/environment/2.jpg" alt="專欄文章2" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-18</div>
-                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">建立健康的人際界線</h3>
-                    <p class="text-[var(--primary-light)] mb-4 line-clamp-3">學習如何在關係中設立適當的界線，維護自己的心理健康...</p>
-                    <a href="{{ route('articles.show', 2) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
-                </div>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            @foreach($latestArticles as $article)
+                <a href="{{ route('articles.show', $article->_id) }}" class="block bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 h-full">
+                    <div class="p-6">
+                        <div class="text-sm text-[var(--primary-light)] mb-2">{{ $article->created_at->format('Y-m-d') }}</div>
+                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $article->title }}</h3>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($article->content) }}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-[var(--primary-light)]">{{ $article->teamMember->name }} - {{ $article->teamMember->title }}</span>
+                            <span class="text-[var(--primary-color)] group-hover:text-[var(--primary-light)] transition duration-300">閱讀更多</span>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
         </div>
+        @if($latestArticles->count() > 6)
+        <div class="text-center">
+            <a href="{{ route('articles.index') }}" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-3 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">查看全部專欄</a>
+        </div>
+        @endif
     </div>
 </div>
 
@@ -210,7 +217,7 @@
                     </ul>
                 </div>
                 <div class="text-center md:text-right self-center">
-                    <a href="/booking" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-4 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">立即預約</a>
+                    <a href="/appointment" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-4 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">立即預約</a>
                 </div>
             </div>
         </div>
@@ -226,37 +233,24 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- 講座課程 1 -->
-            <a href="{{ route('courses.show', 1) }}" class="block">
-                <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                    <img src="/images/environment/3.jpg" alt="講座課程1" class="w-full h-48 object-cover">
+            @foreach($latestCourses as $course)
+                <a href="{{ route('courses.show', $course->_id) }}" class="block bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                    <img src="{{ Storage::url($course->image) }}" alt="{{ $course->title }}" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <div class="text-sm text-[var(--primary-light)] mb-2">2024-02-01 14:00 ~ 16:00</div>
-                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">壓力管理工作坊</h3>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">學習實用的壓力管理技巧，建立健康的生活方式...</p>
-                        <span class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">了解更多</span>
+                        <div class="text-sm text-[var(--primary-light)] mb-2">
+                            上課日期：{{ $course->start_date->format('Y-m-d') }}
+                        </div>
+                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $course->title }}</h3>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($course->description) }}</p>
                     </div>
-                </div>
-            </a>
-
-            <!-- 講座課程 2 -->
-            <a href="{{ route('courses.show', 2) }}" class="block">
-                <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                    <img src="/images/environment/4.jpg" alt="講座課程2" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-sm text-[var(--primary-light)] mb-2">2024-02-15 19:00 ~ 21:00</div>
-                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">親子溝通技巧講座</h3>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">探討有效的親子溝通方式，建立良好的家庭關係...</p>
-                        <span class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">了解更多</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 講座課程 3-6 使用類似結構 -->
+                </a>
+            @endforeach
         </div>
+        @if($latestCourses->count() > 6)
         <div class="btn-all-courses text-center mt-12">
             <a href="{{ route('courses.index') }}" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-3 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">查看全部講座</a>
         </div>
+        @endif
     </div>
 </div>
 @endsection

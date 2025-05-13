@@ -43,7 +43,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>
                                     @if($member->image)
-                                        <img src="{{ Storage::url($member->image) }}" alt="{{ $member->name }}" class="img-thumbnail" style="max-width: 100px;">
+                                        <img src="{{ $member->image }}" alt="{{ $member->name }}" class="img-thumbnail" style="max-width: 100px;">
                                     @else
                                         <span class="text-muted">無照片</span>
                                     @endif

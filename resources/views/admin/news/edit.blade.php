@@ -29,8 +29,7 @@
 
                 <div class="form-group">
                     <label for="content">內容</label>
-                    <textarea class="form-control @error('content') is-invalid @enderror" 
-                              id="content" name="content" rows="10" required>{{ old('content', $news->content) }}</textarea>
+                    <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="8">{{ old('content', $news->content) }}</textarea>
                     @error('content')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -74,12 +73,18 @@
 @stop
 
 @section('js')
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
     <script>
-        // 檔案名稱顯示
-        document.querySelector('.custom-file-input').addEventListener('change', function(e) {
-            var fileName = e.target.files[0].name;
-            var nextSibling = e.target.nextElementSibling;
-            nextSibling.innerText = fileName;
-        });
+        ClassicEditor
+            .create(document.querySelector('#content'), {
+                language: 'zh-tw',
+                toolbar: [
+                    'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote',
+                    '|', 'undo', 'redo'
+                ]
+            })
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 @stop 

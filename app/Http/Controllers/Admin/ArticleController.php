@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\TeamMember;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,6 +24,7 @@ class ArticleController extends Controller
             return $collection->aggregate([
                 [
                     '$match' => [
+                        'deleted_at' => ['$ne' => null],
                         'tag' => ['$exists' => true, '$ne' => null]
                     ]
                 ],
@@ -49,7 +51,8 @@ class ArticleController extends Controller
     public function create()
     {
         $oftenTags = $this->getOftenTags();
-        return view('admin.articles.create', compact('oftenTags'));
+        $teamMembers = TeamMember::all();
+        return view('admin.articles.create', compact('oftenTags', 'teamMembers'));
     }
 
     public function store(Request $request)
@@ -60,6 +63,7 @@ class ArticleController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'status' => 'boolean',
             'tag' => 'nullable|string|max:50',
+            'team_member_id' => 'required|exists:team_members,_id',
         ]);
 
         if ($request->hasFile('image')) {
@@ -69,6 +73,7 @@ class ArticleController extends Controller
 
         $validated['status'] = $request->has('status');
         $validated['tag'] = $request->input('tag');
+        $validated['team_member_id'] = $request->input('team_member_id');
 
         Article::create($validated);
 
@@ -79,7 +84,8 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         $oftenTags = $this->getOftenTags();
-        return view('admin.articles.edit', compact('article', 'oftenTags'));
+        $teamMembers = TeamMember::all();
+        return view('admin.articles.edit', compact('article', 'oftenTags', 'teamMembers'));
     }
 
     public function update(Request $request, Article $article)
@@ -90,6 +96,7 @@ class ArticleController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'status' => 'boolean',
             'tag' => 'nullable|string|max:50',
+            'team_member_id' => 'required|exists:team_members,_id',
         ]);
 
         if ($request->hasFile('image')) {
@@ -101,6 +108,7 @@ class ArticleController extends Controller
 
         $validated['status'] = $request->has('status');
         $validated['tag'] = $request->input('tag');
+        $validated['team_member_id'] = $request->input('team_member_id');
 
         $article->update($validated);
 

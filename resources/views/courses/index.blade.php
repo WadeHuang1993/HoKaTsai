@@ -10,21 +10,28 @@
 
         <div class="space-y-6">
             @foreach($courses as $course)
-            <div class="bg-[var(--text-light)] rounded-lg overflow-hidden shadow hover:shadow-lg transition duration-300">
+            <a href="{{ route('courses.show', $course->_id) }}" class="block bg-[var(--text-light)] rounded-lg overflow-hidden shadow hover:shadow-xl transition duration-300 cursor-pointer">
                 <div class="flex flex-col md:flex-row">
-                    <div class="md:w-1/4">
-                        <img src="{{ $course['image'] }}" alt="{{ $course['title'] }}" class="w-full h-48 md:h-full object-cover">
+                    <div class="md:w-1/4 h-48 md:h-60 flex items-center justify-center bg-gray-100">
+                        <img src="{{ Storage::url($course->image) }}" alt="{{ $course->title }}" class="object-cover object-center w-full h-full rounded-none">
                     </div>
                     <div class="flex-1 p-6">
                         <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold text-[var(--primary-color)]">{{ $course['title'] }}</h3>
-                            <div class="text-sm text-[var(--primary-light)]">{{ $course['datetime'] }}</div>
+                            <h3 class="text-xl font-bold text-[var(--primary-color)]">{{ $course->title }}</h3>
+                            <div class="text-sm text-[var(--primary-light)]">
+                                上課日期：{{ $course->start_date->format('Y-m-d') }}
+                            </div>
                         </div>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-2">{{ $course['description'] }}</p>
-                        <a href="{{ route('courses.show', $course['id']) }}" class="inline-block text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">了解更多</a>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-2">{{ strip_tags($course->description) }}</p>
+                        <div class="flex justify-between items-center">
+                            <div class="text-[var(--primary-light)]">
+                                <span class="mr-4">講師：{{ $course->teamMember->name }}</span>
+                                <span>地點：{{ $course->location }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
             @endforeach
         </div>
 

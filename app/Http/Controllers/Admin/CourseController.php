@@ -43,7 +43,7 @@ class CourseController extends Controller
             'price' => 'required|integer|min:0',
             'notes' => 'required|array',
             'notes.*' => 'required|string',
-            'show_in_homepage' => 'boolean'
+            'google_form_url' => 'nullable|url',
         ]);
 
         if ($request->hasFile('image')) {
@@ -80,7 +80,7 @@ class CourseController extends Controller
             'price' => 'required|integer|min:0',
             'notes' => 'required|array',
             'notes.*' => 'required|string',
-            'show_in_homepage' => 'boolean'
+            'google_form_url' => 'nullable|url',
         ]);
 
         if ($request->hasFile('image')) {

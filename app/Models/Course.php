@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Company\Company;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 use MongoDB\BSON\UTCDateTime;
@@ -23,18 +22,17 @@ class Course extends Model
         'image',
         'description',
         'team_member_id',
-        'show_in_homepage',
         'schedule',
         'max_participants',
         'remaining_slots',
         'price',
-        'notes'
+        'notes',
+        'google_form_url'
     ];
 
     protected $casts = [
         'schedule' => 'array',
         'notes' => 'array',
-        'show_in_homepage' => 'boolean',
         'max_participants' => 'integer',
         'remaining_slots' => 'integer',
         'price' => 'integer',
