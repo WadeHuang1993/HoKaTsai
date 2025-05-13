@@ -17,6 +17,15 @@ class Appointment extends Model
         'name',
         'email',
         'phone',
+        'counselor',
+        'time',
+        'topics',
+        'topic_other',
+        'contact_time',
+    ];
+
+    protected $casts = [
+        'topics' => 'array',
     ];
 
     public $timestamps = true;
