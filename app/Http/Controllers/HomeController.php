@@ -22,7 +22,7 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
-        $teamMembers = TeamMember::orderBy('_id', 'desc')
+        $teamMembers = TeamMember::orderBy('_id', 'asc')
             ->where('show_in_homepage', true)
             ->take(6)
             ->get();
