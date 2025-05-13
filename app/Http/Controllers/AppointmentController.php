@@ -33,7 +33,7 @@ class AppointmentController extends Controller
             $topics[] = $request->topic_other;
         }
         // topics 欄位存陣列
-        $data['topics'] = $request->input('topics', []);
+        $data['topics'] = $topics;
         Appointment::create($data);
 
         // 這裡可依需求儲存資料或寄信，暫時只顯示感謝訊息
