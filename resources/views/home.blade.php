@@ -78,18 +78,27 @@
             @endforeach
         </div>
 
-        <div class="grid grid-cols-4 gap-4">
-            <div class="col-span-4 md:col-span-1">
-                <img src="/images/environment/1.jpg" alt="諮商空間1" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
-            </div>
-            <div class="col-span-4 md:col-span-1">
-                <img src="/images/environment/2.jpg" alt="諮商空間2" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
-            </div>
-            <div class="col-span-4 md:col-span-1">
-                <img src="/images/environment/3.jpg" alt="諮商空間3" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
-            </div>
-            <div class="col-span-4 md:col-span-1">
-                <img src="/images/environment/4.jpg" alt="諮商空間4" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
+        <!-- Space Section - 諮商空間 -->
+        <div id="space" class="py-24 bg-[var(--text-light)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">諮商空間</h2>
+                    <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">溫馨舒適的環境，讓您安心放鬆</p>
+                </div>
+                <div class="environment_space grid grid-cols-4 gap-4">
+                    <div class="col-span-4 md:col-span-1">
+                        <img src="/images/environment/1.jpg" alt="諮商空間1" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="col-span-4 md:col-span-1">
+                        <img src="/images/environment/2.jpg" alt="諮商空間2" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="col-span-4 md:col-span-1">
+                        <img src="/images/environment/3.jpg" alt="諮商空間3" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="col-span-4 md:col-span-1">
+                        <img src="/images/environment/4.jpg" alt="諮商空間4" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
