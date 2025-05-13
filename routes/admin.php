@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\TeamMemberController;
+use App\Http\Controllers\Admin\CourseController;
 
 Route::prefix('hokatsai-admin')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
@@ -17,4 +18,8 @@ Route::prefix('hokatsai-admin')->name('admin.')->group(function () {
 
     // 團隊成員管理
     Route::resource('team-members', TeamMemberController::class);
+
+    // 課程講座管理
+    Route::resource('courses', CourseController::class);
+
 }); 

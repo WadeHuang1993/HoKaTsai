@@ -39,7 +39,7 @@
                     </div>
                     @if($teamMember->image)
                         <div class="mt-2">
-                            <img src="{{ Storage::url($teamMember->image) }}" alt="{{ $teamMember->name }}" class="img-thumbnail" style="max-height: 200px;">
+                            <img src="{{ $teamMember->image }}" alt="{{ $teamMember->name }}" class="img-thumbnail" style="max-height: 200px;">
                         </div>
                     @endif
                     @error('image')

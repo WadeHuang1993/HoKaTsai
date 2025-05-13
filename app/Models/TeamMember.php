@@ -5,6 +5,7 @@ namespace App\Models;
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 use MongoDB\BSON\UTCDateTime;
+use Illuminate\Support\Facades\Storage;
 
 class TeamMember extends Model
 {
@@ -31,6 +32,19 @@ class TeamMember extends Model
         'updated_at' => 'immutable_datetime',
         'deleted_at' => 'immutable_datetime',
     ];
+
+    public function getImageAttribute($value)
+    {
+        if (!$value) {
+            return null;
+        }
+        
+        if (str_starts_with($value, 'http')) {
+            return $value;
+        }
+        
+        return Storage::url($value);
+    }
 
     public function getCreatedAtAttribute(UTCDateTime $created_at)
     {

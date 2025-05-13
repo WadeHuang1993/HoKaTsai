@@ -333,7 +333,7 @@ return [
         [
             'text' => '課程講座管理',
             'icon' => 'fas fa-fw fa-chalkboard-teacher',
-            'url'  => '#',
+            'route' => 'admin.courses.index',
         ],
         ['header' => '系統設定'],
         [
