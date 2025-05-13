@@ -137,15 +137,6 @@
             <p class="text-[var(--primary-light)] text-center mb-8">我們與多個機構合作，提供專業的心理健康服務</p>
             <!-- 合作項目列表 -->
         </div>
-
-        <!-- 同意書 -->
-        <div id="agreement" class="bg-[var(--text-light)] p-8 rounded-xl scroll-mt-24">
-            <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-6 text-center">諮商同意書</h3>
-            <p class="text-[var(--primary-light)] text-center mb-8">請詳閱並了解諮商服務相關規範</p>
-            <div class="text-center">
-                <a href="/agreement" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-3 rounded-full hover:bg-[var(--primary-light)] transition duration-300">查看同意書</a>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -172,7 +163,7 @@
                 </a>
             @endforeach
         </div>
-        @if($latestArticles->count() > 2)
+        @if($latestArticles->count() > 6)
         <div class="text-center">
             <a href="{{ route('articles.index') }}" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-3 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">查看全部專欄</a>
         </div>

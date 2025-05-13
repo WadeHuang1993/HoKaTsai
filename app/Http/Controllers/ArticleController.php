@@ -11,7 +11,7 @@ class ArticleController extends Controller
     {
         $articles = Article::where('status', true)
             ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->paginate(15);
 
         return view('articles.index', compact('articles'));
     }
