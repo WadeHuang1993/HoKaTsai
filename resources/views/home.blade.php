@@ -31,33 +31,22 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-            <!-- 最新消息項目 1 -->
-            <div class="bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/environment/1.jpg" alt="最新消息1" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-15</div>
-                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">新年度諮商優惠方案開跑</h3>
-                    <p class="text-[var(--primary-light)] mb-4 line-clamp-3">為迎接新的一年，本所推出多項優惠方案，希望能幫助更多需要心理支持的朋友。</p>
-                    <a href="{{ route('news.show', 1) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
-                </div>
-            </div>
-
-            <!-- 最新消息項目 2-6 -->
-            <div class="bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/environment/2.jpg" alt="最新消息2" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-10</div>
-                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">心理健康講座系列活動</h3>
-                    <p class="text-[var(--primary-light)] mb-4 line-clamp-3">每月固定舉辦的心理健康講座，邀請您一同探索心靈成長之路。</p>
-                    <a href="{{ route('news.show', 2) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
-                </div>
-            </div>
-
-            <!-- 重複類似結構到第6個 -->
+            @foreach($latestNews as $news)
+                <a href="{{ route('news.show', $news->_id) }}" class="block bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 cursor-pointer">
+                    <img src="{{ $news->image ? Storage::url($news->image) : '/images/environment/1.jpg' }}" alt="{{ $news->title }}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-sm text-[var(--primary-light)] mb-2">{{ $news->created_at->format('Y-m-d') }}</div>
+                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $news->title }}</h3>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($news->content) }}</p>
+                    </div>
+                </a>
+            @endforeach
         </div>
+        @if($latestNews->count() > 6)
         <div class="text-center">
             <a href="{{ route('news.index') }}" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-3 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">查看全部消息</a>
         </div>
+        @endif
     </div>
 </div>
 
@@ -234,9 +223,11 @@
                 </a>
             @endforeach
         </div>
+        @if($latestCourses->count() > 6)
         <div class="btn-all-courses text-center mt-12">
             <a href="{{ route('courses.index') }}" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-3 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">查看全部講座</a>
         </div>
+        @endif
     </div>
 </div>
 @endsection

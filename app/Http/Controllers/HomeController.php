@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\TeamMember;
+use App\Models\News;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,10 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
-        return view('home', compact('latestCourses', 'teamMembers'));
+        $latestNews = News::orderBy('_id', 'desc')
+            ->take(6)
+            ->get();
+
+        return view('home', compact('latestCourses', 'teamMembers', 'latestNews'));
     }
 }
