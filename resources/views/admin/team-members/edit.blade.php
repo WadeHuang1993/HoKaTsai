@@ -32,22 +32,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="license_number">證照字號</label>
-                    <input type="text" class="form-control @error('license_number') is-invalid @enderror" id="license_number" name="license_number" value="{{ old('license_number', $teamMember->license_number) }}">
-                    @error('license_number')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="form-group">
-                    <label for="organization">所屬單位職稱</label>
-                    <input type="text" class="form-control @error('organization') is-invalid @enderror" id="organization" name="organization" value="{{ old('organization', $teamMember->organization) }}">
-                    @error('organization')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="form-group">
                     <label for="image">照片</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="image" name="image">
@@ -64,9 +48,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="specialties">關注議題 <span class="text-danger">*</span></label>
-                    <textarea class="form-control @error('specialties') is-invalid @enderror" id="specialties" name="specialties" rows="3" required placeholder="請輸入關注議題，每行一個">{{ old('specialties', is_array($teamMember->specialties) ? implode("\n", $teamMember->specialties) : $teamMember->specialties) }}</textarea>
-                    @error('specialties')
+                    <label for="license_number">證照字號</label>
+                    <input type="text" class="form-control @error('license_number') is-invalid @enderror" id="license_number" name="license_number" value="{{ old('license_number', $teamMember->license_number) }}">
+                    @error('license_number')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="organization">所屬單位職稱</label>
+                    <input type="text" class="form-control @error('organization') is-invalid @enderror" id="organization" name="organization" value="{{ old('organization', $teamMember->organization) }}">
+                    @error('organization')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -75,6 +67,32 @@
                     <label for="education">學歷</label>
                     <textarea class="form-control @error('education') is-invalid @enderror" id="education" name="education" rows="3" placeholder="請輸入學歷，每行一個">{{ old('education', is_array($teamMember->education) ? implode("\n", $teamMember->education) : $teamMember->education) }}</textarea>
                     @error('education')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+        
+
+                <div class="form-group">
+                    <label for="specialties">關注議題 <span class="text-danger">*</span></label>
+                    <textarea class="form-control @error('specialties') is-invalid @enderror" id="specialties" name="specialties" rows="3" required placeholder="請輸入關注議題，每行一個">{{ old('specialties', is_array($teamMember->specialties) ? implode("\n", $teamMember->specialties) : $teamMember->specialties) }}</textarea>
+                    @error('specialties')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                 <div class="form-group">
+                    <label for="specialized_approaches">專長取向</label>
+                    <textarea class="form-control @error('specialized_approaches') is-invalid @enderror" id="specialized_approaches" name="specialized_approaches" rows="3" placeholder="請輸入專長取向，每行一個">{{ old('specialized_approaches', is_array($teamMember->specialized_approaches) ? implode("\n", $teamMember->specialized_approaches) : $teamMember->specialized_approaches) }}</textarea>
+                    @error('specialized_approaches')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="professional_trainings">專業訓練</label>
+                    <textarea class="form-control @error('professional_trainings') is-invalid @enderror" id="professional_trainings" name="professional_trainings" rows="3" placeholder="請輸入專業訓練，每行一個">{{ old('professional_trainings', is_array($teamMember->professional_trainings) ? implode("\n", $teamMember->professional_trainings) : $teamMember->professional_trainings) }}</textarea>
+                    @error('professional_trainings')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>

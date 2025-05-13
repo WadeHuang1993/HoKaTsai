@@ -24,15 +24,27 @@
 
                 <div class="form-group">
                     <label for="title">職業 <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}" required>
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', '諮商心理師') }}" required>
                     @error('title')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+
+                <div class="form-group">
+                    <label for="image">照片 <span class="text-danger">*</span></label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="image" name="image" required>
+                        <label class="custom-file-label" for="image">選擇檔案</label>
+                    </div>
+                    @error('image')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="license_number">證照字號</label>
-                    <input type="text" class="form-control @error('license_number') is-invalid @enderror" id="license_number" name="license_number" value="{{ old('license_number') }}">
+                    <input type="text" class="form-control @error('license_number') is-invalid @enderror" id="license_number" name="license_number" value="{{ old('license_number', '諮心字第00xxxx號') }}">
                     @error('license_number')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -47,12 +59,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="image">照片 <span class="text-danger">*</span></label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="image" name="image" required>
-                        <label class="custom-file-label" for="image">選擇檔案</label>
-                    </div>
-                    @error('image')
+                    <label for="education">學歷</label>
+                    <textarea class="form-control @error('education') is-invalid @enderror" id="education" name="education" rows="3" placeholder="請輸入學歷，每行一個">{{ old('education') }}</textarea>
+                    @error('education')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -66,9 +75,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="education">學歷</label>
-                    <textarea class="form-control @error('education') is-invalid @enderror" id="education" name="education" rows="3" placeholder="請輸入學歷，每行一個">{{ old('education') }}</textarea>
-                    @error('education')
+                    <label for="specialized_approaches">專長取向</label>
+                    <textarea class="form-control @error('specialized_approaches') is-invalid @enderror" id="specialized_approaches" name="specialized_approaches" rows="3" placeholder="請輸入專長取向，每行一個">{{ old('specialized_approaches') }}</textarea>
+                    @error('specialized_approaches')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="professional_trainings">專業訓練</label>
+                    <textarea class="form-control @error('professional_trainings') is-invalid @enderror" id="professional_trainings" name="professional_trainings" rows="3" placeholder="請輸入專業訓練，每行一個">{{ old('professional_trainings') }}</textarea>
+                    @error('professional_trainings')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>

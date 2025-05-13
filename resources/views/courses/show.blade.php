@@ -60,8 +60,9 @@
                         <img src="{{ $course->teamMember->image }}" alt="{{ $course->teamMember->name }}講師" class="w-48 h-64 rounded-xl object-cover">
                         <div>
                             <h3 class="text-xl font-bold text-[var(--primary-color)] mb-2">{{ $course->teamMember->name }}</h3>
-                            <p class="text-[var(--primary-light)] mb-4">{{ $course->teamMember->title }} @if($course->teamMember->license_number) ({{$course->teamMember->license_number}}) @endif</p>
-                            @if($course->teamMember->organization)
+                            <p class="text-[var(--primary-light)]">{{ $course->teamMember->title }}</p>
+                            @if($course->teamMember->license_number)<p class="text-xs text-gray-500 mb-2">{{ $course->teamMember->license_number }}</p>@endif
+                        @if($course->teamMember->organization)
                                 <p class="text-[var(--primary-light)] mb-4">{{ $course->teamMember->organization }}</p>
                             @endif
                             <div class="text-[var(--primary-light)]">

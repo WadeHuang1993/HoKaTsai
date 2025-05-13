@@ -75,18 +75,18 @@
                 <div class="bg-[var(--background-color)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
                     <img src="{{ $member->image }}" alt="{{ $member->name }}諮商師" class="w-48 h-64 rounded-xl mx-auto mb-6 object-cover">
                     <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3 text-center">{{ $member->name }}</h3>
-                    <p class="text-[var(--primary-light)] mb-4 text-center">{{ $member->title }}</p>
-                    <p class="text-[var(--primary-light)] leading-relaxed text-center">
-                        專長領域：{{ is_array($member->specialties) ? implode('、', $member->specialties) : $member->specialties }}
+                    <p class="text-[var(--primary-light)] text-center">{{ $member->title }}</p>
+                    @if($member->license_number)
+                        <p class="text-xs text-gray-500 text-center">{{ $member->license_number }}</p>
+                    @endif
+                    @if($member->organization)
+                        <p class="text-[var(--primary-light)] text-center">{{ $member->organization }}</p>
+                    @endif
+                        <p class="text-[var(--primary-light)] mt-4 leading-relaxed text-center">
+                        {{ is_array($member->specialized_approaches) ? implode('、', $member->specialized_approaches) : $member->specialized_approaches }}
                     </p>
                 </div>
             @endforeach
-        </div>
-
-        <!-- 諮商空間 -->
-        <div id="space" class="text-center mb-20 scroll-mt-24">
-            <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">諮商空間</h2>
-            <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">溫馨舒適的環境，讓您安心放鬆</p>
         </div>
 
         <div class="grid grid-cols-4 gap-4">

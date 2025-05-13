@@ -25,7 +25,9 @@ class TeamMember extends Model
         'education',
         'show_in_homepage',
         'license_number',
-        'organization'
+        'organization',
+        'specialized_approaches',
+        'professional_trainings',
     ];
 
     protected $casts = [
@@ -35,7 +37,9 @@ class TeamMember extends Model
         'deleted_at' => 'immutable_datetime',
         'specialties' => 'array',
         'education' => 'array',
-        'work_experience' => 'array'
+        'work_experience' => 'array',
+        'specialized_approaches' => 'array',
+        'professional_trainings' => 'array',
     ];
 
     public function getImageAttribute($value)
