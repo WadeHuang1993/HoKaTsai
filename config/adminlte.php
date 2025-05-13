@@ -316,6 +316,11 @@ return [
             'text' => 'search',
         ],
         [
+            'text' => '團隊陣容管理',
+            'icon' => 'fas fa-fw fa-users',
+            'route' => 'admin.team-members.index',
+        ],
+        [
             'text' => '最新消息管理',
             'icon' => 'fas fa-fw fa-newspaper',
             'route' => 'admin.news.index',
@@ -326,20 +331,9 @@ return [
             'route' => 'admin.articles.index',
         ],
         [
-            'text' => '團隊陣容管理',
-            'icon' => 'fas fa-fw fa-users',
-            'route' => 'admin.team-members.index',
-        ],
-        [
             'text' => '課程講座管理',
             'icon' => 'fas fa-fw fa-chalkboard-teacher',
             'route' => 'admin.courses.index',
-        ],
-        ['header' => '系統設定'],
-        [
-            'text' => '基本設定',
-            'icon' => 'fas fa-fw fa-cog',
-            'url'  => '#',
         ],
     ],
 
