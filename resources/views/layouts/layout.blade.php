@@ -148,6 +148,16 @@
             </div>
         </footer>
 
+        <!-- Line 浮球 -->
+        <a href="https://lin.ee/2VKNxkK" target="_blank" class="fixed bottom-32 right-6 z-50 flex items-center px-4 py-2 bg-[#06c755] text-white rounded-full shadow-lg hover:bg-[#05b14b] transition-all group" style="min-width: 120px;">
+            <svg class="w-7 h-7 mr-2" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="24" fill="#06c755"/>
+                <path d="M24 12C16.268 12 10 17.477 10 24.08c0 3.13 1.915 5.89 4.91 7.74-.21.77-.77 2.77-.88 3.19 0 0-.02.07 0 .15.04.14.16.19.27.19.09 0 .18-.03.18-.03.23-.03 2.53-1.67 3.56-2.38 1.37.2 2.8.32 4.28.32 7.732 0 14-5.477 14-12.08S31.732 12 24 12z" fill="#fff"/>
+            </svg>
+            <span class="font-bold text-base group-hover:underline">立即預約</span>
+        </a>
+        <!-- /Line 浮球 -->
+
         <script>
             document.getElementById('mobile-menu-button').addEventListener('click', function() {
                 document.getElementById('mobile-menu').classList.toggle('hidden');
