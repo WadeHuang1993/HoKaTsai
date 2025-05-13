@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\TeamMemberController;
 
 Route::prefix('hokatsai-admin')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
@@ -13,4 +14,7 @@ Route::prefix('hokatsai-admin')->name('admin.')->group(function () {
     
     // 諮商專欄管理
     Route::resource('articles', ArticleController::class);
+
+    // 團隊成員管理
+    Route::resource('team-members', TeamMemberController::class);
 }); 

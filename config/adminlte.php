@@ -328,7 +328,7 @@ return [
         [
             'text' => '團隊陣容管理',
             'icon' => 'fas fa-fw fa-users',
-            'url'  => '#',
+            'route' => 'admin.team-members.index',
         ],
         [
             'text' => '課程講座管理',
