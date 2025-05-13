@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\TeamMember;
 use App\Models\News;
+use App\Models\Article;
 
 class HomeController extends Controller
 {
@@ -31,6 +32,12 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
-        return view('home', compact('latestCourses', 'teamMembers', 'latestNews'));
+        $latestArticles = Article::with('teamMember')
+            ->where('status', true)
+            ->orderBy('created_at', 'desc')
+            ->take(6)
+            ->get();
+
+        return view('home', compact('latestCourses', 'teamMembers', 'latestNews', 'latestArticles'));
     }
 }

@@ -4,7 +4,7 @@
 <div class="py-24 bg-[var(--background-color)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20">
-            <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">心理專欄</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">諮商專欄</h2>
             <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">探索心理健康的專業觀點與實用建議</p>
         </div>
 

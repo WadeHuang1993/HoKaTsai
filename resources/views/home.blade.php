@@ -157,29 +157,26 @@
             <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">分享專業知識與心理健康資訊</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- 專欄文章 1-6 (類似最新消息的結構) -->
-            <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/environment/1.jpg" alt="專欄文章1" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-20</div>
-                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">如何培養良好的情緒管理能力</h3>
-                    <p class="text-[var(--primary-light)] mb-4 line-clamp-3">在現代生活中，良好的情緒管理能力變得越來越重要...</p>
-                    <a href="{{ route('articles.show', 1) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
-                </div>
-            </div>
-
-            <!-- 專欄文章 2-6 -->
-            <div class="bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <img src="/images/environment/2.jpg" alt="專欄文章2" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="text-sm text-[var(--primary-light)] mb-2">2024-01-18</div>
-                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">建立健康的人際界線</h3>
-                    <p class="text-[var(--primary-light)] mb-4 line-clamp-3">學習如何在關係中設立適當的界線，維護自己的心理健康...</p>
-                    <a href="{{ route('articles.show', 2) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
-                </div>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            @foreach($latestArticles as $article)
+                <a href="{{ route('articles.show', $article->_id) }}" class="block bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 h-full">
+                    <div class="p-6">
+                        <div class="text-sm text-[var(--primary-light)] mb-2">{{ $article->created_at->format('Y-m-d') }}</div>
+                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $article->title }}</h3>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($article->content) }}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-[var(--primary-light)]">{{ $article->teamMember->name }} - {{ $article->teamMember->title }}</span>
+                            <span class="text-[var(--primary-color)] group-hover:text-[var(--primary-light)] transition duration-300">閱讀更多</span>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
         </div>
+        @if($latestArticles->count() > 2)
+        <div class="text-center">
+            <a href="{{ route('articles.index') }}" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-3 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">查看全部專欄</a>
+        </div>
+        @endif
     </div>
 </div>
 
