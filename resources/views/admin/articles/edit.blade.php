@@ -18,8 +18,24 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
+                    <label for="team_member_id">作者</label>
+                    <select class="form-control @error('team_member_id') is-invalid @enderror"
+                            id="team_member_id" name="team_member_id" required>
+                        <option value="">請選擇作者</option>
+                        @foreach($teamMembers as $member)
+                            <option value="{{ $member->_id }}"
+                                {{ old('team_member_id', $article->team_member_id) == $member->_id ? 'selected' : '' }}>
+                                {{ $member->name }} - {{ $member->title }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('team_member_id')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <label for="title">標題</label>
-                    <input type="text" class="form-control @error('title') is-invalid @enderror" 
+                    <input type="text" class="form-control @error('title') is-invalid @enderror"
                            id="title" name="title" value="{{ old('title', $article->title) }}" required>
                     @error('title')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -28,18 +44,17 @@
 
                 <div class="form-group">
                     <label for="tag">標籤</label>
-                    <input type="text" class="form-control @error('tag') is-invalid @enderror" 
+                    <input type="text" class="form-control @error('tag') is-invalid @enderror"
                            id="tag" name="tag" value="{{ old('tag', $article->tag) }}" placeholder="例如：性治療、家庭治療">
                     @error('tag')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-
                 <div class="form-group">
                     <label>常用標籤</label>
                     <div class="d-flex flex-wrap">
                         @foreach($oftenTags as $tag)
-                            <button type="button" class="btn btn-outline-secondary mr-2 mb-2 tag-btn" 
+                            <button type="button" class="btn btn-outline-secondary mr-2 mb-2 tag-btn"
                                     data-tag="{{ $tag['tag'] }}">
                                 {{ $tag['tag'] }} ({{ $tag['counts'] }})
                             </button>
@@ -47,9 +62,11 @@
                     </div>
                 </div>
 
+
+
                 <div class="form-group">
                     <label for="content">內容</label>
-                    <textarea class="form-control @error('content') is-invalid @enderror" 
+                    <textarea class="form-control @error('content') is-invalid @enderror"
                               id="content" name="content" rows="10" required>{{ old('content', $article->content) }}</textarea>
                     @error('content')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -64,7 +81,7 @@
                         </div>
                     @endif
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input @error('image') is-invalid @enderror" 
+                        <input type="file" class="custom-file-input @error('image') is-invalid @enderror"
                                id="image" name="image" accept="image/*">
                         <label class="custom-file-label" for="image">選擇檔案</label>
                     </div>
@@ -77,7 +94,7 @@
                 <div class="form-group">
                     <label for="status">狀態</label>
                     <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="status" name="status" value="1" 
+                        <input type="checkbox" class="custom-control-input" id="status" name="status" value="1"
                                {{ old('status', $article->status) ? 'checked' : '' }}>
                         <label class="custom-control-label" for="status">發布</label>
                     </div>
@@ -109,4 +126,4 @@
             });
         });
     </script>
-@stop 
+@stop

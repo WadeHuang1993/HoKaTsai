@@ -23,6 +23,7 @@ class Article extends Model
         'image',
         'status',
         'tag',
+        'team_member_id',
     ];
 
 
@@ -37,5 +38,10 @@ class Article extends Model
         $datetime = $created_at->toDateTimeImmutable();
         $datetime = $datetime->setTimezone(new \DateTimeZone('Asia/Taipei'));
         return $datetime;
+    }
+
+    public function teamMember()
+    {
+        return $this->belongsTo(TeamMember::class, 'team_member_id', '_id');
     }
 }
