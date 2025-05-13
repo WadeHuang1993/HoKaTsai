@@ -12,21 +12,25 @@
             @foreach($articles as $article)
             <div class="bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
                 <div class="p-6">
-                    <div class="text-sm text-[var(--primary-light)] mb-2">{{ $article['date'] }}</div>
-                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $article['title'] }}</h3>
-                    <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($article['content']) }}</p>
+                    <div class="text-sm text-[var(--primary-light)] mb-2">{{ $article->created_at->format('Y-m-d') }}</div>
+                    <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $article->title }}</h3>
+                    <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($article->content) }}</p>
+                    @if($article->tag)
                     <div class="flex flex-wrap gap-2 mb-4">
-                        @foreach($article['tags'] as $tag)
-                        <span class="px-3 py-1 bg-[var(--background-color)] text-[var(--primary-color)] rounded-full text-sm">{{ $tag }}</span>
-                        @endforeach
+                        <span class="px-3 py-1 bg-[var(--background-color)] text-[var(--primary-color)] rounded-full text-sm">{{ $article->tag }}</span>
                     </div>
+                    @endif
                     <div class="flex justify-between items-center">
-                        <span class="text-[var(--primary-light)]">{{ $article['author'] }}</span>
-                        <a href="{{ route('articles.show', $article['id']) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
+                        <span class="text-[var(--primary-light)]">{{ $article->teamMember->name }} - {{ $article->teamMember->title }}</span>
+                        <a href="{{ route('articles.show', $article->_id) }}" class="text-[var(--primary-color)] hover:text-[var(--primary-light)] transition duration-300">閱讀更多</a>
                     </div>
                 </div>
             </div>
             @endforeach
+        </div>
+
+        <div class="mt-8">
+            {{ $articles->links() }}
         </div>
     </div>
 </div>

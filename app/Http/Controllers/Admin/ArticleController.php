@@ -24,7 +24,7 @@ class ArticleController extends Controller
             return $collection->aggregate([
                 [
                     '$match' => [
-                        'is_deleted' => ['$ne' => null],
+                        'deleted_at' => ['$ne' => null],
                         'tag' => ['$exists' => true, '$ne' => null]
                     ]
                 ],
