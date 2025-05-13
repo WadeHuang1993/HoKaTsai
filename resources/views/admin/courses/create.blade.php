@@ -132,6 +132,14 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="google_form_url">Google 表單網址</label>
+                    <input type="url" class="form-control @error('google_form_url') is-invalid @enderror" id="google_form_url" name="google_form_url" value="{{ old('google_form_url') }}">
+                    @error('google_form_url')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label>注意事項</label>
                     <div id="notes-container">
                         <div class="note-item mb-3">

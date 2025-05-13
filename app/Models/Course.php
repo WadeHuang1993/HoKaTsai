@@ -26,7 +26,8 @@ class Course extends Model
         'max_participants',
         'remaining_slots',
         'price',
-        'notes'
+        'notes',
+        'google_form_url'
     ];
 
     protected $casts = [

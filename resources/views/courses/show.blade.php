@@ -136,7 +136,9 @@
                     </div>
 
                     <!-- 報名按鈕 -->
-                    <a href="TODO" class="block w-full bg-[var(--primary-color)] text-[var(--text-light)] text-center px-6 py-4 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">立即報名</a>
+                    @if($course->google_form_url)
+                    <a href="{{ $course->google_form_url }}" target="_blank" class="block w-full bg-[var(--primary-color)] text-[var(--text-light)] text-center px-6 py-4 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">立即報名</a>
+                    @endif
                 </div>
             </div>
         </div>
