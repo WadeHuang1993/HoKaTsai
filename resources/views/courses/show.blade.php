@@ -60,10 +60,37 @@
                         <img src="{{ $course->teamMember->image }}" alt="{{ $course->teamMember->name }}講師" class="w-48 h-64 rounded-xl object-cover">
                         <div>
                             <h3 class="text-xl font-bold text-[var(--primary-color)] mb-2">{{ $course->teamMember->name }}</h3>
-                            <p class="text-[var(--primary-light)] mb-4">{{ $course->teamMember->title }}</p>
+                            <p class="text-[var(--primary-light)] mb-4">{{ $course->teamMember->title }} @if($course->teamMember->license_number) ({{$course->teamMember->license_number}}) @endif</p>
+                            @if($course->teamMember->organization)
+                                <p class="text-[var(--primary-light)] mb-4">{{ $course->teamMember->organization }}</p>
+                            @endif
                             <div class="text-[var(--primary-light)]">
-                                <p>專長領域：</p>
-                                <p class="mt-2">{{ $course->teamMember->specialties }}</p>
+                                @if($course->teamMember->specialties)
+                                    <p class="font-semibold mb-2">關注議題：</p>
+                                    <ul class="list-disc list-inside mb-4">
+                                        @foreach($course->teamMember->specialties as $specialty)
+                                            <li>{{ $specialty }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+
+                                @if($course->teamMember->education)
+                                    <p class="font-semibold mb-2">學歷：</p>
+                                    <ul class="list-disc list-inside mb-4">
+                                        @foreach($course->teamMember->education as $edu)
+                                            <li>{{ $edu }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+
+                                @if($course->teamMember->work_experience)
+                                    <p class="font-semibold mb-2">重要經歷：</p>
+                                    <ul class="list-disc list-inside mb-4">
+                                        @foreach($course->teamMember->work_experience as $exp)
+                                            <li>{{ $exp }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </div>
                         </div>
                     </div>

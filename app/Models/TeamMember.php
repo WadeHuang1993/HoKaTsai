@@ -33,6 +33,9 @@ class TeamMember extends Model
         'created_at' => 'immutable_datetime',
         'updated_at' => 'immutable_datetime',
         'deleted_at' => 'immutable_datetime',
+        'specialties' => 'array',
+        'education' => 'array',
+        'work_experience' => 'array'
     ];
 
     public function getImageAttribute($value)

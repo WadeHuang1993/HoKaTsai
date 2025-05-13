@@ -64,8 +64,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="specialties">專長 <span class="text-danger">*</span></label>
-                    <textarea class="form-control @error('specialties') is-invalid @enderror" id="specialties" name="specialties" rows="3" required placeholder="請輸入專長，每行一個">{{ old('specialties', $teamMember->specialties) }}</textarea>
+                    <label for="specialties">關注議題 <span class="text-danger">*</span></label>
+                    <textarea class="form-control @error('specialties') is-invalid @enderror" id="specialties" name="specialties" rows="3" required placeholder="請輸入關注議題，每行一個">{{ old('specialties', is_array($teamMember->specialties) ? implode("\n", $teamMember->specialties) : $teamMember->specialties) }}</textarea>
                     @error('specialties')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -73,15 +73,15 @@
 
                 <div class="form-group">
                     <label for="education">學歷</label>
-                    <textarea class="form-control @error('education') is-invalid @enderror" id="education" name="education" rows="3">{{ old('education', $teamMember->education) }}</textarea>
+                    <textarea class="form-control @error('education') is-invalid @enderror" id="education" name="education" rows="3" placeholder="請輸入學歷，每行一個">{{ old('education', is_array($teamMember->education) ? implode("\n", $teamMember->education) : $teamMember->education) }}</textarea>
                     @error('education')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="form-group">
-                    <label for="work_experience">工作經歷</label>
-                    <textarea class="form-control @error('work_experience') is-invalid @enderror" id="work_experience" name="work_experience" rows="3">{{ old('work_experience', $teamMember->work_experience) }}</textarea>
+                    <label for="work_experience">重要經歷</label>
+                    <textarea class="form-control @error('work_experience') is-invalid @enderror" id="work_experience" name="work_experience" rows="3" placeholder="請輸入重要經歷，每行一個">{{ old('work_experience', is_array($teamMember->work_experience) ? implode("\n", $teamMember->work_experience) : $teamMember->work_experience) }}</textarea>
                     @error('work_experience')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
