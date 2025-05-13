@@ -6,11 +6,18 @@
 <div class="max-w-lg mx-auto py-16">
     <div class="bg-white rounded-xl shadow-lg p-8">
         <h1 class="text-3xl font-bold text-center text-[var(--primary-color)] mb-6">預約諮商</h1>
-        <div class="mb-8 text-[var(--primary-light)] leading-relaxed">
+        <div class="guide-text mb-8 text-[var(--primary-light)] leading-relaxed text-center">
+            <p class="mb-4">我們的諮商預約採「預約制」</p>
 
-            <p class="mb-2">我們的諮商預約採「預約制」，請您留下以下資訊：</p>
+            <p class="mb-4">
+                您可以 Line
+                <a href="https://lin.ee/2VKNxkK" target="_blank" style="display: inline-flex; align-items: center;">
+                    <img src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" style="height: 2em; vertical-align: middle; margin-right: 0.2em;">
+                </a>
+                或請您留下以下資訊：
+            </p>
             <p>我們的個案管理師會於上班時間陸續與您接洽</p>
-            <p>請您稍等，謝謝您😊</p>
+            <p>請您稍等</p>
         </div>
         @if(session('success'))
             <div class="alert alert-success text-green-700 bg-green-100 border border-green-300 rounded p-4 mb-6 text-center">
