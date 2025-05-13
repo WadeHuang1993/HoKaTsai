@@ -341,9 +341,14 @@ return [
             'route' => 'admin.environment-images.index',
         ],
         [
-            'text' => '預約管理',
+            'text' => '諮商預約管理',
             'icon' => 'fas fa-fw fa-calendar-check',
             'route' => 'admin.appointments.index',
+        ],
+        [
+            'text' => '管理員帳號設定',
+            'icon' => 'fas fa-fw fa-user-shield',
+            'route' => 'admin.admin-users.index',
         ],
     ],
 
