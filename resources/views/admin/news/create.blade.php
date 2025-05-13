@@ -57,16 +57,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="published_at">發布日期</label>
-                    <input type="datetime-local" class="form-control @error('published_at') is-invalid @enderror" 
-                           id="published_at" name="published_at" 
-                           value="{{ old('published_at', $defaultDate) }}" required>
-                    @error('published_at')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="form-group">
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-save"></i> 儲存
                     </button>

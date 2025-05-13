@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', '編輯最新消息')
+@section('title', '新增諮商專欄')
 
 @section('content_header')
     <div class="d-flex justify-content-between align-items-center">
-        <h1>編輯最新消息</h1>
-        <a href="{{ route('admin.news.index') }}" class="btn btn-secondary">
+        <h1>新增諮商專欄</h1>
+        <a href="{{ route('admin.articles.index') }}" class="btn btn-secondary">
             <i class="fas fa-arrow-left"></i> 返回列表
         </a>
     </div>
@@ -14,23 +14,42 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('admin.news.update', $news) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.articles.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
-                
                 <div class="form-group">
                     <label for="title">標題</label>
                     <input type="text" class="form-control @error('title') is-invalid @enderror" 
-                           id="title" name="title" value="{{ old('title', $news->title) }}" required>
+                           id="title" name="title" value="{{ old('title') }}" required>
                     @error('title')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="form-group">
+                    <label for="tag">標籤</label>
+                    <input type="text" class="form-control @error('tag') is-invalid @enderror" 
+                           id="tag" name="tag" value="{{ old('tag') }}" placeholder="例如：性治療、家庭治療">
+                    @error('tag')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label>常用標籤</label>
+                    <div class="d-flex flex-wrap">
+                        @foreach($oftenTags as $tag)
+                            <button type="button" class="btn btn-outline-secondary mr-2 mb-2 tag-btn" 
+                                    data-tag="{{ $tag['tag'] }}">
+                                {{ $tag['tag'] }} ({{ $tag['counts'] }})
+                            </button>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="content">內容</label>
                     <textarea class="form-control @error('content') is-invalid @enderror" 
-                              id="content" name="content" rows="10" required>{{ old('content', $news->content) }}</textarea>
+                              id="content" name="content" rows="10" required>{{ old('content') }}</textarea>
                     @error('content')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -38,11 +57,6 @@
 
                 <div class="form-group">
                     <label for="image">圖片</label>
-                    @if($news->image)
-                        <div class="mb-2">
-                            <img src="{{ asset('storage/' . $news->image) }}" alt="Current Image" class="img-thumbnail" style="max-height: 200px;">
-                        </div>
-                    @endif
                     <div class="custom-file">
                         <input type="file" class="custom-file-input @error('image') is-invalid @enderror" 
                                id="image" name="image" accept="image/*">
@@ -58,7 +72,7 @@
                     <label for="status">狀態</label>
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="status" name="status" value="1" 
-                               {{ old('status', $news->status) ? 'checked' : '' }}>
+                               {{ old('status') ? 'checked' : '' }}>
                         <label class="custom-control-label" for="status">發布</label>
                     </div>
                 </div>
@@ -80,6 +94,13 @@
             var fileName = e.target.files[0].name;
             var nextSibling = e.target.nextElementSibling;
             nextSibling.innerText = fileName;
+        });
+
+        // 常用標籤點擊事件
+        document.querySelectorAll('.tag-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.getElementById('tag').value = this.dataset.tag;
+            });
         });
     </script>
 @stop 

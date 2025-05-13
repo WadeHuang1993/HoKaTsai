@@ -4,21 +4,32 @@ namespace App\Models;
 
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
-use Carbon\Carbon;
 use MongoDB\BSON\UTCDateTime;
 
-class News extends Model
+/**
+ *
+ */
+class Article extends Model
 {
     use SoftDeletes;
+
     public $timestamps = true;
     protected $connection = 'mongodb';
-    protected $collection = 'news';
+    protected $collection = 'articles';
 
     protected $fillable = [
         'title',
         'content',
         'image',
         'status',
+        'tag',
+    ];
+
+
+    protected $casts = [
+        'created_at' => 'immutable_datetime',
+        'updated_at' => 'immutable_datetime',
+        'deleted_at' => 'immutable_datetime',
     ];
 
     public function getCreatedAtAttribute(UTCDateTime $created_at)

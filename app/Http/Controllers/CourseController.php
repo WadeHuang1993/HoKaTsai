@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use App\Models\Course;
 
 class CourseController extends Controller
 {
@@ -54,68 +55,10 @@ class CourseController extends Controller
 
     public function show($id)
     {
-        // 假資料
-        $course = [
-            'id' => $id,
-            'title' => '壓力管理工作坊',
-            'date' => '2024-02-01 14:00 ~ 16:00',
-            'location' => '台北市信義區信義路五段',
-            'price' => 1500,
-            'image' => '/images/environment/3.jpg',
-            'schedule' => [
-                [
-                    'time' => '14:00-14:30',
-                    'content' => '破冰活動與壓力評估'
-                ],
-                [
-                    'time' => '14:30-15:00',
-                    'content' => '壓力理論與影響介紹'
-                ],
-                [
-                    'time' => '15:00-15:30',
-                    'content' => '壓力管理技巧實作'
-                ],
-                [
-                    'time' => '15:30-16:00',
-                    'content' => '正念減壓練習與總結'
-                ]
-            ],
-            'description' => '
-                <p class="mb-4">在這個快節奏的現代社會中，壓力已成為每個人生活中不可避免的一部分。本工作坊將帶領您：</p>
-                <ul class="list-disc list-inside mb-4 space-y-2">
-                    <li>了解壓力的來源與影響</li>
-                    <li>學習實用的壓力管理技巧</li>
-                    <li>建立個人化的壓力調適策略</li>
-                    <li>練習正念減壓方法</li>
-                    <li>分享與交流壓力管理經驗</li>
-                </ul>
-                <p>透過專業講師的引導，結合理論與實務操作，幫助您建立更健康的生活方式。</p>
-            ',
-            'registration_info' => [
-                'deadline' => '2024-01-25',
-                'max_participants' => 20,
-                'remaining_slots' => 8,
-                'notes' => [
-                    '請提前 10 分鐘報到',
-                    '現場提供講義及文具',
-                    '建議穿著輕便服裝',
-                    '如需取消請提前 3 天告知'
-                ]
-            ],
-            'team_member_id' => 1,
-            'team_member' => [
-                'id' => 1,
-                'name' => '王曉明',
-                'title' => '資深諮商心理師',
-                'image' => '/images/teams/S__91521028.webp',
-                'specialties' => [
-                    '壓力管理',
-                    '情緒管理',
-                    '人際關係',
-                    '職場適應'
-                ]
-            ]
-        ];
+        $course = Course::findOrFail($id);
+        
+        // 載入關聯的講師資料
+        $course->load('teamMember');
 
         return view('courses.show', compact('course'));
     }

@@ -318,34 +318,22 @@ return [
         [
             'text' => '最新消息管理',
             'icon' => 'fas fa-fw fa-newspaper',
-            'url'  => '#',
-            'submenu' => [
-                [
-                    'text' => '所有消息',
-                    'route' => 'admin.news.index',
-                    'icon' => 'fas fa-fw fa-list'
-                ],
-                [
-                    'text' => '新增消息',
-                    'route' => 'admin.news.create',
-                    'icon' => 'fas fa-fw fa-plus'
-                ],
-            ],
-        ],
-        [
-            'text' => '診所團隊管理',
-            'icon' => 'fas fa-fw fa-users',
-            'url'  => '#',
-        ],
-        [
-            'text' => '課程講座管理',
-            'icon' => 'fas fa-fw fa-chalkboard-teacher',
-            'url'  => '#',
+            'route' => 'admin.news.index',
         ],
         [
             'text' => '諮商專欄管理',
             'icon' => 'fas fa-fw fa-book-reader',
-            'url'  => '#',
+            'route' => 'admin.articles.index',
+        ],
+        [
+            'text' => '團隊陣容管理',
+            'icon' => 'fas fa-fw fa-users',
+            'route' => 'admin.team-members.index',
+        ],
+        [
+            'text' => '課程講座管理',
+            'icon' => 'fas fa-fw fa-chalkboard-teacher',
+            'route' => 'admin.courses.index',
         ],
         ['header' => '系統設定'],
         [

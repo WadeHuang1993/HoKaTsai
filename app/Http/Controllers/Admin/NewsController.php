@@ -16,9 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::orderBy('published_at', 'desc')
-            ->paginate(10);
-
+        $news = News::orderBy('_id', 'desc')->paginate();
         return view('admin.news.index', compact('news'));
     }
 
@@ -44,9 +42,8 @@ class NewsController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',
-            'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'status' => 'boolean',
-            'published_at' => 'required|date',
         ]);
 
         if ($request->hasFile('image')) {
@@ -54,13 +51,12 @@ class NewsController extends Controller
             $validated['image'] = $path;
         }
 
-        // 將時間轉換為字串格式
-        $validated['published_at'] = date('Y-m-d H:i', strtotime($validated['published_at']));
+        $validated['status'] = $request->has('status');
 
         News::create($validated);
 
         return redirect()->route('admin.news.index')
-            ->with('success', '最新消息已成功建立！');
+            ->with('success', '最新消息已成功建立');
     }
 
     /**
@@ -97,27 +93,27 @@ class NewsController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',
-            'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'status' => 'boolean',
-            'published_at' => 'required|date',
         ]);
 
+        // 處理圖片上傳
         if ($request->hasFile('image')) {
             // 刪除舊圖片
             if ($news->image) {
-                Storage::disk('public')->delete($news->image);
+                Storage::delete($news->image);
             }
-            $path = $request->file('image')->store('news', 'public');
-            $validated['image'] = $path;
+            $validated['image'] = $request->file('image')->store('news', 'public');
         }
 
-        // 將時間轉換為字串格式
-        $validated['published_at'] = date('Y-m-d H:i', strtotime($validated['published_at']));
+        // 處理狀態
+        $validated['status'] = $request->has('status');
 
+        // 更新新聞
         $news->update($validated);
 
         return redirect()->route('admin.news.index')
-            ->with('success', '最新消息已成功更新！');
+            ->with('success', '最新消息已更新');
     }
 
     /**
@@ -131,7 +127,7 @@ class NewsController extends Controller
         if ($news->image) {
             Storage::disk('public')->delete($news->image);
         }
-        
+
         $news->delete();
 
         return redirect()->route('admin.news.index')
