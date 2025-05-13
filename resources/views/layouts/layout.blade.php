@@ -58,7 +58,7 @@
                         </div>
 
                         <a href="{{ route('home') }}#appointment" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#7AD68E] hover:border-[#7AD68E]">諮商預約</a>
-                        <a href="{{ route('home') }}#courses" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#7AA6D6] hover:border-[#7AA6D6]">講座課程</a>
+                        <a href="{{ route('courses.index') }}" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#7AA6D6] hover:border-[#7AA6D6]">講座課程</a>
                         <a href="{{ route('home') }}#column" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#A67AD6] hover:border-[#A67AD6]">諮商專欄</a>
                     </div>
                     <div class="md:hidden flex items-center">
