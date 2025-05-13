@@ -62,12 +62,10 @@
                     </div>
                 </div>
 
-
-
                 <div class="form-group">
                     <label for="content">內容</label>
                     <textarea class="form-control @error('content') is-invalid @enderror"
-                              id="content" name="content" rows="10" required>{{ old('content', $article->content) }}</textarea>
+                              id="content" name="content" rows="10">{{ old('content', $article->content) }}</textarea>
                     @error('content')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -111,6 +109,7 @@
 @stop
 
 @section('js')
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
     <script>
         // 檔案名稱顯示
         document.querySelector('.custom-file-input').addEventListener('change', function(e) {
@@ -125,5 +124,33 @@
                 document.getElementById('tag').value = this.dataset.tag;
             });
         });
+
+        // CKEditor 初始化
+        ClassicEditor
+            .create(document.querySelector('#content'), {
+                toolbar: {
+                    items: [
+                        'heading',
+                        '|',
+                        'bold',
+                        'italic',
+                        'link',
+                        'bulletedList',
+                        'numberedList',
+                        '|',
+                        'outdent',
+                        'indent',
+                        '|',
+                        'blockQuote',
+                        'insertTable',
+                        'undo',
+                        'redo'
+                    ]
+                },
+                language: 'zh-TW'
+            })
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 @stop
