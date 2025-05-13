@@ -12,7 +12,7 @@ class CourseController extends Controller
     {
         $courses = Course::with('teamMember')
             ->orderBy('start_date', 'desc')
-            ->paginate(30);
+            ->paginate(15);
 
         return view('courses.index', compact('courses'));
     }
