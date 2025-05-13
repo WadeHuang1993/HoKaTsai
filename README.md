@@ -1,5 +1,15 @@
 # 心理諮商診所入口網站
 
+前台：
+https://hokatsai-counseling.com/
+後台：
+https://hokatsai-counseling.com/hokatsai-admin
+
+帳號：
+hokatsai@admin.com
+密碼：
+hokatsai
+
 ## 開發環境需求
 - Docker
 - Docker Compose
