@@ -38,6 +38,8 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
-        return view('home', compact('latestCourses', 'teamMembers', 'latestNews', 'latestArticles'));
+        $environmentImages = \App\Models\EnvironmentImage::orderBy('created_at', 'desc')->get();
+
+        return view('home', compact('latestCourses', 'teamMembers', 'latestNews', 'latestArticles', 'environmentImages'));
     }
 }

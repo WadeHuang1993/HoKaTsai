@@ -25,7 +25,7 @@ class EnvironmentImageController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+            'image' => 'required',
         ]);
 
         if ($request->hasFile('image')) {
@@ -48,7 +48,7 @@ class EnvironmentImageController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+            'image' => 'required',
         ]);
 
         if ($request->hasFile('image')) {
@@ -69,4 +69,4 @@ class EnvironmentImageController extends Controller
         $image->delete();
         return redirect()->route('admin.environment-images.index')->with('success', '環境照片已刪除');
     }
-} 
+}

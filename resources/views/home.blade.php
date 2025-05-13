@@ -86,18 +86,11 @@
                     <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">溫馨舒適的環境，讓您安心放鬆</p>
                 </div>
                 <div class="environment_space grid grid-cols-4 gap-4">
-                    <div class="col-span-4 md:col-span-1">
-                        <img src="/images/environment/1.jpg" alt="諮商空間1" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="col-span-4 md:col-span-1">
-                        <img src="/images/environment/2.jpg" alt="諮商空間2" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="col-span-4 md:col-span-1">
-                        <img src="/images/environment/3.jpg" alt="諮商空間3" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="col-span-4 md:col-span-1">
-                        <img src="/images/environment/4.jpg" alt="諮商空間4" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
-                    </div>
+                    @foreach($environmentImages as $img)
+                        <div class="col-span-4 md:col-span-1">
+                            <img src="{{ $img->image ? Storage::url($img->image) : '/images/no-image.png' }}" alt="{{ $img->title }}" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
