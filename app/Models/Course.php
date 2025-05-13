@@ -23,7 +23,6 @@ class Course extends Model
         'image',
         'description',
         'team_member_id',
-        'show_in_homepage',
         'schedule',
         'max_participants',
         'remaining_slots',
@@ -34,7 +33,6 @@ class Course extends Model
     protected $casts = [
         'schedule' => 'array',
         'notes' => 'array',
-        'show_in_homepage' => 'boolean',
         'max_participants' => 'integer',
         'remaining_slots' => 'integer',
         'price' => 'integer',

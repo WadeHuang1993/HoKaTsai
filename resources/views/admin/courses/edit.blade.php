@@ -161,13 +161,6 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="show_in_homepage" name="show_in_homepage" {{ old('show_in_homepage', $course->show_in_homepage) ? 'checked' : '' }}>
-                        <label class="custom-control-label" for="show_in_homepage">在首頁顯示</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <button type="submit" class="btn btn-primary">更新課程</button>
                     <a href="{{ route('admin.courses.index') }}" class="btn btn-secondary">返回列表</a>
                 </div>
