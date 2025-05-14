@@ -12,12 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/colors.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/colors.css') }}?version=1" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}?version=1" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}?version=1" defer></script>
 
     <style>
         body {
