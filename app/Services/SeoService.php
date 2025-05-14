@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\News;
 use Illuminate\Support\Facades\Storage;
 
 class SeoService
@@ -136,7 +137,7 @@ class SeoService
      * @param \App\Models\News $news
      * @return array
      */
-    public function getNewsDetailSeoData($news): array
+    public function getNewsDetailSeoData(News $news): array
     {
         $description = strip_tags(str_replace('&nbsp;', ' ', $news->content));
         $description = mb_substr($description, 0, 160, 'UTF-8') . '...';

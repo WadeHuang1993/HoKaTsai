@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $latestNews = News::orderBy('created_at', 'desc')->take(6)->get();
+        $latestNews = News::orderBy('_id', 'desc')->where('status', true)->take(6)->get();
         $teamMembers = TeamMember::orderBy('order')->get();
         $environmentImages = EnvironmentImage::orderBy('order')->get();
         $latestArticles = Article::with('teamMember')->orderBy('created_at', 'desc')->take(6)->get();

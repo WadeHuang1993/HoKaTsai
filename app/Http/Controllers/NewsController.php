@@ -30,7 +30,7 @@ class NewsController extends Controller
     public function show($newsId)
     {
         $news = News::findOrFail($newsId);
-        if ($news->status !== true) {
+        if ((bool) $news->status !== true) {
             abort(404);
         }
 
