@@ -36,7 +36,10 @@
                 </div>
                 <div class="form-group">
                     <label>照片 <span class="text-danger">*</span></label>
-                    <input type="file" name="image" accept="image/*" class="form-control-file" required>
+                    <div class="custom-file">
+                        <input type="file" name="image" accept="image/*" class="custom-file-input" required id="image">
+                        <label class="custom-file-label" for="image">選擇檔案</label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>首頁排序（數字越小越前面）</label>
@@ -50,3 +53,19 @@
         </div>
     </div>
 @stop
+
+@section('js')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.custom-file-input').forEach(function(fileInput) {
+            fileInput.addEventListener('change', function(e) {
+                var fileName = e.target.files[0]?.name || '';
+                var nextSibling = e.target.nextElementSibling;
+                if(nextSibling && fileName) {
+                    nextSibling.innerText = fileName;
+                }
+            });
+        });
+    });
+</script>
+@endsection
