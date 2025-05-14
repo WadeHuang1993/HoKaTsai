@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\News;
+use App\Models\Course;
 use Illuminate\Support\Facades\Storage;
 
 class SeoService
@@ -189,6 +190,82 @@ class SeoService
                 'mainEntityOfPage' => [
                     '@type' => 'WebPage',
                     '@id' => route('news.show', $news->_id)
+                ]
+            ]
+        ];
+    }
+
+    /**
+     * 生成課程列表頁的 SEO 資料
+     *
+     * @param \Illuminate\Pagination\LengthAwarePaginator $courses
+     * @return array
+     */
+    public function getCourseListSeoData($courses): array
+    {
+        return [
+            'title' => '心理課程與講座 - 好家在心理諮商所',
+            'description' => '好家在心理諮商所提供專業的心理課程與講座，包含心理健康、情緒管理、人際關係等主題，由專業心理師帶領，幫助您提升心理素質與生活品質。',
+            'keywords' => '心理課程,心理健康講座,情緒管理課程,人際關係講座,台南心理諮商所課程',
+            'og' => [
+                'title' => '心理課程與講座 - 好家在心理諮商所',
+                'description' => '好家在心理諮商所提供專業的心理課程與講座，包含心理健康、情緒管理、人際關係等主題，由專業心理師帶領，幫助您提升心理素質與生活品質。',
+                'image' => asset('images/environment/waiting_room_5.jpg'),
+                'url' => url('/courses'),
+                'type' => 'website',
+            ],
+            'twitter' => [
+                'card' => 'summary_large_image',
+                'title' => '心理課程與講座 - 好家在心理諮商所',
+                'description' => '好家在心理諮商所提供專業的心理課程與講座，包含心理健康、情緒管理、人際關係等主題。',
+                'image' => asset('images/environment/waiting_room_5.jpg'),
+            ],
+            'schema' => [
+                '@context' => 'https://schema.org',
+                '@type' => 'CollectionPage',
+                'name' => '好家在心理諮商所課程與講座',
+                'description' => '好家在心理諮商所提供專業的心理課程與講座，包含心理健康、情緒管理、人際關係等主題。',
+                'url' => url('/courses'),
+                'mainEntity' => [
+                    '@type' => 'ItemList',
+                    'itemListElement' => $courses->map(function ($item, $index) {
+                        return [
+                            '@type' => 'ListItem',
+                            'position' => $index + 1,
+                            'item' => [
+                                '@type' => 'Event',
+                                'name' => $item->title,
+                                'description' => strip_tags(str_replace('&nbsp;', ' ', $item->description)),
+                                'startDate' => $item->start_date->format('Y-m-d'),
+                                'endDate' => $item->end_date->format('Y-m-d'),
+                                'image' => $item->image ? Storage::url($item->image) : asset('images/environment/waiting_room_5.jpg'),
+                                'url' => route('courses.show', $item->_id),
+                                'location' => [
+                                    '@type' => 'Place',
+                                    'name' => '好家在心理諮商所',
+                                    'address' => [
+                                        '@type' => 'PostalAddress',
+                                        'streetAddress' => '友愛街237號',
+                                        'addressLocality' => '台南市',
+                                        'addressRegion' => '中西區',
+                                        'postalCode' => '700',
+                                        'addressCountry' => 'TW'
+                                    ]
+                                ],
+                                'organizer' => [
+                                    '@type' => 'Organization',
+                                    'name' => '好家在心理諮商所',
+                                    'url' => url('/')
+                                ],
+                                'offers' => [
+                                    '@type' => 'Offer',
+                                    'price' => $item->price,
+                                    'priceCurrency' => 'TWD',
+                                    'availability' => $item->status ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut'
+                                ]
+                            ]
+                        ];
+                    })->toArray()
                 ]
             ]
         ];
