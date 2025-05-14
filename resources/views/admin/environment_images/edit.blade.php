@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label>目前照片</label><br>
-                    <img src="{{ $image->image ? Storage::url($image->image) : '/images/no-image.png' }}" alt="{{ $image->title }}" class="mb-2 img-thumbnail" style="max-width: 300px; height: auto;">
+                    <img src="{{ $image->image ? Storage::url($image->image) : '/images/no-image.png' }}" alt="{{ $image->title }}" class="mb-2 img-thumbnail" style="max-width: 800px; height: auto;">
                 </div>
                 <div class="form-group">
                     <label>更換照片</label>
