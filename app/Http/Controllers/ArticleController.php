@@ -22,12 +22,19 @@ class ArticleController extends Controller
             ->findOrFail($id);
 
         // 取得相關文章（相同標籤的文章）
-        $relatedArticles = Article::where('status', true)
-            ->where('_id', '!=', $id)
-            ->where('tag', $article->tag)
-            ->orderBy('created_at', 'desc')
-            ->limit(3)
-            ->get();
+        $tags = $article->tags;
+        $relatedArticles = collect([]);
+        foreach ($tags as $tag) {
+            $unicodeTag = json_encode($tag);
+            $matched = Article::where('status', true)
+                ->where('_id', '!=', $id)
+                ->where('tags', 'like', "%$unicodeTag%")
+                ->orderBy('created_at', 'desc')
+                ->limit(3)
+                ->get();
+
+            $relatedArticles = $relatedArticles->merge($matched);
+        }
 
         return view('articles.show', compact('article', 'relatedArticles'));
     }

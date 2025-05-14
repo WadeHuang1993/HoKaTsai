@@ -186,6 +186,13 @@
                         <div class="text-sm text-[var(--primary-light)] mb-2">{{ $article->created_at->format('Y-m-d') }}</div>
                         <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $article->title }}</h3>
                         <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags(str_replace('&nbsp;', ' ', $article->content)) }}</p>
+                        @if($article->tags)
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            @foreach($article->tags as $tag)
+                                <span class="px-3 py-1 bg-[var(--background-color)] text-[var(--primary-color)] rounded-full text-sm">{{ $tag }}</span>
+                            @endforeach
+                        </div>
+                        @endif
                         <div class="flex items-center justify-between">
                             <span class="text-sm text-[var(--primary-light)]">{{ $article->teamMember->name }} - {{ $article->teamMember->title }}</span>
                             <span class="text-[var(--primary-color)] group-hover:text-[var(--primary-light)] transition duration-300">閱讀更多</span>

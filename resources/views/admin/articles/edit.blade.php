@@ -43,23 +43,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="tag">標籤</label>
-                    <input type="text" class="form-control @error('tag') is-invalid @enderror"
-                           id="tag" name="tag" value="{{ old('tag', $article->tag) }}" placeholder="例如：性治療、家庭治療">
-                    @error('tag')
+                    <label for="tags">標籤</label>
+                    <input type="text" class="form-control @error('tags') is-invalid @enderror"
+                           id="tags" name="tags" value="{{ old('tags', implode(', ', $article->tags ?? [])) }}" placeholder="例如：性治療、家庭治療（請用逗號分隔）">
+                    @error('tags')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-                </div>
-                <div class="form-group">
-                    <label>常用標籤</label>
-                    <div class="d-flex flex-wrap">
-                        @foreach($oftenTags as $tag)
-                            <button type="button" class="btn btn-outline-secondary mr-2 mb-2 tag-btn"
-                                    data-tag="{{ $tag['tag'] }}">
-                                {{ $tag['tag'] }} ({{ $tag['counts'] }})
-                            </button>
-                        @endforeach
-                    </div>
                 </div>
 
                 <div class="form-group">
@@ -121,13 +110,6 @@
                         nextSibling.innerText = fileName;
                     }
                 });
-            });
-        });
-
-        // 常用標籤點擊事件
-        document.querySelectorAll('.tag-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                document.getElementById('tag').value = this.dataset.tag;
             });
         });
 

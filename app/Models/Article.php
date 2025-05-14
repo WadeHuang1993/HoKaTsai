@@ -22,7 +22,7 @@ class Article extends Model
         'content',
         'image',
         'status',
-        'tag',
+        'tags',
         'team_member_id',
     ];
 
@@ -31,6 +31,7 @@ class Article extends Model
         'created_at' => 'immutable_datetime',
         'updated_at' => 'immutable_datetime',
         'deleted_at' => 'immutable_datetime',
+        'tags' => 'array',
     ];
 
     public function getCreatedAtAttribute(UTCDateTime $created_at)

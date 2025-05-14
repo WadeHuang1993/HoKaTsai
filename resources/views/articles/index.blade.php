@@ -17,9 +17,11 @@
                         <div class="text-sm text-[var(--primary-light)] mb-2">{{ $article->created_at->format('Y-m-d') }}</div>
                         <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $article->title }}</h3>
                         <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ html_entity_decode(strip_tags($article->content)) }}</p>
-                        @if($article->tag)
+                        @if($article->tags)
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-[var(--background-color)] text-[var(--primary-color)] rounded-full text-sm">{{ $article->tag }}</span>
+                            @foreach($article->tags as $tag)
+                                <span class="px-3 py-1 bg-[var(--background-color)] text-[var(--primary-color)] rounded-full text-sm">{{ $tag }}</span>
+                            @endforeach
                         </div>
                         @endif
                         <div class="flex justify-between items-center">
