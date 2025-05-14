@@ -209,12 +209,30 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="space-y-6">
                     <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-4">預約須知</h3>
-                    <ul class="space-y-4 text-[var(--primary-light)]">
-                        <li>• 初次諮商建議預約90分鐘</li>
-                        <li>• 請提前10分鐘到達</li>
-                        <li>• 如需取消請提前24小時告知</li>
-                        <li>• 可使用健保卡預約</li>
-                    </ul>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-[var(--primary-color)] mb-3">基本須知</h4>
+                            <ul class="space-y-3 text-[var(--primary-light)]">
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span>請提早10分鐘抵達，填寫資料與簽署同意書。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span>請攜帶可證明身份的證件（身分證、健保卡或駕照）。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-2">•</span>
+                                    <span>如需取消，請提前24小時通知我們。</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-[var(--background-color)] p-4 rounded-lg">
+                            <p class="text-[var(--primary-light)] leading-relaxed">
+                                第一次諮商感到緊張、擔心或不知道怎麼開始，都是很正常的事。請放心，心理師會陪您探索合適主題。謝謝您選擇好家在，也願意為自己踏出這一步。
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="text-center md:text-right self-center">
                     <a href="/appointment" class="inline-block bg-[var(--primary-color)] text-[var(--text-light)] px-8 py-4 rounded-full text-lg font-semibold hover:bg-[var(--primary-light)] transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">立即預約</a>
