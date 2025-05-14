@@ -20,7 +20,7 @@
                             <h3 class="text-xl font-bold text-[var(--primary-color)]">{{ $news->title }}</h3>
                             <div class="text-sm text-[var(--primary-light)]">{{ $news->created_at->format('Y-m-d') }}</div>
                         </div>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-2">{{ strip_tags($news->content) }}</p>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-2">{{ html_entity_decode(strip_tags($news->content)) }}</p>
                     </div>
                 </div>
             </a>

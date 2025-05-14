@@ -22,7 +22,7 @@
                                 上課日期：{{ $course->start_date->format('Y-m-d') }}
                             </div>
                         </div>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-2">{{ strip_tags($course->description) }}</p>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ html_entity_decode(strip_tags($course->description)) }}</p>
                         <div class="flex justify-between items-center">
                             <div class="text-[var(--primary-light)]">
                                 <span class="mr-4">講師：{{ $course->teamMember->name }}</span>
