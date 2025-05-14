@@ -55,7 +55,7 @@
                             <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                                 <a href="{{ route('home') }}#counseling-services" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">各項諮商服務</a>
                                 <a href="{{ route('home') }}#cooperation" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">合作專案</a>
-                                <a href="{{ route('home') }}#agreement" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">同意書</a>
+                                <a href="{{ route('faq.index') }}" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">諮商Q&A</a>
                             </div>
                         </div>
 
@@ -94,7 +94,7 @@
                             <div id="services-submenu" class="hidden pl-4">
                                 <a href="{{ route('home') }}#counseling-services" class="block px-3 py-2 text-gray-600 hover:text-gray-900">各項諮商服務</a>
                                 <a href="{{ route('home') }}#cooperation" class="block px-3 py-2 text-gray-600 hover:text-gray-900">合作專案</a>
-                                <a href="{{ route('home') }}#agreement" class="block px-3 py-2 text-gray-600 hover:text-gray-900">同意書</a>
+                                <a href="{{ route('faq.index') }}" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商Q&A</a>
                             </div>
                         </div>
 
