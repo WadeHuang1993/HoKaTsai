@@ -81,8 +81,8 @@
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <div id="about-submenu" class="hidden pl-4">
-                                <a href="#team" class="block px-3 py-2 text-gray-600 hover:text-gray-900">團隊介紹</a>
-                                <a href="#space" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商空間</a>
+                                <a href="{{ route('home') }}#team" class="block px-3 py-2 text-gray-600 hover:text-gray-900">團隊介紹</a>
+                                <a href="{{ route('home') }}#space" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商空間</a>
                             </div>
                         </div>
 
@@ -92,15 +92,15 @@
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <div id="services-submenu" class="hidden pl-4">
-                                <a href="#counseling-services" class="block px-3 py-2 text-gray-600 hover:text-gray-900">各項諮商服務</a>
-                                <a href="#cooperation" class="block px-3 py-2 text-gray-600 hover:text-gray-900">合作專案</a>
-                                <a href="#agreement" class="block px-3 py-2 text-gray-600 hover:text-gray-900">同意書</a>
+                                <a href="{{ route('home') }}#counseling-services" class="block px-3 py-2 text-gray-600 hover:text-gray-900">各項諮商服務</a>
+                                <a href="{{ route('home') }}#cooperation" class="block px-3 py-2 text-gray-600 hover:text-gray-900">合作專案</a>
+                                <a href="{{ route('home') }}#agreement" class="block px-3 py-2 text-gray-600 hover:text-gray-900">同意書</a>
                             </div>
                         </div>
 
-                        <a href="#appointment" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商預約</a>
-                        <a href="#courses" class="block px-3 py-2 text-gray-600 hover:text-gray-900">講座課程</a>
-                        <a href="#column" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商專欄</a>
+                        <a href="{{ route('home') }}#appointment" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商預約</a>
+                        <a href="{{ route('courses.index') }}" class="block px-3 py-2 text-gray-600 hover:text-gray-900">講座課程</a>
+                        <a href="{{ route('home') }}#column" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商專欄</a>
                     </div>
                 </div>
             </div>
