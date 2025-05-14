@@ -37,7 +37,7 @@
                     <div class="p-6">
                         <div class="text-sm text-[var(--primary-light)] mb-2">{{ $news->created_at->format('Y-m-d') }}</div>
                         <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $news->title }}</h3>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($news->content) }}</p>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags(str_replace('&nbsp;', ' ', $news->content)) }}</p>
                     </div>
                 </a>
             @endforeach
