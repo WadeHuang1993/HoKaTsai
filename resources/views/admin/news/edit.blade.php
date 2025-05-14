@@ -87,4 +87,18 @@
                 console.error(error);
             });
     </script>
-@stop 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var fileInput = document.querySelector('.custom-file-input');
+            if(fileInput) {
+                fileInput.addEventListener('change', function(e) {
+                    var fileName = e.target.files[0]?.name || '';
+                    var nextSibling = e.target.nextElementSibling;
+                    if(nextSibling && fileName) {
+                        nextSibling.innerText = fileName;
+                    }
+                });
+            }
+        });
+    </script>
+@endsection 

@@ -80,11 +80,17 @@
             });
     </script>
     <script>
-        // 檔案名稱顯示
-        document.querySelector('.custom-file-input').addEventListener('change', function(e) {
-            var fileName = e.target.files[0].name;
-            var nextSibling = e.target.nextElementSibling;
-            nextSibling.innerText = fileName;
+        document.addEventListener('DOMContentLoaded', function() {
+            var fileInput = document.querySelector('.custom-file-input');
+            if(fileInput) {
+                fileInput.addEventListener('change', function(e) {
+                    var fileName = e.target.files[0]?.name || '';
+                    var nextSibling = e.target.nextElementSibling;
+                    if(nextSibling && fileName) {
+                        nextSibling.innerText = fileName;
+                    }
+                });
+            }
         });
     </script>
 @stop

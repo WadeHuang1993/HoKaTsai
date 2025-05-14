@@ -106,10 +106,16 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
     <script>
         // 檔案名稱顯示
-        document.querySelector('.custom-file-input').addEventListener('change', function(e) {
-            var fileName = e.target.files[0].name;
-            var nextSibling = e.target.nextElementSibling;
-            nextSibling.innerText = fileName;
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.custom-file-input').forEach(function(fileInput) {
+                fileInput.addEventListener('change', function(e) {
+                    var fileName = e.target.files[0]?.name || '';
+                    var nextSibling = e.target.nextElementSibling;
+                    if(nextSibling && fileName) {
+                        nextSibling.innerText = fileName;
+                    }
+                });
+            });
         });
 
         // 常用標籤點擊事件
