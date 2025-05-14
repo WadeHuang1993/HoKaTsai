@@ -86,16 +86,11 @@ class ServiceController extends Controller
 
     public function updateOrder(Request $request)
     {
-        $validated = $request->validate([
-            'orders' => 'required|array',
-            'orders.*.id' => 'required|exists:services,_id',
-            'orders.*.order' => 'required|integer|min:0'
-        ]);
-
-        foreach ($validated['orders'] as $item) {
-            CounselingService::where('_id', $item['id'])->update(['order' => $item['order']]);
+        $orders = $request->input('orders', []);
+        foreach ($orders as $id => $order) {
+            CounselingService::where('_id', $id)->update(['order' => $order]);
         }
 
-        return response()->json(['message' => '排序已更新']);
+        return redirect()->route('admin.services.index')->with('success', '排序已更新');
     }
 }
