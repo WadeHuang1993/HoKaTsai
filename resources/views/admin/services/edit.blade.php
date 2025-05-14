@@ -77,7 +77,14 @@
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-save"></i> 更新服務項目
                             </button>
+                            <button type="button" class="btn btn-danger ml-2" id="btnDeleteService">
+                                <i class="fas fa-trash"></i> 刪除
+                            </button>
                         </div>
+                    </form>
+                    <form id="deleteServiceForm" action="{{ route('admin.services.destroy', $service->_id) }}" method="POST" class="d-none">
+                        @csrf
+                        @method('DELETE')
                     </form>
                 </div>
             </div>
@@ -96,6 +103,12 @@
             $(".custom-file-input").on("change", function() {
                 var fileName = $(this).val().split("\\").pop();
                 $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+            // 刪除按鈕
+            $('#btnDeleteService').on('click', function() {
+                if(confirm('確定要刪除此服務項目嗎？')) {
+                    $('#deleteServiceForm').submit();
+                }
             });
         });
     </script>
