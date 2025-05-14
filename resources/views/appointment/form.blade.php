@@ -44,14 +44,22 @@
             <div>
                 <label class="block mb-2 font-semibold">要預約的諮商心理師 <span class="text-red-500">*</span></label>
                 <div class="space-y-2">
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="counselor" value="不指定" {{ old('counselor', '不指定') == '不指定' ? 'checked' : '' }} class="mr-2">不指定
+                    <label class="inline-flex items-start">
+                        <input type="radio" name="counselor" value="不指定" {{ old('counselor', '不指定') == '不指定' ? 'checked' : '' }} class="mr-2 mt-1">不指定
                     </label><br>
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="counselor" value="陳巧翊心理師" {{ old('counselor') == '陳巧翊心理師' ? 'checked' : '' }} class="mr-2">陳巧翊心理師（每週四、五 11:00 - 21:00）
+                    <label class="inline-flex items-start">
+                        <input type="radio" name="counselor" value="陳巧翊心理師" {{ old('counselor') == '陳巧翊心理師' ? 'checked' : '' }} class="mr-2 mt-1">
+                        <span>
+                            陳巧翊心理師<br>
+                            <span class="block text-sm text-gray-500 ml-6">每週四、五 11:00 - 21:00</span>
+                        </span>
                     </label><br>
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="counselor" value="徐于涵心理師" {{ old('counselor') == '徐于涵心理師' ? 'checked' : '' }} class="mr-2">徐于涵心理師（每週一、三 9:00 - 17:00；每週四、五 9:00 - 12:00）
+                    <label class="inline-flex items-start">
+                        <input type="radio" name="counselor" value="徐于涵心理師" {{ old('counselor') == '徐于涵心理師' ? 'checked' : '' }} class="mr-2 mt-1">
+                        <span>
+                            徐于涵心理師<br>
+                            <span class="block text-sm text-gray-500 ml-6">每週一、三 9:00 - 17:00；每週四、五 9:00 - 12:00</span>
+                        </span>
                     </label>
                 </div>
                 @error('counselor')<div class="text-red-500 text-sm mt-1">{{ $message }}</div>@enderror
