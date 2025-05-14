@@ -6,7 +6,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
         <!-- 左側環境照片 -->
         <div class="relative h-128 md:h-full">
-            <img src="/images/environment/waiting_room_5.jpg" alt="等候室環境" class="w-full h-full object-cover">
+            <img src="/images/environment/waiting_room_5.jpg" alt="好家在心理諮商所等候室環境，提供舒適的諮商空間" class="w-full h-full object-cover">
         </div>
 
         <!-- 右側文字內容 -->

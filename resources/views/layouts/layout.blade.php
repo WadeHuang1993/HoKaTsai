@@ -6,7 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 {{--    <link rel="icon" href="/images/favicon.jpg" sizes="32x32">--}}
     <link rel="icon" href="/images/favicon-2.png" sizes="32x32">
-    <title>好家在心理諮商所</title>
+    
+    @if(isset($seoData))
+        <title>{{ $seoData['title'] }}</title>
+        <meta name="description" content="{{ $seoData['description'] }}">
+        <meta name="keywords" content="{{ $seoData['keywords'] }}">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="{{ $seoData['og']['type'] }}">
+        <meta property="og:url" content="{{ $seoData['og']['url'] }}">
+        <meta property="og:title" content="{{ $seoData['og']['title'] }}">
+        <meta property="og:description" content="{{ $seoData['og']['description'] }}">
+        <meta property="og:image" content="{{ $seoData['og']['image'] }}">
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="{{ $seoData['twitter']['card'] }}">
+        <meta name="twitter:title" content="{{ $seoData['twitter']['title'] }}">
+        <meta name="twitter:description" content="{{ $seoData['twitter']['description'] }}">
+        <meta name="twitter:image" content="{{ $seoData['twitter']['image'] }}">
+
+        <!-- Schema.org markup -->
+        <script type="application/ld+json">
+            {!! json_encode($seoData['schema']) !!}
+        </script>
+    @else
+        <title>好家在心理諮商所</title>
+    @endif
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">

@@ -9,10 +9,18 @@ use App\Models\TeamMember;
 use App\Models\News;
 use App\Models\Article;
 use App\Models\CounselingService;
+use App\Services\SeoService;
 use Illuminate\View\View;
 
 class HomeController extends Controller
 {
+    protected $seoService;
+
+    public function __construct(SeoService $seoService)
+    {
+        $this->seoService = $seoService;
+    }
+
     /**
      * 顯示應用程序的首頁
      *
@@ -26,13 +34,16 @@ class HomeController extends Controller
         $latestArticles = Article::with('teamMember')->orderBy('created_at', 'desc')->take(6)->get();
         $latestCourses = Course::orderBy('start_date', 'desc')->take(6)->get();
         $services = CounselingService::orderBy('order')->get();
+        $seoData = $this->seoService->getHomeSeoData();
+
         return view('home', compact(
             'latestNews',
             'teamMembers',
             'environmentImages',
             'latestArticles',
             'latestCourses',
-            'services'
+            'services',
+            'seoData'
         ));
     }
 }
