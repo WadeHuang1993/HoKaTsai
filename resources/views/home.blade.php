@@ -211,7 +211,6 @@
                     <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-4">預約須知</h3>
                     <div class="space-y-6">
                         <div>
-                            <h4 class="text-lg font-semibold text-[var(--primary-color)] mb-3">基本須知</h4>
                             <ul class="space-y-3 text-[var(--primary-light)]">
                                 <li class="flex items-start">
                                     <span class="mr-2">•</span>
