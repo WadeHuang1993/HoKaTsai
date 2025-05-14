@@ -33,6 +33,9 @@ class NewsController extends Controller
         if ($news->status !== true) {
             abort(404);
         }
-        return view('news.show', compact('news'));
+
+        $seoData = $this->seoService->getNewsDetailSeoData($news);
+
+        return view('news.show', compact('news', 'seoData'));
     }
 }
