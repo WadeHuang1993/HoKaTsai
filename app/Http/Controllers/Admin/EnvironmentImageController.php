@@ -50,7 +50,7 @@ class EnvironmentImageController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'required',
+            'image' => 'nullable',
             'order' => 'nullable|integer',
         ]);
 
