@@ -4,13 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Appointment;
+use App\Models\TeamMember;
 
 class AppointmentController extends Controller
 {
     // 顯示預約表單
     public function showForm()
     {
-        return view('appointment.form');
+        $teamMembers = TeamMember::orderBy('name')->get();
+
+        // 只撈出有填寫 可預約時間的心理師
+        $teamMembers = $teamMembers->filter(function ($teamMember) {
+            return false === empty($teamMember->available_times);
+        });
+
+        return view('appointment.form', compact('teamMembers'));
     }
 
     // 處理預約表單送出
