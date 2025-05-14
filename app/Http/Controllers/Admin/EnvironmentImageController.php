@@ -12,7 +12,7 @@ class EnvironmentImageController extends Controller
 {
     public function index()
     {
-        $images = EnvironmentImage::orderBy('order', 'desc')->paginate(30);
+        $images = EnvironmentImage::orderBy('order', 'asc')->paginate(30);
         return view('admin.environment_images.index', compact('images'));
     }
 
