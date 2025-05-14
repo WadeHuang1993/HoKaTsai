@@ -113,7 +113,7 @@
                 <p class="text-[var(--primary-light)] leading-relaxed">針對個人情緒、人際關係、生涯規劃等議題提供協助</p>
             </div>
             <div class="bg-[var(--text-light)] p-8 rounded-xl text-center hover:shadow-xl transition duration-300">
-                <div class="text-5xl text-[var(--primary-color)] mb-6">🎮</div>
+                <div class="text-5xl text-[var(--primary-color)] mb-6">👶🏻</div>
                 <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-4">遊戲治療</h3>
                 <p class="text-[var(--primary-light)] leading-relaxed">透過遊戲方式協助兒童表達情緒、改善行為問題、提升社交能力</p>
             </div>
