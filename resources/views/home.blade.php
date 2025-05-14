@@ -88,7 +88,7 @@
                 <div class="environment_space grid grid-cols-4 gap-4">
                     @foreach($environmentImages as $img)
                         <div class="col-span-4 md:col-span-1">
-                            <img src="{{ $img->image ? Storage::url($img->image) : '/images/no-image.png' }}" alt="{{ $img->title }}" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
+                            <img src="{{ $img->image ? Storage::url($img->image) : '' }}" alt="{{ $img->title }}" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
                         </div>
                     @endforeach
                 </div>
@@ -173,8 +173,6 @@
                 <a href="{{ route('articles.show', $article->_id) }}" class="block bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 h-full">
                     @if($article->image)
                         <img src="{{ Storage::url($article->image) }}" alt="{{ $article->title }}" class="w-full h-48 object-cover">
-                    @else
-                        <img src="/images/no-image.png" alt="{{ $article->title }}" class="w-full h-48 object-cover">
                     @endif
                     <div class="p-6">
                         <div class="text-sm text-[var(--primary-light)] mb-2">{{ $article->created_at->format('Y-m-d') }}</div>

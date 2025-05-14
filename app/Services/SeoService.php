@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Facades\Storage;
+
 class SeoService
 {
     /**
@@ -62,6 +64,67 @@ class SeoService
                 'sameAs' => [
                     'https://www.instagram.com/hokatsaicounseling',
                     'https://www.facebook.com/profile.php?id=61573891754810'
+                ]
+            ]
+        ];
+    }
+
+    /**
+     * 生成最新消息列表頁的 SEO 資料
+     *
+     * @param \Illuminate\Pagination\LengthAwarePaginator $news
+     * @return array
+     */
+    public function getNewsListSeoData($news): array
+    {
+        return [
+            'title' => '最新消息 - 好家在心理諮商所',
+            'description' => '好家在心理諮商所的最新消息與活動資訊，包含講座課程、工作坊、專業分享等心理健康相關活動。',
+            'keywords' => '心理諮商所最新消息,心理諮商活動,心理健康講座,台南心理諮商所活動',
+            'og' => [
+                'title' => '最新消息 - 好家在心理諮商所',
+                'description' => '好家在心理諮商所的最新消息與活動資訊，包含講座課程、工作坊、專業分享等心理健康相關活動。',
+                'image' => asset('images/environment/waiting_room_5.jpg'),
+                'url' => url('/news'),
+                'type' => 'website',
+            ],
+            'twitter' => [
+                'card' => 'summary_large_image',
+                'title' => '最新消息 - 好家在心理諮商所',
+                'description' => '好家在心理諮商所的最新消息與活動資訊，包含講座課程、工作坊、專業分享等心理健康相關活動。',
+                'image' => asset('images/environment/waiting_room_5.jpg'),
+            ],
+            'schema' => [
+                '@context' => 'https://schema.org',
+                '@type' => 'CollectionPage',
+                'name' => '好家在心理諮商所最新消息',
+                'description' => '好家在心理諮商所的最新消息與活動資訊，包含講座課程、工作坊、專業分享等心理健康相關活動。',
+                'url' => url('/news'),
+                'mainEntity' => [
+                    '@type' => 'ItemList',
+                    'itemListElement' => $news->map(function ($item, $index) {
+                        return [
+                            '@type' => 'ListItem',
+                            'position' => $index + 1,
+                            'item' => [
+                                '@type' => 'NewsArticle',
+                                'headline' => $item->title,
+                                'description' => strip_tags(str_replace('&nbsp;', ' ', $item->content)),
+                                'datePublished' => $item->created_at->format('Y-m-d'),
+                                'dateModified' => $item->updated_at->format('Y-m-d'),
+                                'image' => $item->image ? Storage::url($item->image) : asset('images/environment/waiting_room_5.jpg'),
+                                'url' => route('news.show', $item->_id),
+                                'publisher' => [
+                                    '@type' => 'Organization',
+                                    'name' => '好家在心理諮商所',
+                                    'logo' => [
+                                        '@type' => 'ImageObject',
+                                        'url' => asset('images/environment/waiting_room_5.jpg')
+                                    ]
+                                ]
+                            ]
+                        ];
+                    })->toArray()
                 ]
             ]
         ];
