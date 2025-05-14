@@ -17,7 +17,7 @@
             <form action="{{ route('admin.articles.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="team_member_id">作者(團隊陣容管理新增)</label>
+                    <label for="team_member_id">作者(<a href="{{route('admin.team-members.index')}}">團隊陣容管理新增</a>)</label>
                     <select class="form-control @error('team_member_id') is-invalid @enderror"
                             id="team_member_id" name="team_member_id" required>
                         <option value="">請選擇作者</option>
