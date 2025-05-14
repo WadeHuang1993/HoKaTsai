@@ -180,7 +180,7 @@
                     <div class="p-6">
                         <div class="text-sm text-[var(--primary-light)] mb-2">{{ $article->created_at->format('Y-m-d') }}</div>
                         <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $article->title }}</h3>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($article->content) }}</p>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags(str_replace('&nbsp;', ' ', $article->content)) }}</p>
                         <div class="flex items-center justify-between">
                             <span class="text-sm text-[var(--primary-light)]">{{ $article->teamMember->name }} - {{ $article->teamMember->title }}</span>
                             <span class="text-[var(--primary-color)] group-hover:text-[var(--primary-light)] transition duration-300">閱讀更多</span>
@@ -241,7 +241,7 @@
                             上課日期：{{ $course->start_date->format('Y-m-d') }}
                         </div>
                         <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $course->title }}</h3>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags($course->description) }}</p>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags(str_replace('&nbsp;', ' ', $course->description)) }}</p>
                     </div>
                 </a>
             @endforeach
