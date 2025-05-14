@@ -6,7 +6,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
         <!-- 左側環境照片 -->
         <div class="relative h-128 md:h-full">
-            <img src="/images/environment/wating_room_2.jpg" alt="等候室環境" class="w-full h-full object-cover">
+            <img src="/images/environment/waiting_room_3.jpg" alt="等候室環境" class="w-full h-full object-cover">
         </div>
 
         <!-- 右側文字內容 -->
