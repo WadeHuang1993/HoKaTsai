@@ -342,6 +342,11 @@ return [
             'route' => 'admin.appointments.index',
         ],
         [
+            'text' => '諮商QA管理',
+            'icon' => 'fas fa-question-circle',
+            'route' => 'admin.faqs.index',
+        ],
+        [
             'text' => '管理員帳號設定',
             'icon' => 'fas fa-fw fa-user-shield',
             'route' => 'admin.admin-users.index',
