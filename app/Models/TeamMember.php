@@ -28,6 +28,7 @@ class TeamMember extends Model
         'organization',
         'specialized_approaches',
         'professional_trainings',
+        'available_times',
     ];
 
     protected $casts = [
@@ -40,6 +41,7 @@ class TeamMember extends Model
         'work_experience' => 'array',
         'specialized_approaches' => 'array',
         'professional_trainings' => 'array',
+        'available_times' => 'array',
     ];
 
     public function getImageAttribute($value)

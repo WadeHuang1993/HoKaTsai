@@ -67,6 +67,22 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="available_times">可預約時間</label>
+                    <textarea class="form-control @error('available_times') is-invalid @enderror" id="available_times" name="available_times" rows="8" placeholder="請輸入可預約時間，每行一個">
+週一: 9:00 - 17:00
+週二: 9:00 - 17:00
+週三: 9:00 - 17:00
+週四: 9:00 - 17:00
+週五: 9:00 - 17:00
+週六: 9:00 - 17:00
+週日: 9:00 - 17:00
+                    </textarea>
+                    @error('available_times')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label for="specialties">關注議題 <span class="text-danger">*</span></label>
                     <textarea class="form-control @error('specialties') is-invalid @enderror" id="specialties" name="specialties" rows="3" required placeholder="請輸入關注議題，每行一個">{{ old('specialties') }}</textarea>
                     @error('specialties')

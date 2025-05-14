@@ -36,7 +36,8 @@ class TeamMemberController extends Controller
             'license_number' => 'nullable|max:255',
             'organization' => 'nullable|max:255',
             'specialized_approaches' => 'nullable|string',
-            'professional_trainings' => 'nullable|string'
+            'professional_trainings' => 'nullable|string',
+            'available_times' => 'nullable|string',
         ]);
 
         if ($request->hasFile('image')) {
@@ -50,6 +51,7 @@ class TeamMemberController extends Controller
         $validated['work_experience'] = array_filter(explode("\n", str_replace("\r", "", $validated['work_experience'] ?? '')));
         $validated['specialized_approaches'] = array_filter(explode("\n", str_replace("\r", "", $validated['specialized_approaches'] ?? '')));
         $validated['professional_trainings'] = array_filter(explode("\n", str_replace("\r", "", $validated['professional_trainings'] ?? '')));
+        $validated['available_times'] = array_filter(explode("\n", str_replace("\r", "", $validated['available_times'] ?? '')));
 
         $validated['show_in_homepage'] = $request->has('show_in_homepage');
 
@@ -78,7 +80,8 @@ class TeamMemberController extends Controller
             'license_number' => 'nullable|max:255',
             'organization' => 'nullable|max:255',
             'specialized_approaches' => 'nullable|string',
-            'professional_trainings' => 'nullable|string'
+            'professional_trainings' => 'nullable|string',
+            'available_times' => 'nullable|string',
         ]);
 
         if ($request->hasFile('image')) {
@@ -95,6 +98,7 @@ class TeamMemberController extends Controller
         $validated['work_experience'] = array_filter(explode("\n", str_replace("\r", "", $validated['work_experience'] ?? '')));
         $validated['specialized_approaches'] = array_filter(explode("\n", str_replace("\r", "", $validated['specialized_approaches'] ?? '')));
         $validated['professional_trainings'] = array_filter(explode("\n", str_replace("\r", "", $validated['professional_trainings'] ?? '')));
+        $validated['available_times'] = array_filter(explode("\n", str_replace("\r", "", $validated['available_times'] ?? '')));
 
         $validated['show_in_homepage'] = $request->has('show_in_homepage');
 
