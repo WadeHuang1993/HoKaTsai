@@ -36,7 +36,7 @@
                     @foreach($images as $img)
                         <tr>
                             <td>
-                                <img src="{{ $img->image ? Storage::url($img->image) : '/images/no-image.png' }}" alt="{{ $img->title }}" style="max-width: 800px; height: auto;">
+                                <img src="{{ $img->image ? Storage::url($img->image) : '/images/no-image.png' }}" alt="{{ $img->title }}" style="max-width: 200px; height: auto;">
                             </td>
                             <td>{{ $img->title }}</td>
                             <td>{{ $img->description }}</td>
