@@ -11,7 +11,10 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <p class="mb-0">歡迎使用後台管理系統！</p>
+                    <div class="alert mb-4" role="alert">
+                        上傳圖片前請先壓縮圖片，大圖檔會降低瀏覽速度。<br>
+                        可以使用 <a href="https://tinyjpg.com/" target="_blank" rel="noopener" class="text-primary">https://tinyjpg.com/</a> 進行壓縮。
+                    </div>
                 </div>
             </div>
         </div>
