@@ -61,8 +61,8 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
             @foreach($teamMembers as $member)
-                <div class="bg-[var(--background-color)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <img src="{{ $member->image }}" alt="{{ $member->name }}諮商師" class="w-48 h-64 rounded-xl mx-auto mb-6 object-cover">
+                <a href="{{ route('team.show', $member->_id) }}" class="bg-[var(--background-color)] p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 block group">
+                    <img src="{{ $member->image }}" alt="{{ $member->name }}諮商師" class="w-48 h-64 rounded-xl mx-auto mb-6 object-cover group-hover:scale-105 transition duration-300">
                     <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3 text-center">{{ $member->name }}</h3>
                     <p class="text-[var(--primary-light)] text-center">{{ $member->title }}</p>
                     @if($member->license_number)
@@ -71,10 +71,10 @@
                     @if($member->organization)
                         <p class="text-[var(--primary-light)] text-center">{{ $member->organization }}</p>
                     @endif
-                        <p class="text-[var(--primary-light)] mt-4 leading-relaxed text-center">
+                    <p class="text-[var(--primary-light)] mt-4 leading-relaxed text-center">
                         {{ is_array($member->specialized_approaches) ? implode('、', $member->specialized_approaches) : $member->specialized_approaches }}
                     </p>
-                </div>
+                </a>
             @endforeach
         </div>
 

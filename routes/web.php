@@ -7,6 +7,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ArticleCategoryController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\TeamMemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,4 @@ Route::get('/articles', [ArticleController::class, 'index'])->name('articles.ind
 Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
 Route::get('/appointment', [AppointmentController::class, 'showForm'])->name('appointment.form');
 Route::post('/appointment', [AppointmentController::class, 'submitForm'])->name('appointment.submit');
+Route::get('/team/{id}', [TeamMemberController::class, 'show'])->name('team.show');
