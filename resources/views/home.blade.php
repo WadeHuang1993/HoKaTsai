@@ -228,8 +228,10 @@
                         </div>
                         <div class="bg-[var(--background-color)] p-4 rounded-lg">
                             <p class="text-[var(--primary-light)] leading-relaxed">
-                                第一次諮商感到緊張、擔心或不知道怎麼開始，都是很正常的事。請放心，心理師會陪您探索合適主題。謝謝您選擇好家在，也願意為自己踏出這一步。
+                                第一次諮商感到緊張、擔心或不知道怎麼開始，都是很正常的事。
                             </p>
+                            <p class="text-[var(--primary-light)] leading-relaxed">請放心，心理師會陪您探索合適主題。</p>
+                            <p class="text-[var(--primary-light)] leading-relaxed">謝謝您選擇好家在，也願意為自己踏出這一步。</p>
                         </div>
                     </div>
                 </div>
