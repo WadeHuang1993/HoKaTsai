@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EnvironmentImage;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\TeamMember;
 use App\Models\News;
 use App\Models\Article;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
     /**
      * 顯示應用程序的首頁
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function index()
     {
@@ -38,7 +40,9 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
-        $environmentImages = \App\Models\EnvironmentImage::orderBy('created_at', 'desc')->get();
+        $environmentImages = EnvironmentImage::orderBy('order')
+//            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('home', compact('latestCourses', 'teamMembers', 'latestNews', 'latestArticles', 'environmentImages'));
     }

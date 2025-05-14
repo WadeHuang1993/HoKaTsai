@@ -30,6 +30,12 @@
                     <textarea name="description" rows="3" class="form-control">{{ old('description', $image->description) }}</textarea>
                 </div>
                 <div class="form-group">
+                    <label>請先壓縮圖片，大圖檔會降低瀏覽速度：</label>
+                    <span>
+                        <a href="https://tinyjpg.com/">點這裡壓縮圖片</a>
+                    </span>
+                </div>
+                <div class="form-group">
                     <label>目前照片</label><br>
                     <img src="{{ $image->image ? Storage::url($image->image) : '/images/no-image.png' }}" alt="{{ $image->title }}" class="mb-2 img-thumbnail" style="max-width: 800px; height: auto;">
                 </div>
@@ -37,6 +43,10 @@
                     <label>更換照片</label>
                     <input type="file" name="image" accept="image/*" class="form-control-file">
                     <small class="form-text text-muted">如不更換可留空</small>
+                </div>
+                <div class="form-group">
+                    <label>首頁排序（數字越小越前面）</label>
+                    <input type="number" name="order" value="{{ old('order', $image->order ?? 0) }}" class="form-control" min="0">
                 </div>
                 <div class="d-flex justify-content-end">
                     <a href="{{ route('admin.environment-images.index') }}" class="btn btn-secondary mr-2">返回列表</a>

@@ -28,6 +28,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::resource('courses', CourseController::class);
 
         // 環境照片管理
+        Route::patch('environment-images-update-order', [EnvironmentImageController::class, 'updateOrder'])->name('environment-images.updateOrder');
         Route::resource('environment-images', EnvironmentImageController::class);
 
         // 預約總覽
