@@ -16,6 +16,7 @@ class EnvironmentImage extends Model
         'image',
         'title',
         'description',
+        'order',
     ];
 
     public $timestamps = true;
