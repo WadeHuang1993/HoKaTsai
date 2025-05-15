@@ -99,7 +99,7 @@
                 </div>
                 <div id="mobile-menu" class="hidden md:hidden">
                     <div class="px-2 pt-2 pb-3 space-y-1">
-                        <a href="#news" class="block px-3 py-2 text-gray-600 hover:text-gray-900">最新消息</a>
+                        <a href="{{ route('home') }}#news" class="block px-3 py-2 text-gray-600 hover:text-gray-900">最新消息</a>
 
                         <div class="relative">
                             <button onclick="toggleSubmenu('about-submenu')" class="w-full flex justify-between items-center px-3 py-2 text-gray-600 hover:text-gray-900">
