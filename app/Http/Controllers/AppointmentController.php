@@ -76,7 +76,7 @@ class AppointmentController extends Controller
         $adminUrl = route('admin.appointments.index');
         $message = "「好家在心理諮商所」網站有新預約，<{$adminUrl}|前往管理後台查看>";
 
-        $slackChannel = 'https://hooks.slack.com/services/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';
+        $slackChannel = config('app.slack-new-appointment');
         Http::post($slackChannel, [
             'text' => $message,
         ]);
