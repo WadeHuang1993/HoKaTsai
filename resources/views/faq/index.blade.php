@@ -14,7 +14,7 @@
                         <span class="text-lg font-semibold text-[var(--primary-color)]">Q. {{ $faq->question }}</span>
                     </div>
                     <div class="faq-answer mt-4 text-[var(--primary-light)]">
-                        {!! nl2br(e($faq->answer)) !!}
+                        {!! nl2br($faq->answer) !!}
                     </div>
                 </div>
             @endforeach
