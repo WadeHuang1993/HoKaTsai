@@ -20,7 +20,7 @@
                         <th>方便聯繫時段</th>
                         <th>諮商議題</th>
                         <th>建立時間</th>
-                        <th>處理狀態</th>
+                        <th width="100px">處理狀態</th>
                         <th>操作</th>
                     </tr>
                 </thead>
@@ -75,8 +75,25 @@
     document.querySelectorAll('.formStatus input[type=radio]').forEach(function(radio) {
         radio.addEventListener('change', function() {
             var form = radio.closest('form');
-            form.submit();
+            var url = form.action;
+            var formData = new FormData(form);
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': form.querySelector('[name=_token]').value,
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Accept': 'application/json',
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    // 可用 alert 或 toastr 顯示成功訊息
+                    // alert('狀態已更新');
+                }
+            });
         });
     });
 </script>
-@endsection 
+@endsection
