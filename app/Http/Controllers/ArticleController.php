@@ -32,6 +32,9 @@ class ArticleController extends Controller
         $article = Article::where('status', true)
             ->findOrFail($id);
 
+        // 載入關聯的講師資料
+        $article->load('teamMember');
+
         // 取得相關文章（相同標籤的文章）
         $tags = $article->tags;
         $relatedArticles = collect([]);
@@ -47,6 +50,8 @@ class ArticleController extends Controller
             $relatedArticles = $relatedArticles->merge($matched);
         }
 
-        return view('articles.show', compact('article', 'relatedArticles'));
+        $seoData = $this->seoService->getArticleDetailSeoData($article);
+
+        return view('articles.show', compact('article', 'relatedArticles', 'seoData'));
     }
 }

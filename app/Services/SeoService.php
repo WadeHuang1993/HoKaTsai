@@ -416,4 +416,70 @@ class SeoService
             ]
         ];
     }
+
+    /**
+     * 生成專欄文章內容頁的 SEO 資料
+     *
+     * @param \App\Models\Article $article
+     * @return array
+     */
+    public function getArticleDetailSeoData(Article $article): array
+    {
+        $description = strip_tags(str_replace('&nbsp;', ' ', $article->summary));
+        $description = mb_substr($description, 0, 160, 'UTF-8') . '...';
+
+        return [
+            'title' => $article->title . ' - 好家在心理諮商所',
+            'description' => $description,
+            'keywords' => '心理諮商專欄,' . $article->title . ',心理健康文章,台南心理諮商所',
+            'og' => [
+                'title' => $article->title . ' - 好家在心理諮商所',
+                'description' => $description,
+                'image' => $article->image ? Storage::url($article->image) : asset('images/environment/waiting_room_5.jpg'),
+                'url' => route('articles.show', $article->_id),
+                'type' => 'article',
+                'article' => [
+                    'published_time' => $article->created_at->format('Y-m-d'),
+                    'modified_time' => $article->updated_at->format('Y-m-d'),
+                    'author' => $article->teamMember->name,
+                    'section' => '心理諮商專欄',
+                    'tag' => $article->tags
+                ]
+            ],
+            'twitter' => [
+                'card' => 'summary_large_image',
+                'title' => $article->title . ' - 好家在心理諮商所',
+                'description' => $description,
+                'image' => $article->image ? Storage::url($article->image) : asset('images/environment/waiting_room_5.jpg'),
+            ],
+            'schema' => [
+                '@context' => 'https://schema.org',
+                '@type' => 'BlogPosting',
+                'headline' => $article->title,
+                'description' => $description,
+                'image' => $article->image ? Storage::url($article->image) : asset('images/environment/waiting_room_5.jpg'),
+                'datePublished' => $article->created_at->format('Y-m-d'),
+                'dateModified' => $article->updated_at->format('Y-m-d'),
+                'author' => [
+                    '@type' => 'Person',
+                    'name' => $article->teamMember->name,
+                    'jobTitle' => $article->teamMember->title,
+                    'image' => $article->teamMember->image
+                ],
+                'publisher' => [
+                    '@type' => 'Organization',
+                    'name' => '好家在心理諮商所',
+                    'logo' => [
+                        '@type' => 'ImageObject',
+                        'url' => asset('images/environment/waiting_room_5.jpg')
+                    ]
+                ],
+                'mainEntityOfPage' => [
+                    '@type' => 'WebPage',
+                    '@id' => route('articles.show', $article->_id)
+                ],
+                'keywords' => implode(', ', $article->tags)
+            ]
+        ];
+    }
 }
