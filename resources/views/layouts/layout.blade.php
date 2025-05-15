@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 {{--    <link rel="icon" href="/images/favicon.jpg" sizes="32x32">--}}
     <link rel="icon" href="/images/favicon-2.png" sizes="32x32">
-    
+
     @if(isset($seoData))
         <title>{{ $seoData['title'] }}</title>
         <meta name="description" content="{{ $seoData['description'] }}">
@@ -81,6 +81,7 @@
                                 <a href="{{ route('home') }}#counseling-services" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">各項諮商服務</a>
                                 <a href="{{ route('home') }}#cooperation" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">合作專案</a>
                                 <a href="{{ route('faq.index') }}" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">諮商Q&A</a>
+                                <a href="{{ route('service-fee.index') }}" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">諮商費用</a>
                             </div>
                         </div>
 
@@ -120,6 +121,7 @@
                                 <a href="{{ route('home') }}#counseling-services" class="block px-3 py-2 text-gray-600 hover:text-gray-900">各項諮商服務</a>
                                 <a href="{{ route('home') }}#cooperation" class="block px-3 py-2 text-gray-600 hover:text-gray-900">合作專案</a>
                                 <a href="{{ route('faq.index') }}" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商Q&A</a>
+                                <a href="{{ route('service-fee.index') }}" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商費用</a>
                             </div>
                         </div>
 
