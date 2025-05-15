@@ -149,7 +149,7 @@
                         <h4 class="text-lg font-semibold mb-4">聯絡資訊</h4>
                         <ul class="space-y-2 text-gray-400">
                             <li>電話：(06)223-8050</li>
-                            <li>信箱：hokatsaicounseling@gmail.com</li>
+                            <li>信箱：<a href="mailto:hokatsaicounseling@gmail.com">hokatsaicounseling@gmail.com</a></li>
                             <li>地址：700台南市中西區友愛街237號</li>
                         </ul>
                     </div>
