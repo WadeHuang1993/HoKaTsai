@@ -18,6 +18,10 @@
             </p>
             <p>我們的個案管理師會於上班時間陸續與您接洽</p>
             <p>請您稍等</p>
+            <p class="mt-4 text-sm">
+                若您想了解諮商費用，歡迎查看
+                <a href="{{ route('faq.index') }}" class="text-[var(--primary-color)] hover:underline">諮商Q&A 頁面</a>
+            </p>
         </div>
         @if(session('success'))
             <div class="alert alert-success text-green-700 bg-green-100 border border-green-300 rounded p-4 mb-6 text-center">
