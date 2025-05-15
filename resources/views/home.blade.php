@@ -206,7 +206,6 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20">
             <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">諮商預約</h2>
-            <p class="text-xl text-[var(--primary-light)] max-w-3xl mx-auto">簡單便捷的預約流程，讓您輕鬆安排諮商時間</p>
         </div>
 
         <div class="bg-[var(--text-light)] p-8 rounded-xl shadow-lg">
