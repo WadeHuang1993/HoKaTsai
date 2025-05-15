@@ -357,6 +357,11 @@ return [
             'route' => 'admin.service-fees.index',
         ],
         [
+            'text' => '合作單位與合作方案管理',
+            'icon' => 'fas fa-handshake',
+            'route' => 'admin.partners.index',
+        ],
+        [
             'text' => '管理員帳號設定',
             'icon' => 'fas fa-fw fa-user-shield',
             'route' => 'admin.admin-users.index',

@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\TeamMemberController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ServiceFeeController;
+use App\Http\Controllers\Admin\PartnerController;
 
 Route::middleware(['auth:admin'])->group(function () {
     Route::prefix('hokatsai-admin')->name('admin.')->group(function () {
@@ -51,6 +52,10 @@ Route::middleware(['auth:admin'])->group(function () {
         // 收費標準管理
         Route::patch('service-fees-update-order', [ServiceFeeController::class, 'updateOrder'])->name('service-fees.updateOrder');
         Route::resource('service-fees', ServiceFeeController::class);
+
+        // 合作單位與合作方案管理
+        Route::patch('partners-update-order', [PartnerController::class, 'updateOrder'])->name('partners.updateOrder');
+        Route::resource('partners', PartnerController::class);
     });
 });
 

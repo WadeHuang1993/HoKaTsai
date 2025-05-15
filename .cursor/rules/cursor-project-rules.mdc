@@ -21,4 +21,4 @@ cd laradock && docker compose worksbace [command]
 - 在後台 CMS 新增一個 resource 路由後，記得在 config/adminlte.php 新增對應功能的選單
 - 開發後台 CRUD 時，路由一律放在 routes/admin.php
 - 開發後台 CRUD 時，index 頁不要放刪除按鈕，刪除按鈕一律放在 edit 頁面
-- 開發後台 CRUD 時，若 index 需要實作排序功能，請參考 resources/views/admin/environment_images/index.blade.php 的邏輯
+- 開發後台 CRUD 時，若 index 需要實作排序功能，請參考 resources/views/admin/environment_images/index.blade.php 的編輯排序邏輯
