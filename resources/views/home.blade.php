@@ -108,7 +108,7 @@
         <!-- 各項諮商服務 -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             @foreach($services as $service)
-                <div class="block bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 cursor-pointer">
+                <div class="block bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
                     <img src="{{ Storage::url($service->image) }}" alt="{{ $service->title }}" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $service->title }}</h3>
