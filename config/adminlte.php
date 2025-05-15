@@ -352,6 +352,11 @@ return [
             'route' => 'admin.services.index',
         ],
         [
+            'text' => '諮商費用管理',
+            'icon' => 'fas fa-money-bill-wave',
+            'route' => 'admin.service-fees.index',
+        ],
+        [
             'text' => '管理員帳號設定',
             'icon' => 'fas fa-fw fa-user-shield',
             'route' => 'admin.admin-users.index',
