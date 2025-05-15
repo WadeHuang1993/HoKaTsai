@@ -119,21 +119,23 @@
         </div>
 
         <!-- 合作專案 -->
-        <div id="cooperation" class="bg-[var(--text-light)] p-8 rounded-xl mb-20 scroll-mt-24">
-            <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-6 text-center">合作單位與合作方案</h3>
-            <p class="text-[var(--primary-light)] text-center mb-8">我們與多個機構合作，提供專業的心理健康服務</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                @foreach($partners as $partner)
-                    <div class="block bg-[var(--background-color)]  rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                        <img src="{{ Storage::url($partner->logo) }}" alt="{{ $partner->name }} logo" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $partner->name }}</h3>
-                            <p class="text-[var(--primary-light)] mb-4 line-clamp-4 text-justify">{{ $partner->description }}</p>
+        <section style="background-color: #f9fafb; background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px); background-size: 20px 20px;">
+            <div id="cooperation" class="p-8 rounded-xl mb-20 scroll-mt-24">
+                <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-6 text-center">合作單位與合作方案</h3>
+                <p class="text-[var(--primary-light)] text-center mb-8">我們與多個機構合作，提供專業的心理健康服務</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    @foreach($partners as $partner)
+                        <div class="bg-[#f9fafb] rounded-3xl shadow-lg p-8 flex flex-col items-center text-center transition duration-300 hover:shadow-xl">
+                            <div class="flex justify-center items-center w-full mb-6" style="min-height:180px;">
+                                <img src="{{ Storage::url($partner->logo) }}" alt="{{ $partner->name }} logo" class="h-40 object-contain mx-auto">
+                            </div>
+                            <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3">{{ $partner->name }}</h3>
+                            <p class="text-[var(--primary-light)] text-base">{{ $partner->description }}</p>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-        </div>
+        </section>
     </div>
 </div>
 
