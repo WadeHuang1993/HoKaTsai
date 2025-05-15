@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AppointmentController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\ServiceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EnvironmentImageController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -39,6 +40,9 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::resource('faqs', FaqController::class);
         Route::post('faq-update-order', [FaqController::class, 'order'])->name('faqs.order');
 
+        // 諮商服務管理
+        Route::resource('services', ServiceController::class);
+        Route::post('services-update-order', [ServiceController::class, 'updateOrder'])->name('services.update-order');
 
         // 管理員帳號管理
         Route::resource('admin-users', AdminUserController::class);

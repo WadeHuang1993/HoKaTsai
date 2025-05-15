@@ -4,11 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ArticleCategoryController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\SitemapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +31,6 @@ Route::get('/appointment', [AppointmentController::class, 'showForm'])->name('ap
 Route::post('/appointment', [AppointmentController::class, 'submitForm'])->name('appointment.submit');
 Route::get('/team/{id}', [TeamMemberController::class, 'show'])->name('team.show');
 Route::get('/faq', [FaqController::class, 'frontIndex'])->name('faq.index');
+
+// Sitemap
+Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');

@@ -8,10 +8,19 @@ use App\Models\Course;
 use App\Models\TeamMember;
 use App\Models\News;
 use App\Models\Article;
+use App\Models\CounselingService;
+use App\Services\SeoService;
 use Illuminate\View\View;
 
 class HomeController extends Controller
 {
+    protected $seoService;
+
+    public function __construct(SeoService $seoService)
+    {
+        $this->seoService = $seoService;
+    }
+
     /**
      * 顯示應用程序的首頁
      *
@@ -19,31 +28,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $latestCourses = Course::with('teamMember')
-            ->orderBy('start_date', 'desc')
-            ->take(6)
-            ->get();
+        $latestNews = News::orderBy('_id', 'desc')->where('status', true)->take(6)->get();
+        $teamMembers = TeamMember::orderBy('order')->where('show_in_homepage', true)->get();
+        $environmentImages = EnvironmentImage::orderBy('order')->get();
+        $latestArticles = Article::with('teamMember')->where('status', true)->orderBy('_id', 'desc')->take(6)->get();
+        $latestCourses = Course::orderBy('start_date', 'desc')->take(6)->get();
+        $services = CounselingService::orderBy('order')->get();
+        $seoData = $this->seoService->getHomeSeoData();
 
-        $teamMembers = TeamMember::orderBy('_id', 'asc')
-            ->where('show_in_homepage', true)
-            ->take(6)
-            ->get();
-
-        $latestNews = News::orderBy('_id', 'desc')
-            ->where('status', true)
-            ->take(6)
-            ->get();
-
-        $latestArticles = Article::with('teamMember')
-            ->where('status', true)
-            ->orderBy('created_at', 'desc')
-            ->take(6)
-            ->get();
-
-        $environmentImages = EnvironmentImage::orderBy('order')
-//            ->orderBy('created_at', 'desc')
-            ->get();
-
-        return view('home', compact('latestCourses', 'teamMembers', 'latestNews', 'latestArticles', 'environmentImages'));
+        return view('home', compact(
+            'latestNews',
+            'teamMembers',
+            'environmentImages',
+            'latestArticles',
+            'latestCourses',
+            'services',
+            'seoData'
+        ));
     }
 }

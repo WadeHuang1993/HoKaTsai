@@ -30,7 +30,13 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $article->title }}</td>
-                            <td>{{ $article->tag }}</td>
+                            <td>
+                                @if($article->tags)
+                                    @foreach($article->tags as $tag)
+                                        <span class="badge badge-info mr-1">{{ $tag }}</span>
+                                    @endforeach
+                                @endif
+                            </td>
                             <td>
                                 @if($article->status)
                                     <span class="badge badge-success">已發布</span>

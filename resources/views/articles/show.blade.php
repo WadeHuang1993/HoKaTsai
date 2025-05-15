@@ -10,9 +10,11 @@
                     <span>{{ $article->created_at->format('Y-m-d') }}</span>
                     <span>{{ $article->teamMember->name }} - {{ $article->teamMember->title }}</span>
                 </div>
-                @if($article->tag)
+                @if($article->tags)
                 <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-[var(--background-color)] text-[var(--primary-color)] rounded-full text-sm">{{ $article->tag }}</span>
+                    @foreach($article->tags as $tag)
+                        <span class="px-3 py-1 bg-[var(--background-color)] text-[var(--primary-color)] rounded-full text-sm">{{ $tag }}</span>
+                    @endforeach
                 </div>
                 @endif
             </header>

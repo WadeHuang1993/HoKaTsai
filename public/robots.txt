@@ -1,2 +1,17 @@
 User-agent: *
-Disallow:
+Allow: /
+
+# 禁止訪問管理員頁面
+Disallow: /hokatsai-admin
+Disallow: /hokatsai-admin/*
+
+# 禁止訪問系統檔案
+Disallow: /.env
+Disallow: /.git
+Disallow: /.htaccess
+Disallow: /storage/*
+Disallow: /vendor/*
+Disallow: /node_modules/*
+
+# 設定 Sitemap 位置
+Sitemap: https://hokatsai.com/sitemap.xml

@@ -6,7 +6,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
         <!-- 左側環境照片 -->
         <div class="relative h-128 md:h-full">
-            <img src="/images/environment/wating_room_2.jpg" alt="等候室環境" class="w-full h-full object-cover">
+            <img src="/images/environment/waiting_room_5.jpg" alt="好家在心理諮商所等候室環境，提供舒適的諮商空間" class="w-full h-full object-cover">
         </div>
 
         <!-- 右側文字內容 -->
@@ -88,7 +88,7 @@
                 <div class="environment_space grid grid-cols-4 gap-4">
                     @foreach($environmentImages as $img)
                         <div class="col-span-4 md:col-span-1">
-                            <img src="{{ $img->image ? Storage::url($img->image) : '/images/no-image.png' }}" alt="{{ $img->title }}" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
+                            <img src="{{ $img->image ? Storage::url($img->image) : '' }}" alt="{{ $img->title }}" class="w-full h-64 object-cover rounded-xl hover:scale-105 transition duration-300">
                         </div>
                     @endforeach
                 </div>
@@ -107,21 +107,15 @@
 
         <!-- 各項諮商服務 -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            <div class="bg-[var(--text-light)] p-8 rounded-xl text-center hover:shadow-xl transition duration-300">
-                <div class="text-5xl text-[var(--primary-color)] mb-6">👤</div>
-                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-4">個人諮商</h3>
-                <p class="text-[var(--primary-light)] leading-relaxed">針對個人情緒、人際關係、生涯規劃等議題提供協助</p>
-            </div>
-            <div class="bg-[var(--text-light)] p-8 rounded-xl text-center hover:shadow-xl transition duration-300">
-                <div class="text-5xl text-[var(--primary-color)] mb-6">🎮</div>
-                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-4">遊戲治療</h3>
-                <p class="text-[var(--primary-light)] leading-relaxed">透過遊戲方式協助兒童表達情緒、改善行為問題、提升社交能力</p>
-            </div>
-            <div class="bg-[var(--text-light)] p-8 rounded-xl text-center hover:shadow-xl transition duration-300">
-                <div class="text-5xl text-[var(--primary-color)] mb-6">💑</div>
-                <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-4">伴侶諮商</h3>
-                <p class="text-[var(--primary-light)] leading-relaxed">協助伴侶改善溝通方式、解決衝突、重建親密關係</p>
-            </div>
+            @foreach($services as $service)
+                <div class="block bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 cursor-pointer">
+                    <img src="{{ Storage::url($service->image) }}" alt="{{ $service->title }}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $service->title }}</h3>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-4 text-justify">{{ $service->description }}</p>
+                    </div>
+                </div>
+            @endforeach
         </div>
 
         <!-- 諮商預約流程圖 -->
@@ -179,13 +173,18 @@
                 <a href="{{ route('articles.show', $article->_id) }}" class="block bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 h-full">
                     @if($article->image)
                         <img src="{{ Storage::url($article->image) }}" alt="{{ $article->title }}" class="w-full h-48 object-cover">
-                    @else
-                        <img src="/images/no-image.png" alt="{{ $article->title }}" class="w-full h-48 object-cover">
                     @endif
                     <div class="p-6">
                         <div class="text-sm text-[var(--primary-light)] mb-2">{{ $article->created_at->format('Y-m-d') }}</div>
                         <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $article->title }}</h3>
                         <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags(str_replace('&nbsp;', ' ', $article->content)) }}</p>
+                        @if($article->tags)
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            @foreach($article->tags as $tag)
+                                <span class="px-3 py-1 bg-[var(--background-color)] text-[var(--primary-color)] rounded-full text-sm">{{ $tag }}</span>
+                            @endforeach
+                        </div>
+                        @endif
                         <div class="flex items-center justify-between">
                             <span class="text-sm text-[var(--primary-light)]">{{ $article->teamMember->name }} - {{ $article->teamMember->title }}</span>
                             <span class="text-[var(--primary-color)] group-hover:text-[var(--primary-light)] transition duration-300">閱讀更多</span>

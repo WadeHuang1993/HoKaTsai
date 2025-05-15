@@ -347,6 +347,11 @@ return [
             'route' => 'admin.faqs.index',
         ],
         [
+            'text' => '諮商服務管理',
+            'icon' => 'fas fa-hands-helping',
+            'route' => 'admin.services.index',
+        ],
+        [
             'text' => '管理員帳號設定',
             'icon' => 'fas fa-fw fa-user-shield',
             'route' => 'admin.admin-users.index',

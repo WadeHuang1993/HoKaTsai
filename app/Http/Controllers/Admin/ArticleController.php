@@ -18,41 +18,10 @@ class ArticleController extends Controller
         return view('admin.articles.index', compact('articles'));
     }
 
-    private function getOftenTags()
-    {
-        return Article::raw(function($collection) {
-            return $collection->aggregate([
-                [
-                    '$match' => [
-                        'deleted_at' => ['$ne' => null],
-                        'tag' => ['$exists' => true, '$ne' => null]
-                    ]
-                ],
-                [
-                    '$group' => [
-                        '_id' => '$tag',
-                        'counts' => ['$sum' => 1]
-                    ]
-                ],
-                [
-                    '$project' => [
-                        '_id' => 0,
-                        'tag' => '$_id',
-                        'counts' => 1
-                    ]
-                ],
-                [
-                    '$sort' => ['counts' => -1]
-                ]
-            ]);
-        });
-    }
-
     public function create()
     {
-        $oftenTags = $this->getOftenTags();
         $teamMembers = TeamMember::all();
-        return view('admin.articles.create', compact('oftenTags', 'teamMembers'));
+        return view('admin.articles.create', compact( 'teamMembers'));
     }
 
     public function store(Request $request)
@@ -62,7 +31,7 @@ class ArticleController extends Controller
             'content' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'status' => 'boolean',
-            'tag' => 'nullable|string|max:50',
+            'tags' => 'nullable',
             'team_member_id' => 'required|exists:team_members,_id',
         ]);
 
@@ -72,8 +41,11 @@ class ArticleController extends Controller
         }
 
         $validated['status'] = $request->has('status');
-        $validated['tag'] = $request->input('tag');
         $validated['team_member_id'] = $request->input('team_member_id');
+
+        // 處理多重標籤
+        $tags = $request->input('tags', '');
+        $validated['tags'] = explode(',', $tags);
 
         Article::create($validated);
 
@@ -83,9 +55,8 @@ class ArticleController extends Controller
 
     public function edit(Article $article)
     {
-        $oftenTags = $this->getOftenTags();
         $teamMembers = TeamMember::all();
-        return view('admin.articles.edit', compact('article', 'oftenTags', 'teamMembers'));
+        return view('admin.articles.edit', compact('article', 'teamMembers'));
     }
 
     public function update(Request $request, Article $article)
@@ -95,7 +66,7 @@ class ArticleController extends Controller
             'content' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'status' => 'boolean',
-            'tag' => 'nullable|string|max:50',
+            'tags' => 'nullable',
             'team_member_id' => 'required|exists:team_members,_id',
         ]);
 
@@ -107,8 +78,11 @@ class ArticleController extends Controller
         }
 
         $validated['status'] = $request->has('status');
-        $validated['tag'] = $request->input('tag');
         $validated['team_member_id'] = $request->input('team_member_id');
+
+        // 處理多重標籤
+        $tags = $request->input('tags', '');
+        $validated['tags'] = explode(',', $tags);
 
         $article->update($validated);
 

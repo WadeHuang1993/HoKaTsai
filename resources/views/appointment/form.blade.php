@@ -47,20 +47,19 @@
                     <label class="inline-flex items-start">
                         <input type="radio" name="counselor" value="不指定" {{ old('counselor', '不指定') == '不指定' ? 'checked' : '' }} class="mr-2 mt-1">不指定
                     </label><br>
-                    <label class="inline-flex items-start">
-                        <input type="radio" name="counselor" value="陳巧翊心理師" {{ old('counselor') == '陳巧翊心理師' ? 'checked' : '' }} class="mr-2 mt-1">
-                        <span>
-                            陳巧翊心理師<br>
-                            <span class="block text-sm text-gray-500 ml-6">每週四、五 11:00 - 21:00</span>
-                        </span>
-                    </label><br>
-                    <label class="inline-flex items-start">
-                        <input type="radio" name="counselor" value="徐于涵心理師" {{ old('counselor') == '徐于涵心理師' ? 'checked' : '' }} class="mr-2 mt-1">
-                        <span>
-                            徐于涵心理師<br>
-                            <span class="block text-sm text-gray-500 ml-6">每週一、三 9:00 - 17:00；每週四、五 9:00 - 12:00</span>
-                        </span>
-                    </label>
+                    @foreach($teamMembers as $member)
+                        <label class="inline-flex items-start">
+                            <input type="radio" name="counselor" value="{{ $member->name }}" {{ old('counselor') == $member->name ? 'checked' : '' }} class="mr-2 mt-1">
+                            <span>
+                                {{ $member->name }}心理師<br>
+                                @if(!empty($member->available_times))
+                                    <span class="block text-sm text-gray-500 ml-6">
+                                        {!! nl2br(e(implode("\n", $member->available_times))) !!}
+                                    </span>
+                                @endif
+                            </span>
+                        </label><br>
+                    @endforeach
                 </div>
                 @error('counselor')<div class="text-red-500 text-sm mt-1">{{ $message }}</div>@enderror
             </div>

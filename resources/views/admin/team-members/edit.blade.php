@@ -71,7 +71,13 @@
                     @enderror
                 </div>
 
-        
+                <div class="form-group">
+                    <label for="available_times">可預約時間（若空白則不會露出在預約表單中）</label>
+                    <textarea rows="10" class="form-control @error('available_times') is-invalid @enderror" id="available_times" name="available_times" rows="3" placeholder="請輸入可預約時間，每行一個">{{ old('available_times', is_array($teamMember->available_times) ? implode("\n", $teamMember->available_times) : $teamMember->available_times) }}</textarea>
+                    @error('available_times')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
                 <div class="form-group">
                     <label for="specialties">關注議題 <span class="text-danger">*</span></label>
