@@ -41,7 +41,7 @@
                                 @endif
                             </td>
                             <td>{{ $item->created_at ? $item->created_at->format('Y-m-d H:i') : '' }}</td>
-                            <td>
+                            <td class="status-td" style="{{ $item->status === 'done' ? 'background-color: #d1fae5;' : '' }}">
                                 <form action="{{ route('admin.appointments.updateStatus', $item->_id) }}" method="POST" class="form-inline formStatus" data-id="{{ $item->_id }}">
                                     @csrf
                                     @method('PATCH')
@@ -77,6 +77,15 @@
             var form = radio.closest('form');
             var url = form.action;
             var formData = new FormData(form);
+
+            // 依 radio 狀態切換 td 顏色
+            var td = form.closest('td');
+            if(form.querySelector('input[value=done]').checked) {
+                td.style.backgroundColor = '#d1fae5';
+            } else {
+                td.style.backgroundColor = '';
+            }
+
             fetch(url, {
                 method: 'POST',
                 headers: {
@@ -87,12 +96,6 @@
                 body: formData
             })
             .then(response => response.json())
-            .then(data => {
-                if(data.success) {
-                    // 可用 alert 或 toastr 顯示成功訊息
-                    // alert('狀態已更新');
-                }
-            });
         });
     });
 </script>
