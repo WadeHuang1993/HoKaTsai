@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Appointment;
 use App\Models\TeamMember;
 use App\Services\SeoService;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Http;
 
 class AppointmentController extends Controller
 {
@@ -54,7 +56,29 @@ class AppointmentController extends Controller
         $data['topics'] = $topics;
         Appointment::create($data);
 
+        // 傳送通知到 slack
+        $this->sendNewAppointmentNotify();
+
         // 這裡可依需求儲存資料或寄信，暫時只顯示感謝訊息
         return redirect()->route('appointment.form')->with('success', '您的預約資料已送出，服務人員將盡快與您聯繫！');
+    }
+
+    /**
+     * @return void
+     */
+    public function sendNewAppointmentNotify(): void
+    {
+        // 只有正式機才送通知
+        if (false === App::environment('production')) {
+            return;
+        }
+
+        $adminUrl = route('admin.appointments.index');
+        $message = "「好家在心理諮商所」網站有新預約，<{$adminUrl}|前往管理後台查看>";
+
+        $slackChannel = 'https://hooks.slack.com/services/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';
+        Http::post($slackChannel, [
+            'text' => $message,
+        ]);
     }
 }
