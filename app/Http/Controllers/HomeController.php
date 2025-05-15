@@ -29,9 +29,9 @@ class HomeController extends Controller
     public function index()
     {
         $latestNews = News::orderBy('_id', 'desc')->where('status', true)->take(6)->get();
-        $teamMembers = TeamMember::orderBy('order')->get();
+        $teamMembers = TeamMember::orderBy('order')->where('show_in_homepage', true)->get();
         $environmentImages = EnvironmentImage::orderBy('order')->get();
-        $latestArticles = Article::with('teamMember')->orderBy('created_at', 'desc')->take(6)->get();
+        $latestArticles = Article::with('teamMember')->where('status', true)->orderBy('_id', 'desc')->take(6)->get();
         $latestCourses = Course::orderBy('start_date', 'desc')->take(6)->get();
         $services = CounselingService::orderBy('order')->get();
         $seoData = $this->seoService->getHomeSeoData();
