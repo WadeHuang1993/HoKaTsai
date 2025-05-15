@@ -96,6 +96,24 @@
                 body: formData
             })
             .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // 建立與 Laravel session flash message 相同結構的訊息
+                    const alertDiv = document.createElement('div');
+                    alertDiv.className = 'alert alert-success alert-dismissible fade show';
+                    alertDiv.innerHTML = `
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h5><i class="icon fas fa-check"></i> 成功！</h5>
+                        ${data.message || '狀態已更新'}
+                    `;
+                    
+                    // 插入到頁面頂部
+                    const contentHeader = document.querySelector('.content-header');
+                    if (contentHeader) {
+                        contentHeader.insertAdjacentElement('afterend', alertDiv);
+                    }
+                }
+            });
         });
     });
 </script>

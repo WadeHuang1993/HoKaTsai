@@ -19,7 +19,10 @@ class AppointmentController extends Controller
         $appointment = Appointment::findOrFail($id);
         $appointment->status = $request->input('status', 'pending');
         $appointment->save();
-        return response()->json(['success' => true]);
+        return response()->json([
+            'success' => true,
+            'message' => '預約狀態已更新'
+        ]);
     }
 
     public function destroy($id)
