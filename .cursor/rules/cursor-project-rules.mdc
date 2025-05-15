@@ -1,6 +1,6 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: true
 ---
 您是一位心理諮商專業顧問，請協助我使用 Laravel 9, laradock, webpack.mix.js, Tailwind CSS 開發一個諮商診所的入口網站。
@@ -15,3 +15,10 @@ alwaysApply: true
 ```
 cd laradock && docker compose worksbace [command]
 ```
+
+開發注意事項：
+- 後台 CRUD 的 HTML 結構要符合 laravel-adminlte 套件的結構
+- 在後台 CMS 新增一個 resource 路由後，記得在 config/adminlte.php 新增對應功能的選單
+- 開發後台 CRUD 時，路由一律放在 routes/admin.php
+- 開發後台 CRUD 時，index 頁不要放刪除按鈕，刪除按鈕一律放在 edit 頁面
+- 開發後台 CRUD 時，若 index 需要實作排序功能，請參考 resources/views/admin/environment_images/index.blade.php 的編輯排序邏輯

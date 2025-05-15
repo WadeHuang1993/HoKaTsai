@@ -68,7 +68,7 @@
                                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </a>
                             <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                                <a href="{{ route('home') }}#team" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">團隊介紹</a>
+                                <a href="{{ route('home') }}#team" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 border-b border-gray-200">團隊介紹</a>
                                 <a href="{{ route('home') }}#space" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">諮商空間</a>
                             </div>
                         </div>
@@ -78,9 +78,9 @@
                                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </a>
                             <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                                <a href="{{ route('home') }}#counseling-services" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">各項諮商服務</a>
-                                <a href="{{ route('home') }}#cooperation" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">合作專案</a>
-                                <a href="{{ route('faq.index') }}" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">諮商Q&A</a>
+                                <a href="{{ route('home') }}#counseling-services" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 border-b border-gray-200">各項諮商服務</a>
+                                <a href="{{ route('home') }}#partner" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 border-b border-gray-200">合作單位與合作方案</a>
+                                <a href="{{ route('faq.index') }}" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 border-b border-gray-200">諮商Q&A</a>
                                 <a href="{{ route('service-fee.index') }}" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">諮商費用</a>
                             </div>
                         </div>
@@ -99,35 +99,35 @@
                 </div>
                 <div id="mobile-menu" class="hidden md:hidden">
                     <div class="px-2 pt-2 pb-3 space-y-1">
-                        <a href="#news" class="block px-3 py-2 text-gray-600 hover:text-gray-900">最新消息</a>
+                        <a href="{{ route('home') }}#news" class="block px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-[#D67A7A]" style="border-bottom-style: dotted;">最新消息</a>
 
                         <div class="relative">
-                            <button onclick="toggleSubmenu('about-submenu')" class="w-full flex justify-between items-center px-3 py-2 text-gray-600 hover:text-gray-900">
+                            <button onclick="toggleSubmenu('about-submenu')" class="w-full flex justify-between items-center px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-[#D69B7A]" style="border-bottom-style: dotted;">
                                 關於我們
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <div id="about-submenu" class="hidden pl-4">
-                                <a href="{{ route('home') }}#team" class="block px-3 py-2 text-gray-600 hover:text-gray-900">團隊介紹</a>
+                                <a href="{{ route('home') }}#team" class="block px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-gray-200">團隊介紹</a>
                                 <a href="{{ route('home') }}#space" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商空間</a>
                             </div>
                         </div>
 
                         <div class="relative">
-                            <button onclick="toggleSubmenu('services-submenu')" class="w-full flex justify-between items-center px-3 py-2 text-gray-600 hover:text-gray-900">
+                            <button onclick="toggleSubmenu('services-submenu')" class="w-full flex justify-between items-center px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-[#D6B77A]" style="border-bottom-style: dotted;">
                                 諮商服務
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </button>
                             <div id="services-submenu" class="hidden pl-4">
-                                <a href="{{ route('home') }}#counseling-services" class="block px-3 py-2 text-gray-600 hover:text-gray-900">各項諮商服務</a>
-                                <a href="{{ route('home') }}#cooperation" class="block px-3 py-2 text-gray-600 hover:text-gray-900">合作專案</a>
-                                <a href="{{ route('faq.index') }}" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商Q&A</a>
+                                <a href="{{ route('home') }}#counseling-services" class="block px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-gray-200">各項諮商服務</a>
+                                <a href="{{ route('home') }}#partner" class="block px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-gray-200">合作單位與合作方案</a>
+                                <a href="{{ route('faq.index') }}" class="block px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-gray-200">諮商Q&A</a>
                                 <a href="{{ route('service-fee.index') }}" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商費用</a>
                             </div>
                         </div>
 
-                        <a href="{{ route('home') }}#appointment" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商預約</a>
-                        <a href="{{ route('courses.index') }}" class="block px-3 py-2 text-gray-600 hover:text-gray-900">講座課程</a>
-                        <a href="{{ route('home') }}#column" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商專欄</a>
+                        <a href="{{ route('home') }}#appointment" class="block px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-[#7AD68E]" style="border-bottom-style: dotted;">諮商預約</a>
+                        <a href="{{ route('courses.index') }}" class="block px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-[#7AA6D6]" style="border-bottom-style: dotted;">講座課程</a>
+                        <a href="{{ route('home') }}#column" class="block px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-[#A67AD6]" style="border-bottom-style: dotted;">諮商專欄</a>
                     </div>
                 </div>
             </div>
