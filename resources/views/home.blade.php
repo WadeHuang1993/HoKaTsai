@@ -119,7 +119,8 @@
         </div>
 
         <!-- 合作專案 -->
-        <section style="background-color: #f9fafb; background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px); background-size: 20px 20px;">
+{{--        <section style="background-color: #f9fafb; background-image: radial-gradient(rgba(0,0,0,0.01) 1.5px, transparent 1px); background-size: 8px 8px;">--}}
+        <section style="background-color: #ffffff; background-image: radial-gradient(rgba(0,0,0,0.01) 1.5px, transparent 1px); background-size: 8px 8px;">
             <div id="cooperation" class="p-8 rounded-xl mb-20 scroll-mt-24">
                 <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-6 text-center">合作單位與合作方案</h3>
                 <p class="text-[var(--primary-light)] text-center mb-8">我們與多個機構合作，提供專業的心理健康服務</p>
