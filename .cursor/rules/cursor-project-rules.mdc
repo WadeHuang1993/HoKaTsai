@@ -15,3 +15,7 @@ alwaysApply: true
 ```
 cd laradock && docker compose worksbace [command]
 ```
+
+開發注意事項：
+1. 後台 CRUD 的 HTML 結構要符合 laravel-adminlte 套件的結構
+2. 在後台 CMS 新增一個 resource 路由後，記得在 config/adminlte.php 新增對應功能的選單
