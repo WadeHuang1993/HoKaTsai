@@ -16,6 +16,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'slack-new-appointment' => env('SLACK_NEW_APPOINTMENT', ''),
 
     /*
     |--------------------------------------------------------------------------
