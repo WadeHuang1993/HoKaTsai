@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\News;
 use App\Models\Course;
+use App\Models\Article;
 use Illuminate\Support\Facades\Storage;
 
 class SeoService
@@ -204,27 +205,27 @@ class SeoService
     public function getCourseListSeoData($courses): array
     {
         return [
-            'title' => '心理課程與講座 - 好家在心理諮商所',
-            'description' => '好家在心理諮商所提供專業的心理課程與講座，包含心理健康、情緒管理、人際關係等主題，由專業心理師帶領，幫助您提升心理素質與生活品質。',
-            'keywords' => '心理課程,心理健康講座,情緒管理課程,人際關係講座,台南心理諮商所課程',
+            'title' => '心理諮商課程與講座 - 好家在心理諮商所',
+            'description' => '好家在心理諮商所提供專業的心理諮商課程與講座，包含心理健康、情緒管理、人際關係等主題，由專業心理師帶領，幫助您提升心理素質與生活品質。',
+            'keywords' => '心理諮商課程,心理健康講座,情緒管理課程,人際關係講座,台南心理諮商所課程',
             'og' => [
-                'title' => '心理課程與講座 - 好家在心理諮商所',
-                'description' => '好家在心理諮商所提供專業的心理課程與講座，包含心理健康、情緒管理、人際關係等主題，由專業心理師帶領，幫助您提升心理素質與生活品質。',
+                'title' => '心理諮商課程與講座 - 好家在心理諮商所',
+                'description' => '好家在心理諮商所提供專業的心理諮商課程與講座，包含心理健康、情緒管理、人際關係等主題，由專業心理師帶領，幫助您提升心理素質與生活品質。',
                 'image' => asset('images/environment/waiting_room_5.jpg'),
                 'url' => url('/courses'),
                 'type' => 'website',
             ],
             'twitter' => [
                 'card' => 'summary_large_image',
-                'title' => '心理課程與講座 - 好家在心理諮商所',
-                'description' => '好家在心理諮商所提供專業的心理課程與講座，包含心理健康、情緒管理、人際關係等主題。',
+                'title' => '心理諮商課程與講座 - 好家在心理諮商所',
+                'description' => '好家在心理諮商所提供專業的心理諮商課程與講座，包含心理健康、情緒管理、人際關係等主題。',
                 'image' => asset('images/environment/waiting_room_5.jpg'),
             ],
             'schema' => [
                 '@context' => 'https://schema.org',
                 '@type' => 'CollectionPage',
                 'name' => '好家在心理諮商所課程與講座',
-                'description' => '好家在心理諮商所提供專業的心理課程與講座，包含心理健康、情緒管理、人際關係等主題。',
+                'description' => '好家在心理諮商所提供專業的心理諮商課程與講座，包含心理健康、情緒管理、人際關係等主題。',
                 'url' => url('/courses'),
                 'mainEntity' => [
                     '@type' => 'ItemList',
@@ -285,7 +286,7 @@ class SeoService
         return [
             'title' => $course->title . ' - 好家在心理諮商所',
             'description' => $description,
-            'keywords' => '心理課程,' . $course->title . ',心理健康講座,台南心理諮商所課程',
+            'keywords' => '心理諮商課程,' . $course->title . ',心理健康講座,台南心理諮商所課程',
             'og' => [
                 'title' => $course->title . ' - 好家在心理諮商所',
                 'description' => $description,
@@ -345,6 +346,73 @@ class SeoService
                     '@type' => 'WebPage',
                     '@id' => route('courses.show', $course->_id)
                 ]
+            ]
+        ];
+    }
+
+    /**
+     * 生成專欄文章列表頁的 SEO 資料
+     *
+     * @param \Illuminate\Pagination\LengthAwarePaginator $articles
+     * @return array
+     */
+    public function getArticleListSeoData($articles): array
+    {
+        return [
+            'title' => '心理諮商專欄 - 好家在心理諮商所',
+            'description' => '好家在心理諮商所的心理諮商專欄，提供專業的心理健康知識、情緒管理技巧、人際關係建議等文章，由專業心理師撰寫，幫助您更了解自己，提升生活品質。',
+            'keywords' => '心理諮商專欄,心理健康文章,情緒管理,人際關係,心理諮商,台南心理諮商所',
+            'og' => [
+                'title' => '心理諮商專欄 - 好家在心理諮商所',
+                'description' => '好家在心理諮商所的心理諮商專欄，提供專業的心理健康知識、情緒管理技巧、人際關係建議等文章，由專業心理師撰寫。',
+                'image' => asset('images/environment/waiting_room_5.jpg'),
+                'url' => url('/articles'),
+                'type' => 'website',
+            ],
+            'twitter' => [
+                'card' => 'summary_large_image',
+                'title' => '心理諮商專欄 - 好家在心理諮商所',
+                'description' => '好家在心理諮商所的心理諮商專欄，提供專業的心理健康知識、情緒管理技巧、人際關係建議等文章。',
+                'image' => asset('images/environment/waiting_room_5.jpg'),
+            ],
+            'schema' => [
+                '@context' => 'https://schema.org',
+                '@type' => 'Blog',
+                'name' => '好家在心理諮商所心理諮商專欄',
+                'description' => '好家在心理諮商所的心理諮商專欄，提供專業的心理健康知識、情緒管理技巧、人際關係建議等文章。',
+                'url' => url('/articles'),
+                'publisher' => [
+                    '@type' => 'Organization',
+                    'name' => '好家在心理諮商所',
+                    'logo' => [
+                        '@type' => 'ImageObject',
+                        'url' => asset('images/environment/waiting_room_5.jpg')
+                    ]
+                ],
+                'blogPost' => $articles->map(function ($article) {
+                    return [
+                        '@type' => 'BlogPosting',
+                        'headline' => $article->title,
+                        'description' => strip_tags(str_replace('&nbsp;', ' ', $article->summary)),
+                        'datePublished' => $article->created_at->format('Y-m-d'),
+                        'dateModified' => $article->updated_at->format('Y-m-d'),
+                        'image' => $article->image ? Storage::url($article->image) : asset('images/environment/waiting_room_5.jpg'),
+                        'url' => route('articles.show', $article->_id),
+                        'author' => [
+                            '@type' => 'Person',
+                            'name' => $article->teamMember->name,
+                            'jobTitle' => $article->teamMember->title
+                        ],
+                        'publisher' => [
+                            '@type' => 'Organization',
+                            'name' => '好家在心理諮商所',
+                            'logo' => [
+                                '@type' => 'ImageObject',
+                                'url' => asset('images/environment/waiting_room_5.jpg')
+                            ]
+                        ]
+                    ];
+                })->toArray()
             ]
         ];
     }

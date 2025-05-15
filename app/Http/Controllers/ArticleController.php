@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Models\Article;
+use App\Services\SeoService;
 
 class ArticleController extends Controller
 {
-    public function index()
+    protected $seoService;
+
+    public function __construct(SeoService $seoService)
     {
-        $articles = Article::where('status', true)
+        $this->seoService = $seoService;
+    }
+
+    public function index(Request $request)
+    {
+        $articles = Article::with('teamMember')
+            ->where('status', true)
             ->orderBy('created_at', 'desc')
             ->paginate(15);
 
-        return view('articles.index', compact('articles'));
+        $seoData = $this->seoService->getArticleListSeoData($articles);
+
+        return view('articles.index', compact('articles', 'seoData'));
     }
 
     public function show(string $id)
