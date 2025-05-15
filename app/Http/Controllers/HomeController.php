@@ -11,6 +11,7 @@ use App\Models\Article;
 use App\Models\CounselingService;
 use App\Services\SeoService;
 use Illuminate\View\View;
+use App\Models\Partner;
 
 class HomeController extends Controller
 {
@@ -34,6 +35,7 @@ class HomeController extends Controller
         $latestArticles = Article::with('teamMember')->where('status', true)->orderBy('_id', 'desc')->take(6)->get();
         $latestCourses = Course::orderBy('start_date', 'desc')->take(6)->get();
         $services = CounselingService::orderBy('order')->get();
+        $partners = Partner::orderBy('order')->get();
         $seoData = $this->seoService->getHomeSeoData();
 
         return view('home', compact(
@@ -43,6 +45,7 @@ class HomeController extends Controller
             'latestArticles',
             'latestCourses',
             'services',
+            'partners',
             'seoData'
         ));
     }

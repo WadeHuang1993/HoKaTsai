@@ -118,44 +118,21 @@
             @endforeach
         </div>
 
-        <!-- 諮商預約流程圖 -->
-        <div class="max-w-5xl mx-auto mb-16">
-            <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-8 text-center">諮商預約流程</h3>
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
-                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">1</div>
-                    <div class="font-bold mb-1">LINE 或填表預約</div>
-                    <div class="text-sm text-gray-500">選擇LINE或線上表單預約，留下基本需求</div>
-                </div>
-                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
-                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">2</div>
-                    <div class="font-bold mb-1">專人依需求回覆</div>
-                    <div class="text-sm text-gray-500">由專人回覆，協助釐清您的諮商需求</div>
-                </div>
-                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
-                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">3</div>
-                    <div class="font-bold mb-1">媒合時間與心理師</div>
-                    <div class="text-sm text-gray-500">依您的狀況媒合合適心理師與晤談時間</div>
-                </div>
-                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
-                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">4</div>
-                    <div class="font-bold mb-1">完成預約</div>
-                    <div class="text-sm text-gray-500">以LINE或mail通知預約結果與細節</div>
-                </div>
-                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
-                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">5</div>
-                    <div class="font-bold mb-1">開始晤談</div>
-                    <div class="text-sm text-gray-500">由專業心理師開始晤談服務</div>
-                </div>
-            </div>
-        </div>
-        <!-- /諮商預約流程圖 -->
-
         <!-- 合作專案 -->
         <div id="cooperation" class="bg-[var(--text-light)] p-8 rounded-xl mb-20 scroll-mt-24">
-            <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-6 text-center">合作專案</h3>
+            <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-6 text-center">合作單位與合作方案</h3>
             <p class="text-[var(--primary-light)] text-center mb-8">我們與多個機構合作，提供專業的心理健康服務</p>
-            <!-- 合作項目列表 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                @foreach($partners as $partner)
+                    <div class="block bg-[var(--background-color)]  rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                        <img src="{{ Storage::url($partner->logo) }}" alt="{{ $partner->name }} logo" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $partner->name }}</h3>
+                            <p class="text-[var(--primary-light)] mb-4 line-clamp-4 text-justify">{{ $partner->description }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 </div>
@@ -208,6 +185,37 @@
             <h2 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)] mb-6">諮商預約</h2>
         </div>
 
+        <!-- 諮商預約流程圖 -->
+        <div class="max-w-5xl mx-auto mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
+                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">1</div>
+                    <div class="font-bold mb-1">LINE 或填表預約</div>
+                    <div class="text-sm text-gray-500">選擇LINE或線上表單預約，留下基本需求</div>
+                </div>
+                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
+                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">2</div>
+                    <div class="font-bold mb-1">專人依需求回覆</div>
+                    <div class="text-sm text-gray-500">由專人回覆，協助釐清您的諮商需求</div>
+                </div>
+                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
+                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">3</div>
+                    <div class="font-bold mb-1">媒合時間與心理師</div>
+                    <div class="text-sm text-gray-500">依您的狀況媒合合適心理師與晤談時間</div>
+                </div>
+                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
+                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">4</div>
+                    <div class="font-bold mb-1">完成預約</div>
+                    <div class="text-sm text-gray-500">以LINE或mail通知預約結果與細節</div>
+                </div>
+                <div class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center border-2 border-[var(--primary-light)]">
+                    <div class="w-10 h-10 flex items-center justify-center bg-[var(--primary-light)] text-white rounded-full text-xl font-bold mb-2">5</div>
+                    <div class="font-bold mb-1">開始晤談</div>
+                    <div class="text-sm text-gray-500">由專業心理師開始晤談服務</div>
+                </div>
+            </div>
+        </div>
+        <!-- /諮商預約流程圖 -->
         <div class="bg-[var(--text-light)] p-8 rounded-xl shadow-lg">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="space-y-6">
