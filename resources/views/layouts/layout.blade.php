@@ -79,7 +79,7 @@
                             </a>
                             <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                                 <a href="{{ route('home') }}#counseling-services" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 border-b border-gray-200">各項諮商服務</a>
-                                <a href="{{ route('home') }}#cooperation" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 border-b border-gray-200">合作單位與合作方案</a>
+                                <a href="{{ route('home') }}#partner" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 border-b border-gray-200">合作單位與合作方案</a>
                                 <a href="{{ route('faq.index') }}" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 border-b border-gray-200">諮商Q&A</a>
                                 <a href="{{ route('service-fee.index') }}" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">諮商費用</a>
                             </div>
@@ -119,7 +119,7 @@
                             </button>
                             <div id="services-submenu" class="hidden pl-4">
                                 <a href="{{ route('home') }}#counseling-services" class="block px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-gray-200">各項諮商服務</a>
-                                <a href="{{ route('home') }}#cooperation" class="block px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-gray-200">合作單位與合作方案</a>
+                                <a href="{{ route('home') }}#partner" class="block px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-gray-200">合作單位與合作方案</a>
                                 <a href="{{ route('faq.index') }}" class="block px-3 py-2 text-gray-600 hover:text-gray-900 border-b border-gray-200">諮商Q&A</a>
                                 <a href="{{ route('service-fee.index') }}" class="block px-3 py-2 text-gray-600 hover:text-gray-900">諮商費用</a>
                             </div>
