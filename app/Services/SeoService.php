@@ -577,4 +577,70 @@ class SeoService
             ]
         ];
     }
+
+    /**
+     * 生成諮商心理師內容頁的 SEO 資料
+     *
+     * @param \App\Models\TeamMember $member
+     * @return array
+     */
+    public function getTeamMemberDetailSeoData($member): array
+    {
+        $description = strip_tags(str_replace('&nbsp;', ' ', $member->self_introduction));
+        $description = mb_substr($description, 0, 160, 'UTF-8') . '...';
+
+        return [
+            'title' => $member->name . ' - ' . $member->title . ' - 好家在心理諮商所',
+            'description' => $description,
+            'keywords' => '心理諮商師,' . $member->name . ',' . $member->title . ',台南心理諮商所',
+            'og' => [
+                'title' => $member->name . ' - ' . $member->title . ' - 好家在心理諮商所',
+                'description' => $description,
+                'image' => $member->image ? Storage::url($member->image) : asset('images/environment/waiting_room_5.jpg'),
+                'url' => route('team.show', $member->_id),
+                'type' => 'profile',
+                'profile' => [
+                    'first_name' => $member->name,
+                    'last_name' => '',
+                    'username' => $member->name,
+                    'gender' => 'female'
+                ]
+            ],
+            'twitter' => [
+                'card' => 'summary_large_image',
+                'title' => $member->name . ' - ' . $member->title . ' - 好家在心理諮商所',
+                'description' => $description,
+                'image' => $member->image ? Storage::url($member->image) : asset('images/environment/waiting_room_5.jpg'),
+            ],
+            'schema' => [
+                '@context' => 'https://schema.org',
+                '@type' => 'Person',
+                'name' => $member->name,
+                'jobTitle' => $member->title,
+                'description' => $description,
+                'image' => $member->image ? Storage::url($member->image) : asset('images/environment/waiting_room_5.jpg'),
+                'worksFor' => [
+                    '@type' => 'Organization',
+                    'name' => '好家在心理諮商所',
+                    'url' => url('/')
+                ],
+                'knowsAbout' => array_merge(
+                    $member->specialties ?? [],
+                    $member->specialized_approaches ?? []
+                ),
+                'award' => $member->professional_trainings ?? [],
+                'alumniOf' => array_map(function($education) {
+                    return [
+                        '@type' => 'CollegeOrUniversity',
+                        'name' => $education
+                    ];
+                }, $member->education ?? []),
+                'url' => route('team.show', $member->_id),
+                'mainEntityOfPage' => [
+                    '@type' => 'WebPage',
+                    '@id' => route('team.show', $member->_id)
+                ]
+            ]
+        ];
+    }
 }
