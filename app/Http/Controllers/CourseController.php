@@ -33,6 +33,8 @@ class CourseController extends Controller
         // 載入關聯的講師資料
         $course->load('teamMember');
 
-        return view('courses.show', compact('course'));
+        $seoData = $this->seoService->getCourseDetailSeoData($course);
+
+        return view('courses.show', compact('course', 'seoData'));
     }
 }

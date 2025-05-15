@@ -270,4 +270,82 @@ class SeoService
             ]
         ];
     }
+
+    /**
+     * 生成課程講座內容頁的 SEO 資料
+     *
+     * @param \App\Models\Course $course
+     * @return array
+     */
+    public function getCourseDetailSeoData(Course $course): array
+    {
+        $description = strip_tags(str_replace('&nbsp;', ' ', $course->description));
+        $description = mb_substr($description, 0, 160, 'UTF-8') . '...';
+
+        return [
+            'title' => $course->title . ' - 好家在心理諮商所',
+            'description' => $description,
+            'keywords' => '心理課程,' . $course->title . ',心理健康講座,台南心理諮商所課程',
+            'og' => [
+                'title' => $course->title . ' - 好家在心理諮商所',
+                'description' => $description,
+                'image' => $course->image ? Storage::url($course->image) : asset('images/environment/waiting_room_5.jpg'),
+                'url' => route('courses.show', $course->_id),
+                'type' => 'article',
+                'article' => [
+                    'published_time' => $course->created_at->format('Y-m-d'),
+                    'modified_time' => $course->updated_at->format('Y-m-d'),
+                    'author' => $course->teamMember->name,
+                    'section' => '講座課程',
+                ]
+            ],
+            'twitter' => [
+                'card' => 'summary_large_image',
+                'title' => $course->title . ' - 好家在心理諮商所',
+                'description' => $description,
+                'image' => $course->image ? Storage::url($course->image) : asset('images/environment/waiting_room_5.jpg'),
+            ],
+            'schema' => [
+                '@context' => 'https://schema.org',
+                '@type' => 'Event',
+                'name' => $course->title,
+                'description' => $description,
+                'image' => $course->image ? Storage::url($course->image) : asset('images/environment/waiting_room_5.jpg'),
+                'startDate' => $course->start_date->format('Y-m-d'),
+                'endDate' => $course->end_date->format('Y-m-d'),
+                'location' => [
+                    '@type' => 'Place',
+                    'name' => '好家在心理諮商所',
+                    'address' => [
+                        '@type' => 'PostalAddress',
+                        'streetAddress' => '友愛街237號',
+                        'addressLocality' => '台南市',
+                        'addressRegion' => '中西區',
+                        'postalCode' => '700',
+                        'addressCountry' => 'TW'
+                    ]
+                ],
+                'organizer' => [
+                    '@type' => 'Organization',
+                    'name' => '好家在心理諮商所',
+                    'url' => url('/')
+                ],
+                'performer' => [
+                    '@type' => 'Person',
+                    'name' => $course->teamMember->name,
+                    'jobTitle' => $course->teamMember->title
+                ],
+                'offers' => [
+                    '@type' => 'Offer',
+                    'price' => $course->price,
+                    'priceCurrency' => 'TWD',
+                    'availability' => $course->status ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut'
+                ],
+                'mainEntityOfPage' => [
+                    '@type' => 'WebPage',
+                    '@id' => route('courses.show', $course->_id)
+                ]
+            ]
+        ];
+    }
 }
