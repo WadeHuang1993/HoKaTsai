@@ -482,4 +482,99 @@ class SeoService
             ]
         ];
     }
+
+    /**
+     * 生成預約表單頁面的 SEO 資料
+     *
+     * @return array
+     */
+    public function getAppointmentSeoData(): array
+    {
+        return [
+            'title' => '心理諮商預約 - 好家在心理諮商所',
+            'description' => '好家在心理諮商所提供專業的心理諮商服務，包含個別諮商、伴侶諮商等。透過線上預約系統，您可以輕鬆選擇適合的時段與心理師，開始您的心理健康之旅。',
+            'keywords' => '心理諮商預約,線上預約,個別諮商,伴侶諮商,台南心理諮商所',
+            'og' => [
+                'title' => '心理諮商預約 - 好家在心理諮商所',
+                'description' => '好家在心理諮商所提供專業的心理諮商服務，包含個別諮商、伴侶諮商等。透過線上預約系統，您可以輕鬆選擇適合的時段與心理師。',
+                'image' => asset('images/environment/waiting_room_5.jpg'),
+                'url' => url('/appointment'),
+                'type' => 'website',
+            ],
+            'twitter' => [
+                'card' => 'summary_large_image',
+                'title' => '心理諮商預約 - 好家在心理諮商所',
+                'description' => '好家在心理諮商所提供專業的心理諮商服務，包含個別諮商、伴侶諮商等。',
+                'image' => asset('images/environment/waiting_room_5.jpg'),
+            ],
+            'schema' => [
+                '@context' => 'https://schema.org',
+                '@type' => 'ContactPage',
+                'name' => '好家在心理諮商所預約系統',
+                'description' => '好家在心理諮商所提供專業的心理諮商服務，包含個別諮商、伴侶諮商等。',
+                'url' => url('/appointment'),
+                'mainEntity' => [
+                    '@type' => 'Service',
+                    'name' => '心理諮商服務',
+                    'description' => '好家在心理諮商所提供專業的心理諮商服務，包含個別諮商、伴侶諮商等。',
+                    'provider' => [
+                        '@type' => 'Organization',
+                        'name' => '好家在心理諮商所',
+                        'address' => [
+                            '@type' => 'PostalAddress',
+                            'streetAddress' => '友愛街237號',
+                            'addressLocality' => '台南市',
+                            'addressRegion' => '中西區',
+                            'postalCode' => '700',
+                            'addressCountry' => 'TW'
+                        ],
+                        'telephone' => '+886-6-223-8050',
+                        'email' => 'hokatsaicounseling@gmail.com'
+                    ],
+                    'areaServed' => [
+                        '@type' => 'City',
+                        'name' => '台南市'
+                    ],
+                    'hasOfferCatalog' => [
+                        '@type' => 'OfferCatalog',
+                        'name' => '諮商服務項目',
+                        'itemListElement' => [
+                            [
+                                '@type' => 'Offer',
+                                'itemOffered' => [
+                                    '@type' => 'Service',
+                                    'name' => '個別諮商',
+                                    'description' => '透過一對一的諮商，在安全的環境下，心理師與您一起深入的探索自己、了解自己。'
+                                ]
+                            ],
+                            [
+                                '@type' => 'Offer',
+                                'itemOffered' => [
+                                    '@type' => 'Service',
+                                    'name' => '兒童遊戲治療',
+                                    'description' => '讓「遊戲」成為兒童的語言，「玩具」成為兒童的字彙，表達內心的感受，心理師藉此理解與評估兒童處境，並適時搭配家長諮詢，一同改善孩子面臨的難題。'
+                                ]
+                            ],
+                            [
+                                '@type' => 'Offer',
+                                'itemOffered' => [
+                                    '@type' => 'Service',
+                                    'name' => '伴侶/婚姻諮商',
+                                    'description' => '透過心理師的第三方合作，協助伴侶停下傷害關係的互動模式，並能看見彼此在關係中的滋養，創造好的互動模式。'
+                                ]
+                            ],
+                            [
+                                '@type' => 'Offer',
+                                'itemOffered' => [
+                                    '@type' => 'Service',
+                                    'name' => '親子/家族諮商',
+                                    'description' => '兩人以上的諮商方式，協助改善親子/家庭成員間的溝通方式、解決衝突、改善關係，創造新的連結方式，產生滿意的關係互動。'
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ];
+    }
 }

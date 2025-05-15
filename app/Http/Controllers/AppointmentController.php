@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Appointment;
 use App\Models\TeamMember;
+use App\Services\SeoService;
 
 class AppointmentController extends Controller
 {
+    protected $seoService;
+
+    public function __construct(SeoService $seoService)
+    {
+        $this->seoService = $seoService;
+    }
+
     // 顯示預約表單
     public function showForm()
     {
@@ -18,7 +26,9 @@ class AppointmentController extends Controller
             return false === empty($teamMember->available_times);
         });
 
-        return view('appointment.form', compact('teamMembers'));
+        $seoData = $this->seoService->getAppointmentSeoData();
+
+        return view('appointment.form', compact('teamMembers', 'seoData'));
     }
 
     // 處理預約表單送出
