@@ -20,6 +20,8 @@
                         <th>方便聯繫時段</th>
                         <th>諮商議題</th>
                         <th>建立時間</th>
+                        <th>處理狀態</th>
+                        <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,6 +41,25 @@
                                 @endif
                             </td>
                             <td>{{ $item->created_at ? $item->created_at->format('Y-m-d H:i') : '' }}</td>
+                            <td>
+                                <form action="{{ route('admin.appointments.updateStatus', $item->_id) }}" method="POST" class="form-inline formStatus" data-id="{{ $item->_id }}">
+                                    @csrf
+                                    @method('PATCH')
+                                    <label class="mr-2">
+                                        <input type="radio" name="status" value="pending" {{ $item->status !== 'done' ? 'checked' : '' }}> 待處理
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="status" value="done" {{ $item->status === 'done' ? 'checked' : '' }}> 已處理
+                                    </label>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{{ route('admin.appointments.destroy', $item->_id) }}" method="POST" onsubmit="return confirm('確定要刪除這筆預約嗎？')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-danger">刪除</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -48,4 +69,14 @@
             {{ $appointments->links() }}
         </div>
     </div>
-@stop 
+@stop
+@section('js')
+<script>
+    document.querySelectorAll('.formStatus input[type=radio]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            var form = radio.closest('form');
+            form.submit();
+        });
+    });
+</script>
+@endsection 

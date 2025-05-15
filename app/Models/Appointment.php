@@ -22,6 +22,7 @@ class Appointment extends Model
         'topics',
         'topic_other',
         'contact_time',
+        'status',
     ];
 
     protected $casts = [
