@@ -118,8 +118,8 @@
             @endforeach
         </div>
 
-        <!-- 合作專案 -->
-        <div id="cooperation" class="p-8 rounded-xl mb-20 scroll-mt-24">
+        <!-- 合作單位 -->
+        <div id="partner" class="p-8 rounded-xl mb-20 scroll-mt-24">
             <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-6 text-center">合作單位與合作方案</h3>
             <p class="text-[var(--primary-light)] text-center mb-8">我們與多個機構合作，提供專業的心理健康服務</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
