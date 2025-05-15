@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ArticleCategoryController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\FaqController;

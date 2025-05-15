@@ -643,4 +643,46 @@ class SeoService
             ]
         ];
     }
+
+    /**
+     * 生成常見問題頁面的 SEO 資料
+     *
+     * @param \Illuminate\Database\Eloquent\Collection $faqs
+     * @return array
+     */
+    public function getFaqSeoData($faqs): array
+    {
+        return [
+            'title' => '常見問題 - 好家在心理諮商所',
+            'description' => '好家在心理諮商所提供專業的心理諮商服務，包含個別諮商、伴侶諮商等。這裡整理了常見的心理諮商相關問題，幫助您更了解心理諮商服務。',
+            'keywords' => '心理諮商常見問題,心理諮商FAQ,心理諮商費用,心理諮商流程,台南心理諮商所',
+            'og' => [
+                'title' => '常見問題 - 好家在心理諮商所',
+                'description' => '好家在心理諮商所提供專業的心理諮商服務，包含個別諮商、伴侶諮商等。這裡整理了常見的心理諮商相關問題，幫助您更了解心理諮商服務。',
+                'image' => asset('images/environment/waiting_room_5.jpg'),
+                'url' => url('/faq'),
+                'type' => 'website',
+            ],
+            'twitter' => [
+                'card' => 'summary_large_image',
+                'title' => '常見問題 - 好家在心理諮商所',
+                'description' => '好家在心理諮商所提供專業的心理諮商服務，包含個別諮商、伴侶諮商等。這裡整理了常見的心理諮商相關問題。',
+                'image' => asset('images/environment/waiting_room_5.jpg'),
+            ],
+            'schema' => [
+                '@context' => 'https://schema.org',
+                '@type' => 'FAQPage',
+                'mainEntity' => $faqs->map(function ($faq) {
+                    return [
+                        '@type' => 'Question',
+                        'name' => $faq->question,
+                        'acceptedAnswer' => [
+                            '@type' => 'Answer',
+                            'text' => strip_tags(str_replace('&nbsp;', ' ', $faq->answer))
+                        ]
+                    ];
+                })->toArray()
+            ]
+        ];
+    }
 }
