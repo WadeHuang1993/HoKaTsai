@@ -685,4 +685,73 @@ class SeoService
             ]
         ];
     }
+
+    public function getServiceFeeSeoData($serviceFees)
+    {
+        $title = '收費標準 - 好家在心理諮商所';
+        $description = '本頁提供好家在心理諮商所各項心理諮商服務的收費標準、服務內容與現金支付方式，協助您透明了解預約流程與費用。';
+        $keywords = '心理諮商, 收費標準, 諮商費用, 台南心理師, 好家在心理諮商所';
+        $url = url('/service-fee');
+        $image = asset('images/environment/waiting_room_5.jpg');
+        $offerList = [];
+        foreach ($serviceFees as $fee) {
+            $offerList[] = [
+                '@type' => 'Offer',
+                'itemOffered' => [
+                    '@type' => 'Service',
+                    'name' => $fee->title,
+                    'description' => trim(($fee->subtitle ? $fee->subtitle . '，' : '') . ($fee->description ?? '')),
+                ],
+                'price' => $fee->price,
+                'priceCurrency' => 'TWD',
+            ];
+        }
+        return [
+            'title' => $title,
+            'description' => $description,
+            'keywords' => $keywords,
+            'og' => [
+                'type' => 'website',
+                'url' => $url,
+                'title' => $title,
+                'description' => $description,
+                'image' => $image,
+            ],
+            'twitter' => [
+                'card' => 'summary_large_image',
+                'title' => $title,
+                'description' => $description,
+                'image' => $image,
+            ],
+            'schema' => [
+                '@context' => 'https://schema.org',
+                '@type' => 'Service',
+                'name' => '諮商服務收費標準',
+                'provider' => [
+                    '@type' => 'LocalBusiness',
+                    'name' => '好家在心理諮商所',
+                    'image' => $image,
+                    'address' => [
+                        '@type' => 'PostalAddress',
+                        'streetAddress' => '台南市中西區友愛街237號',
+                        'addressLocality' => '台南市',
+                        'addressRegion' => '台南市',
+                        'postalCode' => '700',
+                        'addressCountry' => 'TW',
+                    ],
+                    'telephone' => '(06)223-8050',
+                    'url' => url('/'),
+                ],
+                'description' => $description,
+                'areaServed' => '台南市',
+                'serviceType' => '心理諮商',
+                'url' => $url,
+                'hasOfferCatalog' => [
+                    '@type' => 'OfferCatalog',
+                    'name' => '諮商服務項目',
+                    'itemListElement' => $offerList,
+                ],
+            ],
+        ];
+    }
 }

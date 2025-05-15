@@ -16,11 +16,10 @@
                 </a>
                 或請您留下以下資訊：
             </p>
-            <p>我們的個案管理師會於上班時間陸續與您接洽</p>
+            <p>我們的行政人員會於上班時間陸續與您接洽</p>
             <p>請您稍等</p>
             <p class="mt-4 text-sm">
-                若您想了解諮商費用，歡迎查看
-                <a href="{{ route('faq.index') }}" class="text-[var(--primary-color)] hover:underline">諮商Q&A 頁面</a>
+                想了解收費標準，請參考『<a href="{{ route('service-fee.index') }}" class="text-[var(--primary-color)] hover:underline">諮商費用</a>』頁面
             </p>
         </div>
         @if(session('success'))

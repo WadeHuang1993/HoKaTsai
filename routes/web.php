@@ -8,6 +8,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\ServiceFeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::get('/appointment', [AppointmentController::class, 'showForm'])->name('ap
 Route::post('/appointment', [AppointmentController::class, 'submitForm'])->name('appointment.submit');
 Route::get('/team/{id}', [TeamMemberController::class, 'show'])->name('team.show');
 Route::get('/faq', [FaqController::class, 'frontIndex'])->name('faq.index');
+Route::get('/service-fee', [ServiceFeeController::class, 'index'])->name('service-fee.index');
 
 // Sitemap
 Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');

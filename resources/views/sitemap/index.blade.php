@@ -81,4 +81,11 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+
+    <!-- 諮商收費標準頁 -->
+    <url>
+        <loc>{{ url('/service-fee') }}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset> 
