@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Libraries\Formatter;
 use App\Models\EnvironmentImage;
+use App\Models\Faq;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\TeamMember;
@@ -37,6 +39,11 @@ class HomeController extends Controller
         $services = CounselingService::orderBy('order')->get();
         $partners = Partner::orderBy('order')->get();
         $seoData = $this->seoService->getHomeSeoData();
+
+        $partners = $partners->map(function (Partner $partner) {
+            $partner->description = Formatter::autoLink($partner->description);
+            return $partner;
+        });
 
         return view('home', compact(
             'latestNews',
