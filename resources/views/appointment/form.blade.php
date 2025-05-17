@@ -7,7 +7,7 @@
     <div class="bg-white rounded-xl shadow-lg p-8">
         <h1 class="text-3xl font-bold text-center text-[var(--primary-color)] mb-6">預約諮商</h1>
         <div class="guide-text mb-8 text-[var(--primary-light)] leading-relaxed text-center">
-            <p class="mb-4">我們的諮商預約採「預約制」</p>
+            <p class="mb-4">我們的諮商服務採「預約制」</p>
 
             <p class="mb-4">
                 您可以 Line

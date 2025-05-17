@@ -118,8 +118,8 @@
             @endforeach
         </div>
 
-        <!-- 合作專案 -->
-        <div id="cooperation" class="p-8 rounded-xl mb-20 scroll-mt-24">
+        <!-- 合作單位 -->
+        <div id="partner" class="p-8 rounded-xl mb-20 scroll-mt-24">
             <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-6 text-center">合作單位與合作方案</h3>
             <p class="text-[var(--primary-light)] text-center mb-8">我們與多個機構合作，提供專業的心理健康服務</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -129,7 +129,8 @@
                             <img src="{{ Storage::url($partner->logo) }}" alt="{{ $partner->name }} logo" class="h-40 object-contain mx-auto">
                         </div>
                         <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3">{{ $partner->name }}</h3>
-                        <p class="text-[var(--primary-light)] text-base">{{ $partner->description }}</p>
+                        <p class="text-[var(--primary-light)] text-base">{!! nl2br($partner->description) !!}</p>
+
                     </div>
                 @endforeach
             </div>
