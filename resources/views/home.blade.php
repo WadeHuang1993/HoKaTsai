@@ -129,7 +129,7 @@
                             <img src="{{ Storage::url($partner->logo) }}" alt="{{ $partner->name }} logo" class="h-40 object-contain mx-auto">
                         </div>
                         <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3">{{ $partner->name }}</h3>
-                        <p class="text-[var(--primary-light)] text-base">{ !! nl2br($partner->description) !!}</p>
+                        <p class="text-[var(--primary-light)] text-base">{!! nl2br($faq->answer) !!}</p>
 
                     </div>
                 @endforeach
