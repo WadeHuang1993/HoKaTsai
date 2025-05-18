@@ -125,11 +125,18 @@
                         '|',
                         'blockQuote',
                         'insertTable',
+                        'imageUpload',
                         'undo',
                         'redo'
                     ]
                 },
-                language: 'zh-TW'
+                language: 'zh-TW',
+                simpleUpload: {
+                    uploadUrl: '/admin/articles-upload-image',
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    }
+                }
             })
             .catch(error => {
                 console.error(error);

@@ -100,4 +100,18 @@ class ArticleController extends Controller
         return redirect()->route('admin.articles.index')
             ->with('success', '專欄已成功刪除');
     }
+
+    public function uploadImage(Request $request)
+    {
+        $request->validate([
+            'upload' => 'required|image',
+        ]);
+
+        if ($request->hasFile('upload')) {
+            $path = $request->file('upload')->store('articles', 'public');
+            $url = asset('storage/' . $path);
+            return response()->json(['url' => $url]);
+        }
+        return response()->json(['error' => ['message' => '上傳失敗']], 400);
+    }
 }

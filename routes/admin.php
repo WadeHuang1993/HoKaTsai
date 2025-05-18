@@ -23,6 +23,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::resource('news', NewsController::class);
 
         // 諮商專欄管理
+        Route::post('articles-upload-image', [\App\Http\Controllers\Admin\ArticleController::class, 'uploadImage'])->name('admin.articles.upload-image');
         Route::resource('articles', ArticleController::class);
 
         // 團隊成員管理
@@ -64,3 +65,4 @@ Route::middleware(['auth:admin'])->group(function () {
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('login', [AuthController::class, 'login'])->name('login.submit');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
