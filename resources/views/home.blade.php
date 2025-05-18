@@ -112,7 +112,7 @@
                     <img src="{{ Storage::url($service->image) }}" alt="{{ $service->title }}" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $service->title }}</h3>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-4 text-justify">{{ $service->description }}</p>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-6 text-justify">{{ $service->description }}</p>
                     </div>
                 </div>
             @endforeach
