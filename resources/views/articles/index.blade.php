@@ -12,46 +12,29 @@
         </div>
 
         <!-- 文章列表 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             @foreach($articles as $article)
-            <article class="bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-                <!-- 文章封面圖 -->
-                <a href="{{ route('articles.show', $article->_id) }}" class="block relative">
-                    <img src="{{ Storage::url($article->image) }}" 
-                         alt="{{ $article->title }}" 
-                         class="w-full h-48 object-cover"
-                         loading="lazy">
-                </a>
-
-                <!-- 文章內容 -->
-                <div class="p-6">
-                    <!-- 文章標題 -->
-                    <h2 class="text-xl font-bold text-[var(--primary-color)] mb-3">
-                        <a href="{{ route('articles.show', $article->_id) }}" class="hover:text-[var(--primary-light)] transition duration-300">
-                            {{ $article->title }}
-                        </a>
-                    </h2>
-
-                    <!-- 文章摘要 -->
-                    <p class="text-[var(--primary-light)] mb-4 line-clamp-3">
-                        {{ $article->summary }}
-                    </p>
-
-                    <!-- 文章資訊 -->
-                    <div class="flex items-center justify-between text-sm text-gray-500">
-                        <div class="flex items-center">
-                            <img src="{{ $article->teamMember->image }}" 
-                                 alt="{{ $article->teamMember->name }}" 
-                                 class="w-8 h-8 rounded-full mr-2"
-                                 loading="lazy">
-                            <span>{{ $article->teamMember->name }}</span>
+                <a href="{{ route('articles.show', $article->_id) }}" class="block bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 h-full">
+                    @if($article->image)
+                        <img src="{{ Storage::url($article->image) }}" alt="{{ $article->title }}" class="w-full h-48 object-cover">
+                    @endif
+                    <div class="p-6">
+                        <div class="text-sm text-[var(--primary-light)] mb-2">{{ $article->created_at->format('Y-m-d') }}</div>
+                        <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $article->title }}</h3>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-3">{{ strip_tags(str_replace('&nbsp;', ' ', $article->content)) }}</p>
+                        @if($article->tags)
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            @foreach($article->tags as $tag)
+                                <span class="px-3 py-1 bg-[var(--background-color)] text-[var(--primary-color)] rounded-full text-sm">{{ $tag }}</span>
+                            @endforeach
                         </div>
-                        <time datetime="{{ $article->created_at->format('Y-m-d') }}">
-                            {{ $article->created_at->format('Y/m/d') }}
-                        </time>
+                        @endif
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-[var(--primary-light)]">{{ $article->teamMember->name }} - {{ $article->teamMember->title }}</span>
+                            <span class="text-[var(--primary-color)] group-hover:text-[var(--primary-light)] transition duration-300">閱讀更多</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </a>
             @endforeach
         </div>
 
