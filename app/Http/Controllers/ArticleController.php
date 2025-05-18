@@ -47,8 +47,14 @@ class ArticleController extends Controller
                 ->limit(3)
                 ->get();
 
+            // 合併所有相關文章
             $relatedArticles = $relatedArticles->merge($matched);
         }
+
+        // 去除重複的文章（使用 _id 判斷）
+        $relatedArticles = $relatedArticles->unique(function ($article) {
+            return $article->_id;
+        });
 
         $seoData = $this->seoService->getArticleDetailSeoData($article);
 

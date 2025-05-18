@@ -67,6 +67,48 @@ class SeoService
                 'sameAs' => [
                     'https://www.instagram.com/hokatsaicounseling',
                     'https://www.facebook.com/profile.php?id=61573891754810'
+                ],
+                'hasPart' => [
+                    [
+                        '@type' => 'WebPage',
+                        'name' => '最新消息',
+                        'url' => route('news.index')
+                    ],
+                    [
+                        '@type' => 'WebPage',
+                        'name' => '團隊陣容',
+                        'url' => url('/#team')
+                    ],
+                    [
+                        '@type' => 'WebPage',
+                        'name' => '諮商費用',
+                        'url' => route('service-fee.index')
+                    ],
+                    [
+                        '@type' => 'WebPage',
+                        'name' => '諮商服務',
+                        'url' => url('/#counseling-services')
+                    ],
+                    [
+                        '@type' => 'WebPage',
+                        'name' => '諮商專欄',
+                        'url' => route('articles.index')
+                    ],
+                    [
+                        '@type' => 'WebPage',
+                        'name' => '課程講座',
+                        'url' => route('courses.index')
+                    ],
+                    [
+                        '@type' => 'WebPage',
+                        'name' => '諮商Q&A',
+                        'url' => route('faq.index')
+                    ],
+                    [
+                        '@type' => 'WebPage',
+                        'name' => '預約諮商',
+                        'url' => route('appointment.form')
+                    ]
                 ]
             ]
         ];

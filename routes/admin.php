@@ -36,6 +36,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::resource('environment-images', EnvironmentImageController::class);
 
         // 預約總覽
+        Route::patch('appointments/{id}/status', [AppointmentController::class, 'updateStatus'])->name('appointments.updateStatus');
         Route::resource('appointments', AppointmentController::class);
 
         // 諮商 QA
