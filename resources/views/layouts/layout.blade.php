@@ -60,9 +60,12 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex items-center gap-2">
-                        <a href="{{ route('home') }}" class="div_brand_logo flex flex-col">
-                            <span class="text-2xl font-bold text-[#8BA89E]">好家在心理諮商所</span>
-                            <span class="text-sm text-gray-500">hó-ka-tsài counseling center</span>
+                        <a href="{{ route('home') }}" class="div_brand_logo flex items-center">
+                            <img src="/images/favicon-2.png" alt="好家在心理諮商所 icon" class="w-12 h-12 mr-4 object-contain" />
+                            <div class="flex flex-col justify-center leading-tight">
+                                <span class="text-2xl font-bold text-[#8BA89E]">好家在心理諮商所</span>
+                                <span class="text-sm text-gray-500">hó-ka-tsài counseling center</span>
+                            </div>
                         </a>
                     </div>
                     <div class="hidden md:flex items-center space-x-8">
