@@ -14,7 +14,7 @@
         <!-- 文章列表 -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             @foreach($articles as $article)
-                <a href="{{ route('articles.show', $article->_id) }}" class="block bg-[var(--background-color)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 h-full">
+                <a href="{{ route('articles.show', $article->_id) }}" class="block bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 h-full">
                     @if($article->image)
                         <img src="{{ Storage::url($article->image) }}" alt="{{ $article->title }}" class="w-full h-48 object-cover">
                     @endif
