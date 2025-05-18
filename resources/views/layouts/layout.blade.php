@@ -64,7 +64,7 @@
                             <img src="/images/favicon-2.png" alt="好家在心理諮商所 icon" class="w-12 h-12 mr-4 object-contain" />
                             <div class="flex flex-col justify-center leading-tight">
                                 <span class="text-2xl font-bold text-[#8BA89E]">好家在心理諮商所</span>
-                                <span class="text-sm text-gray-500">hó-ka-tsài counseling center</span>
+                                <span class="text-sm text-gray-500">Hó-Ka-Tsài Counseling Center</span>
                             </div>
                         </a>
                     </div>
