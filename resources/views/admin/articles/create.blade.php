@@ -73,6 +73,17 @@
                 </div>
 
                 <div class="form-group">
+                    <label>懶人包圖片</label>
+                    <div id="lazy-images-container" class="mb-3">
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="lazy-images" name="lazy_images[]" accept="image/*" multiple>
+                        <label class="custom-file-label" for="lazy-images">選擇多張圖片</label>
+                    </div>
+                    <small class="form-text text-muted">建議尺寸：800x600 像素，檔案大小不超過 2MB，可拖曳調整順序</small>
+                </div>
+
+                <div class="form-group">
                     <label for="status">狀態</label>
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="status" name="status" value="1"
@@ -93,6 +104,7 @@
 
 @section('js')
     <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
     <script>
         // 檔案名稱顯示
         document.addEventListener('DOMContentLoaded', function() {
@@ -105,6 +117,95 @@
                     }
                 });
             });
+
+            // 初始化拖曳排序
+            new Sortable(document.getElementById('lazy-images-container'), {
+                animation: 150,
+                handle: '.lazy-image-item',
+                onEnd: function() {
+                    updateMoveButtons();
+                }
+            });
+
+            // 預覽上傳的圖片
+            document.getElementById('lazy-images').addEventListener('change', function(e) {
+                const files = e.target.files;
+                if (files.length > 0) {
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        const reader = new FileReader();
+                        
+                        reader.onload = function(e) {
+                            const container = document.getElementById('lazy-images-container');
+                            const div = document.createElement('div');
+                            div.className = 'lazy-image-item mb-3 p-2 border rounded';
+                            div.innerHTML = `
+                                <div class="d-flex align-items-center">
+                                    <img src="${e.target.result}" alt="懶人包圖片" class="img-thumbnail mr-3" style="max-height: 100px;">
+                                    <div class="flex-grow-1">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-secondary move-up">
+                                                <i class="fas fa-arrow-up"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-secondary move-down">
+                                                <i class="fas fa-arrow-down"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger remove-image">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            container.appendChild(div);
+                        };
+                        
+                        reader.readAsDataURL(file);
+                    }
+                    updateMoveButtons();
+                }
+            });
+
+            // 移除圖片
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.remove-image')) {
+                    if (confirm('確定要移除這張圖片嗎？')) {
+                        e.target.closest('.lazy-image-item').remove();
+                        updateMoveButtons();
+                    }
+                }
+            });
+
+            // 上下移動按鈕
+            document.addEventListener('click', function(e) {
+                const item = e.target.closest('.lazy-image-item');
+                if (!item) return;
+
+                if (e.target.closest('.move-up')) {
+                    const prev = item.previousElementSibling;
+                    if (prev) {
+                        item.parentNode.insertBefore(item, prev);
+                        updateMoveButtons();
+                    }
+                } else if (e.target.closest('.move-down')) {
+                    const next = item.nextElementSibling;
+                    if (next) {
+                        item.parentNode.insertBefore(next, item);
+                        updateMoveButtons();
+                    }
+                }
+            });
+
+            function updateMoveButtons() {
+                const items = document.querySelectorAll('.lazy-image-item');
+                items.forEach((item, index) => {
+                    const upBtn = item.querySelector('.move-up');
+                    const downBtn = item.querySelector('.move-down');
+                    
+                    upBtn.disabled = index === 0;
+                    downBtn.disabled = index === items.length - 1;
+                });
+            }
         });
 
         // CKEditor 初始化

@@ -23,7 +23,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::resource('news', NewsController::class);
 
         // 諮商專欄管理
-        Route::post('articles-upload-image', [\App\Http\Controllers\Admin\ArticleController::class, 'uploadImage'])->name('admin.articles.upload-image');
+        Route::post('articles-upload-lazy-images', [ArticleController::class, 'uploadLazyImages'])->name('articles.upload-lazy-images');
         Route::resource('articles', ArticleController::class);
 
         // 團隊成員管理

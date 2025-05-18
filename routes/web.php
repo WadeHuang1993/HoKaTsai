@@ -36,3 +36,4 @@ Route::get('/service-fee', [ServiceFeeController::class, 'index'])->name('servic
 
 // Sitemap
 Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+

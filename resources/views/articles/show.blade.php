@@ -30,6 +30,21 @@
             <div class="prose prose-lg max-w-none text-[var(--primary-light)]">
                 {!! $article->content !!}
             </div>
+
+            @if($article->lazy_images && count($article->lazy_images) > 0)
+            <div class="mt-12">
+                <h2 class="text-2xl font-bold text-[var(--primary-color)] mb-6">懶人包</h2>
+                <div class="grid grid-cols-1 gap-6">
+                    @foreach($article->lazy_images as $lazyImage)
+                        <div class="bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg">
+                            <img src="{{ asset('storage/' . $lazyImage) }}"
+                                 alt="懶人包圖片"
+                                 class="w-full h-auto">
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            @endif
         </article>
 
         @if($relatedArticles->count() > 0)

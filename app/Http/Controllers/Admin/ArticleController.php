@@ -29,10 +29,12 @@ class ArticleController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'status' => 'boolean',
             'tags' => 'nullable',
             'team_member_id' => 'required|exists:team_members,_id',
+            'lazy_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'existing_lazy_images' => 'nullable|array',
         ]);
 
         if ($request->hasFile('image')) {
@@ -46,6 +48,25 @@ class ArticleController extends Controller
         // 處理多重標籤
         $tags = $request->input('tags', '');
         $validated['tags'] = explode(',', $tags);
+
+        // 處理懶人包圖片
+        $lazyImages = [];
+        
+        // 處理現有的圖片順序
+        if ($request->has('existing_lazy_images')) {
+            $lazyImages = $request->input('existing_lazy_images');
+        }
+
+        // 處理新上傳的圖片
+        if ($request->hasFile('lazy_images')) {
+            foreach ($request->file('lazy_images') as $image) {
+                $path = $image->store('articles/lazy-images', 'public');
+                $lazyImages[] = $path;
+            }
+        }
+
+        // 確保 lazy_images 不為 null
+        $validated['lazy_images'] = $lazyImages ?: [];
 
         Article::create($validated);
 
@@ -64,10 +85,12 @@ class ArticleController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'status' => 'boolean',
             'tags' => 'nullable',
             'team_member_id' => 'required|exists:team_members,_id',
+            'lazy_images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'existing_lazy_images' => 'nullable|array',
         ]);
 
         if ($request->hasFile('image')) {
@@ -84,6 +107,34 @@ class ArticleController extends Controller
         $tags = $request->input('tags', '');
         $validated['tags'] = explode(',', $tags);
 
+        // 處理懶人包圖片
+        $lazyImages = [];
+        
+        // 處理現有的圖片順序
+        if ($request->has('existing_lazy_images')) {
+            $lazyImages = $request->input('existing_lazy_images');
+        }
+
+        // 處理新上傳的圖片
+        if ($request->hasFile('lazy_images')) {
+            foreach ($request->file('lazy_images') as $image) {
+                $path = $image->store('articles/lazy-images', 'public');
+                $lazyImages[] = $path;
+            }
+        }
+
+        // 刪除被移除的圖片
+        if ($article->lazy_images) {
+            foreach ($article->lazy_images as $oldImage) {
+                if (!in_array($oldImage, $lazyImages)) {
+                    Storage::disk('public')->delete($oldImage);
+                }
+            }
+        }
+
+        // 確保 lazy_images 不為 null
+        $validated['lazy_images'] = $lazyImages ?: [];
+
         $article->update($validated);
 
         return redirect()->route('admin.articles.index')
@@ -99,19 +150,5 @@ class ArticleController extends Controller
 
         return redirect()->route('admin.articles.index')
             ->with('success', '專欄已成功刪除');
-    }
-
-    public function uploadImage(Request $request)
-    {
-        $request->validate([
-            'upload' => 'required|image',
-        ]);
-
-        if ($request->hasFile('upload')) {
-            $path = $request->file('upload')->store('articles', 'public');
-            $url = asset('storage/' . $path);
-            return response()->json(['url' => $url]);
-        }
-        return response()->json(['error' => ['message' => '上傳失敗']], 400);
     }
 }
