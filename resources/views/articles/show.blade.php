@@ -4,6 +4,13 @@
 <div class="py-24 bg-[var(--background-color)]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <article class="bg-[var(--text-light)] rounded-xl overflow-hidden shadow-lg p-8">
+            @if($article->image)
+                <div class="mb-8">
+                    <img src="{{ asset('storage/' . $article->image) }}"
+                         alt="{{ $article->title }}"
+                         class="w-full h-auto rounded-lg shadow-md">
+                </div>
+            @endif
             <header class="mb-8">
                 <h1 class="text-3xl md:text-4xl font-bold text-[var(--primary-color)] mb-4">{{ $article->title }}</h1>
                 <div class="flex flex-wrap items-center gap-4 text-[var(--primary-light)] mb-6">
@@ -19,29 +26,16 @@
                 @endif
             </header>
 
-            @if($article->image)
-            <div class="mb-8">
-                <img src="{{ asset('storage/' . $article->image) }}"
-                     alt="{{ $article->title }}"
-                     class="w-full h-auto rounded-lg shadow-md">
-            </div>
-            @endif
-
-            <div class="prose prose-lg max-w-none text-[var(--primary-light)]">
-                {!! $article->content !!}
-            </div>
-
             {{-- 懶人包圖片區塊 --}}
             @if($article->lazy_images && count($article->lazy_images) > 0)
                 <div class="mb-8 flex justify-center">
-                    <div class="swiper swiper-theme-warm lazy-swiper"
-                         style="max-width:600px; max-height:600px; width:100%; height:600px;">
+                    <div class="swiper swiper-theme-warm lazy-swiper w-full max-w-[600px] h-[240px] sm:h-[320px] md:h-[400px] lg:h-[600px]">
                         <div class="swiper-wrapper">
                             @foreach($article->lazy_images as $img)
-                                <div class="swiper-slide flex items-center justify-center" style="height:600px;">
+                                <div class="swiper-slide flex items-center justify-center h-[240px] sm:h-[320px] md:h-[400px] lg:h-[600px]">
                                     <img src="{{ asset('storage/' . $img) }}"
                                          alt="懶人包圖片"
-                                         class="w-full h-full object-cover rounded-lg shadow-md" />
+                                         class="w-full h-full object-contain rounded-lg shadow-md bg-white" />
                                 </div>
                             @endforeach
                         </div>
@@ -54,6 +48,10 @@
                 </div>
             @endif
             {{-- 懶人包圖片區塊 --}}
+
+            <div class="prose prose-lg max-w-none text-[var(--primary-light)]">
+                {!! $article->content !!}
+            </div>
 
             @if($relatedArticles->count() > 0)
             <div class="mt-12">
