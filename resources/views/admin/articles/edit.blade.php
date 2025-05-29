@@ -75,7 +75,7 @@
                     @error('image')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-                    <small class="form-text text-muted">建議尺寸：800x600 像素，檔案大小不超過 2MB</small>
+                    <small class="form-text text-muted">建議尺寸：800x600 像素</small>
                 </div>
 
                 <div class="form-group">
@@ -109,7 +109,7 @@
                         <input type="file" class="custom-file-input" id="lazy-images" name="lazy_images[]" accept="image/*" multiple>
                         <label class="custom-file-label" for="lazy-images">選擇多張圖片</label>
                     </div>
-                    <small class="form-text text-muted">建議尺寸：800x600 像素，檔案大小不超過 2MB，可拖曳調整順序</small>
+                    <small class="form-text text-muted">建議尺寸：600x600 像素，可拖曳調整順序</small>
                 </div>
 
                 <div class="form-group">
@@ -163,7 +163,7 @@
                     for (let i = 0; i < files.length; i++) {
                         const file = files[i];
                         const reader = new FileReader();
-                        
+
                         reader.onload = function(e) {
                             const container = document.getElementById('lazy-images-container');
                             const div = document.createElement('div');
@@ -188,7 +188,7 @@
                             `;
                             container.appendChild(div);
                         };
-                        
+
                         reader.readAsDataURL(file);
                     }
                     updateMoveButtons();
@@ -230,7 +230,7 @@
                 items.forEach((item, index) => {
                     const upBtn = item.querySelector('.move-up');
                     const downBtn = item.querySelector('.move-down');
-                    
+
                     upBtn.disabled = index === 0;
                     downBtn.disabled = index === items.length - 1;
                 });
