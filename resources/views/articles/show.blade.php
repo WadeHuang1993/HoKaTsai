@@ -28,11 +28,11 @@
 
             {{-- 懶人包圖片區塊 --}}
             @if($article->lazy_images && count($article->lazy_images) > 0)
-                <div class="mb-8 flex justify-center">
-                    <div class="swiper swiper-theme-warm lazy-swiper w-full max-w-[600px] h-[240px] sm:h-[320px] md:h-[400px] lg:h-[600px]">
+                <div class="mb-8 flex justify-center -mx-4 sm:-mx-6 ">
+                    <div class="swiper swiper-theme-warm lazy-swiper w-full h-[400px] sm:h-[400px] md:h-[400px] lg:h-[600px]">
                         <div class="swiper-wrapper">
                             @foreach($article->lazy_images as $img)
-                                <div class="swiper-slide flex items-center justify-center h-[240px] sm:h-[320px] md:h-[400px] lg:h-[600px]">
+                                <div class="swiper-slide flex items-center justify-center h-[400px] sm:h-[400px] md:h-[400px] lg:h-[600px]">
                                     <img src="{{ asset('storage/' . $img) }}"
                                          alt="懶人包圖片"
                                          class="w-full h-full object-contain rounded-lg shadow-md bg-white" />
