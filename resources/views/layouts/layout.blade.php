@@ -61,16 +61,16 @@
                 <div class="flex justify-between h-16">
                     <div class="flex items-center gap-2">
                         <a href="{{ route('home') }}" class="div_brand_logo flex items-center">
-                            <img src="/images/favicon-2.png" alt="好家在心理諮商所 icon" class="w-12 h-12 mr-4 object-contain" />
+                            <img src="/images/favicon-2.png" alt="好家在心理諮商所 icon"
+                                 class="w-12 h-12 mr-4 object-contain md:w-8 md:h-8 md:mr-2" />
                             <div class="flex flex-col justify-center leading-tight">
-                                <span class="text-2xl font-bold text-[#8BA89E]">好家在心理諮商所</span>
-                                <span class="text-sm text-gray-500">Hó-Ka-Tsài Counseling Center</span>
+                                <span class="text-2xl md:text-xl font-bold text-[#8BA89E]">好家在心理諮商所</span>
+                                <span class="text-sm text-gray-500 hidden md:inline">Hó-Ka-Tsài Counseling Center</span>
                             </div>
                         </a>
                     </div>
-                    <div class="hidden md:flex items-center space-x-8">
+                    <div class="hidden md:flex items-center space-x-8 md:space-x-4 lg:space-x-8 text-base md:text-sm lg:text-base">
                         <a href="{{ route('home') }}#news" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#D67A7A] hover:border-[#D67A7A]">最新消息</a>
-
                         <div class="relative group">
                             <a href="{{ route('home') }}#team" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#D69B7A] hover:border-[#D69B7A] inline-flex items-center">關於我們
                                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -80,7 +80,6 @@
                                 <a href="{{ route('home') }}#space" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">諮商空間</a>
                             </div>
                         </div>
-
                         <div class="relative group">
                             <a href="{{ route('home') }}#counseling-services" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#D6B77A] hover:border-[#D6B77A] inline-flex items-center">諮商服務
                                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -92,7 +91,6 @@
                                 <a href="{{ route('service-fee.index') }}" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">諮商費用</a>
                             </div>
                         </div>
-
                         <a href="{{ route('home') }}#appointment" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#7AD68E] hover:border-[#7AD68E]">諮商預約</a>
                         <a href="{{ route('courses.index') }}" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#7AA6D6] hover:border-[#7AA6D6]">講座課程</a>
                         <a href="{{ route('home') }}#column" class="text-gray-600 hover:text-gray-900 pb-1 border-b-2 border-[#A67AD6] hover:border-[#A67AD6]">諮商專欄</a>
