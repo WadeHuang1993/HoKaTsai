@@ -1,0 +1,26 @@
+/* Swiper 溫暖色系主題，請加在 swiper 外層：<div class="swiper swiper-theme-warm"> */
+.swiper-theme-warm .swiper-button-next,
+.swiper-theme-warm .swiper-button-prev {
+    color: #D6B77A !important;
+    background: none !important;
+    border-radius: 0;
+    width: 44px;
+    height: 44px;
+    box-shadow: none;
+    transition: color 0.2s;
+}
+.swiper-theme-warm .swiper-button-next:hover,
+.swiper-theme-warm .swiper-button-prev:hover {
+    color: #b08a4a !important;
+}
+.swiper-theme-warm .swiper-button-next::after,
+.swiper-theme-warm .swiper-button-prev::after {
+    font-size: 28px;
+}
+.swiper-theme-warm .swiper-pagination-bullet {
+    background: #E9CBA7 !important;
+    opacity: 1;
+}
+.swiper-theme-warm .swiper-pagination-bullet-active {
+    background: #D6B77A !important;
+} 

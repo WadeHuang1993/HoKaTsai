@@ -6,7 +6,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
         <!-- 左側環境照片 -->
         <div class="relative h-128 md:h-full">
-            <img src="/images/environment/waiting_room_5.jpg" alt="好家在心理諮商所等候室環境，提供舒適的諮商空間" class="w-full h-full object-cover">
+            <img src="/images/environment/waiting_room_6.jpg" alt="好家在心理諮商所等候室環境，提供舒適的諮商空間" class="w-full h-full object-cover">
         </div>
 
         <!-- 右側文字內容 -->
@@ -112,14 +112,14 @@
                     <img src="{{ Storage::url($service->image) }}" alt="{{ $service->title }}" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-[var(--primary-color)] mb-3">{{ $service->title }}</h3>
-                        <p class="text-[var(--primary-light)] mb-4 line-clamp-4 text-justify">{{ $service->description }}</p>
+                        <p class="text-[var(--primary-light)] mb-4 line-clamp-6 text-justify">{{ $service->description }}</p>
                     </div>
                 </div>
             @endforeach
         </div>
 
-        <!-- 合作專案 -->
-        <div id="cooperation" class="p-8 rounded-xl mb-20 scroll-mt-24">
+        <!-- 合作單位 -->
+        <div id="partner" class="p-8 rounded-xl mb-20 scroll-mt-24">
             <h3 class="text-3xl font-bold text-[var(--primary-color)] mb-6 text-center">合作單位與合作方案</h3>
             <p class="text-[var(--primary-light)] text-center mb-8">我們與多個機構合作，提供專業的心理健康服務</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -129,7 +129,8 @@
                             <img src="{{ Storage::url($partner->logo) }}" alt="{{ $partner->name }} logo" class="h-40 object-contain mx-auto">
                         </div>
                         <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-3">{{ $partner->name }}</h3>
-                        <p class="text-[var(--primary-light)] text-base">{{ $partner->description }}</p>
+                        <p class="text-[var(--primary-light)] text-base break-all">{!! nl2br($partner->description) !!}</p>
+
                     </div>
                 @endforeach
             </div>

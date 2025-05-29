@@ -17,10 +17,10 @@
             <form action="{{ route('admin.news.update', $news) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                
+
                 <div class="form-group">
                     <label for="title">標題</label>
-                    <input type="text" class="form-control @error('title') is-invalid @enderror" 
+                    <input type="text" class="form-control @error('title') is-invalid @enderror"
                            id="title" name="title" value="{{ old('title', $news->title) }}" required>
                     @error('title')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -43,20 +43,20 @@
                         </div>
                     @endif
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input @error('image') is-invalid @enderror" 
+                        <input type="file" class="custom-file-input @error('image') is-invalid @enderror"
                                id="image" name="image" accept="image/*">
                         <label class="custom-file-label" for="image">選擇檔案</label>
                     </div>
                     @error('image')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-                    <small class="form-text text-muted">建議尺寸：800x600 像素，檔案大小不超過 2MB</small>
+                    <small class="form-text text-muted">建議尺寸：800x600 像素</small>
                 </div>
 
                 <div class="form-group">
                     <label for="status">狀態</label>
                     <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="status" name="status" value="1" 
+                        <input type="checkbox" class="custom-control-input" id="status" name="status" value="1"
                                {{ old('status', $news->status) ? 'checked' : '' }}>
                         <label class="custom-control-label" for="status">發布</label>
                     </div>
@@ -101,4 +101,4 @@
             }
         });
     </script>
-@endsection 
+@endsection

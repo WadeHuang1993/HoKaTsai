@@ -24,6 +24,7 @@ class Article extends Model
         'status',
         'tags',
         'team_member_id',
+        'lazy_images',
     ];
 
 
@@ -32,6 +33,7 @@ class Article extends Model
         'updated_at' => 'immutable_datetime',
         'deleted_at' => 'immutable_datetime',
         'tags' => 'array',
+        'lazy_images' => 'array',
     ];
 
     public function getCreatedAtAttribute(UTCDateTime $created_at)

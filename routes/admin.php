@@ -23,6 +23,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::resource('news', NewsController::class);
 
         // 諮商專欄管理
+        Route::post('articles-upload-lazy-images', [ArticleController::class, 'uploadLazyImages'])->name('articles.upload-lazy-images');
         Route::resource('articles', ArticleController::class);
 
         // 團隊成員管理
@@ -36,6 +37,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::resource('environment-images', EnvironmentImageController::class);
 
         // 預約總覽
+        Route::patch('appointments/{id}/status', [AppointmentController::class, 'updateStatus'])->name('appointments.updateStatus');
         Route::resource('appointments', AppointmentController::class);
 
         // 諮商 QA
@@ -63,3 +65,4 @@ Route::middleware(['auth:admin'])->group(function () {
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('login', [AuthController::class, 'login'])->name('login.submit');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+

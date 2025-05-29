@@ -10,9 +10,6 @@
                      alt="{{ $news->title }}" 
                      class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black opacity-40"></div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <h1 class="text-4xl md:text-5xl font-bold text-[var(--text-light)] text-center px-4">{{ $news->title }}</h1>
-                </div>
             </div>
 
             <!-- 新聞內容 -->
@@ -27,6 +24,7 @@
                         </time>
                     @endif
                 </div>
+                <h1 class="text-3xl md:text-4xl font-bold text-[var(--primary-color)] mb-6">{{ $news->title }}</h1>
                 <div class="prose prose-lg max-w-none text-[var(--primary-light)]">
                     {!! $news->content !!}
                 </div>
